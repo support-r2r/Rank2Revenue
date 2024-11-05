@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Card from './components/Card';
 import ServicesCards from './components/ServicesCards'; // Import ServicesCards component
 import Footer from './components/Footer';
+import Testimonials from './components/Testimonials';
 
 const HomePage: React.FC = () => {
   const cardData = [
@@ -37,9 +38,17 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <Navbar /> {/* Navbar at the top */}
-      <Hero />   {/* Hero section for the main landing content */}
-
       
+      <Hero
+        title="Distribute your brand from design to code"
+        subtitle="Introducing Design Data Platform"
+        description="Specify helps you unify your brand identity by collecting, storing, and distributing design tokens and assets — automatically."
+        primaryButtonText="Get in touch"
+        primaryButtonLink="#"
+        secondaryButtonText="Request a demo"
+        secondaryButtonLink="#"
+      />   {/* Hero section for the main landing content with customizable text */}
+
       {/* Services Section */}
       <div className="p-8">
         <ServicesCards /> {/* Renders the ServicesCards component */}
@@ -58,14 +67,17 @@ const HomePage: React.FC = () => {
             buttonLink={data.buttonLink}
           />
         ))}
-
-        <Footer />
-
-       
       </div>
+
+      {/* Testimonials Section */}
+      <div className="p-8">
+        <Testimonials />
+      </div>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };
 
 export default HomePage;
-
