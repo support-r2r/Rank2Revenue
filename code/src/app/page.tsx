@@ -52,10 +52,9 @@ const HomePage: React.FC = () => {
       />   {/* Hero section for the main landing content with customizable text */}
 
       {/* Services Section */}
-      <div className="p-8">
+   
         <ServicesCards /> {/* Renders the ServicesCards component */}
-      </div>
-
+  
       {/* Project Cards Section */}
       <div className="p-8 space-y-8">
         {cardData.map((data, index) => (
