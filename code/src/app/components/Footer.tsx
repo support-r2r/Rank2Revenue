@@ -7,9 +7,9 @@ interface FooterLinkProps {
 
 const FooterLinkSection: React.FC<FooterLinkProps> = ({ title, links }) => (
   <div className="space-y-2">
-    <h6 className="footer-title font-semibold text-gray-700">{title}</h6>
+    <h6 className="footer-title font-semibold text-gray-200">{title}</h6>
     {links.map((link, index) => (
-      <a key={index} className="link link-hover text-gray-600 hover:text-gray-800 block">
+      <a key={index} className="link link-hover text-gray-400 hover:text-white block">
         {link}
       </a>
     ))}
@@ -17,17 +17,17 @@ const FooterLinkSection: React.FC<FooterLinkProps> = ({ title, links }) => (
 );
 
 const Footer: React.FC = () => {
-  const serviceLinks = ["Branding", "Design", "Marketing", "Advertisement"];
-  const companyLinks = ["About us", "Contact", "Jobs", "Press kit"];
-  const legalLinks = ["Terms of use", "Privacy policy", "Cookie policy"];
+  const serviceLinks = ["Website Development", "SEO Optimization", "Social Media Management", "Content Creation", "Email Marketing"];
+  const companyLinks = ["About Us", "Contact", "Careers", "Press Kit"];
+  const legalLinks = ["Terms of Use", "Privacy Policy", "Cookie Policy"];
 
   return (
-    <footer className="w-full bg-white text-gray-800 border-t border-gray-200">
+    <footer className="w-full bg-gray-900 text-gray-300 border-t border-gray-700">
       {/* Call to Action Section */}
-      <div className="bg-white py-12 px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-gray-900">What are you waiting for?</h2>
-        <p className="text-gray-600 text-md md:text-lg mb-6">Let’s craft an elegant solution.</p>
-        <a href="/contact" className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
+      <div className="bg-gray-900 py-12 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-white">What are you waiting for?</h2>
+        <p className="text-gray-400 text-md md:text-lg mb-6">Let’s craft an elegant solution.</p>
+        <a href="/contact" className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-indigo-700 transition">
           Contact
         </a>
       </div>
