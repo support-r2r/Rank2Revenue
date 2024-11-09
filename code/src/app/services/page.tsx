@@ -13,15 +13,7 @@ const Services = () => {
       <Navbar />
 
       {/* Hero Section with a broader, punchy message for all services */}
-      <Hero
-        title="Empower Your Business with Comprehensive Digital Solutions"
-        subtitle="Your One-Stop Solution for Digital Success"
-        description="From SEO to branding and web development, our expert team is here to elevate your online presence, drive growth, and help you stand out in today’s digital landscape."
-        primaryButtonText="Start Your Journey"
-        primaryButtonLink="#contact"
-        secondaryButtonText="Explore Our Services"
-        secondaryButtonLink="#services-overview"
-      />
+      <Hero />
 
       <ServicesCards />
 

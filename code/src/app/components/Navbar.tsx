@@ -1,131 +1,167 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import { useAnimate, motion } from "framer-motion";
+import { FiMenu, FiArrowUpRight } from "react-icons/fi";
 
-const Navbar: React.FC = () => {
-  const pathname = usePathname();
-  const [isVisible, setIsVisible] = useState(true);
+const Navbar = () => {
+  return (
+    <nav
+      className="glass-nav fixed left-0 right-0 top-0 z-10 mx-auto max-w-6xl overflow-hidden border-[1px] border-white/10 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur md:left-6 md:right-6 md:top-6 md:rounded-2xl"
+    >
+      <GlassNavigation />
+    </nav>
+  );
+};
 
-  // Helper function to check if link is active
-  const isActive = (path: string) => pathname === path;
+const GlassNavigation = () => {
+  const [hovered, setHovered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const [scope, animate] = useAnimate();
+  const navRef = useRef<HTMLElement | null>(null);
+
+  const handleMouseMove = ({ offsetX, offsetY, target }) => {
+    // @ts-ignore
+    const isNavElement = [...target.classList].includes("glass-nav");
+
+    if (isNavElement) {
+      setHovered(true);
+
+      const top = offsetY + "px";
+      const left = offsetX + "px";
+
+      animate(scope.current, { top, left }, { duration: 0 });
+    } else {
+      setHovered(false);
+    }
+  };
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    navRef.current?.addEventListener("mousemove", handleMouseMove);
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        // Hide navbar on scroll down
-        setIsVisible(false);
-      } else {
-        // Show navbar on scroll up
-        setIsVisible(true);
-      }
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup on unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => navRef.current?.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 py-6 transition-transform duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
+    <div
+      ref={navRef}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        cursor: hovered ? "none" : "auto",
+      }}
+      className="glass-nav flex items-center justify-between px-5 py-5"
     >
-      <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
-        <nav className="w-full flex justify-between gap-6 relative items-center">
-          {/* Logo */}
-          <div className="min-w-max inline-flex relative">
-            <Link href="/" className="relative flex items-center gap-3">
-              <div className="relative w-7 h-7 overflow-hidden flex rounded-xl">
-                <span className="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
-                <span className="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-                <span className="absolute w-4 h-4 -bottom-1 -left-1 bg-blue-600 rounded-md rotate-45"></span>
-                <span className="absolute w-2 h-2 rounded-full bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
-              </div>
-              <div className="inline-flex text-lg font-semibold text-white">
-                Rank2Revenue
-              </div>
-            </Link>
-          </div>
+      <Cursor hovered={hovered} scope={scope} />
+      <Links />
+      <Logo />
+      <Buttons setMenuOpen={setMenuOpen} />
+      <MobileMenu menuOpen={menuOpen} />
+    </div>
+  );
+};
 
-          {/* Navigation Links */}
-          <div className="hidden lg:flex flex-grow justify-center items-center">
-            <ul className="flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-white w-full lg:justify-center lg:items-center">
-              <li>
-                <Link
-                  href="/"
-                  className={`duration-300 font-medium ease-linear py-3 ${
-                    isActive('/') ? 'text-blue-300' : 'hover:text-blue-300'
-                  }`}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className={`duration-300 font-medium ease-linear py-3 ${
-                    isActive('/services') ? 'text-blue-300' : 'hover:text-blue-300'
-                  }`}
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/work"
-                  className={`duration-300 font-medium ease-linear py-3 ${
-                    isActive('/work') ? 'text-blue-300' : 'hover:text-blue-300'
-                  }`}
-                >
-                  Work
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className={`duration-300 font-medium ease-linear py-3 ${
-                    isActive('/about') ? 'text-blue-300' : 'hover:text-blue-300'
-                  }`}
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className={`duration-300 font-medium ease-linear py-3 ${
-                    isActive('/blog') ? 'text-blue-300' : 'hover:text-blue-300'
-                  }`}
-                >
-                  Blog
-                </Link>
-              </li>
-            </ul>
-          </div>
+const Cursor = ({ hovered, scope }) => {
+  return (
+    <motion.span
+      initial={false}
+      animate={{
+        opacity: hovered ? 1 : 0,
+        transform: `scale(${hovered ? 1 : 0}) translateX(-50%) translateY(-50%)`,
+      }}
+      transition={{ duration: 0.15 }}
+      ref={scope}
+      className="pointer-events-none absolute z-0 grid h-[50px] w-[50px] origin-[0px_0px] place-content-center rounded-full bg-gradient-to-br from-indigo-600 from-40% to-indigo-400 text-2xl"
+    >
+      <FiArrowUpRight className="text-white" />
+    </motion.span>
+  );
+};
 
-          {/* Contact Button */}
-          <div className="lg:min-w-max flex items-center">
-            <Link
-              href="/contact"
-              className="flex justify-center items-center w-full sm:w-max px-6 h-12 rounded-full outline-none relative overflow-hidden border duration-300 ease-linear
-                after:absolute after:inset-x-0 after:aspect-square after:scale-0 after:opacity-70 after:origin-center after:duration-300 after:ease-linear after:rounded-full after:top-0 after:left-0 after:bg-white hover:after:opacity-100 hover:after:scale-[2.5] bg-blue-600 border-transparent hover:border-white"
-            >
-              <span className="relative z-10 text-white">Contact</span>
-            </Link>
-          </div>
-        </nav>
+const Logo = () => (
+  <span className="pointer-events-none relative left-0 top-[50%] z-10 text-4xl font-black text-white mix-blend-overlay md:absolute md:left-[50%] md:-translate-x-[50%] md:-translate-y-[50%]">
+    logo.
+  </span>
+);
+
+const Links = () => (
+  <div className="hidden items-center gap-2 md:flex">
+    {["Home", "Services", "Work", "About", "Blog"].map((text) => (
+      <GlassLink key={text} text={text} />
+    ))}
+  </div>
+);
+
+const GlassLink = ({ text }) => {
+  return (
+    <a
+      href="#"
+      className="group relative scale-100 overflow-hidden rounded-lg px-4 py-2 transition-transform hover:scale-105 active:scale-95"
+    >
+      <span className="relative z-10 text-white/90 transition-colors group-hover:text-white">
+        {text}
+      </span>
+      <span className="absolute inset-0 z-0 bg-gradient-to-br from-white/20 to-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
+    </a>
+  );
+};
+
+const TextLink = ({ text }) => {
+  return (
+    <a href="#" className="text-white/90 transition-colors hover:text-white">
+      {text}
+    </a>
+  );
+};
+
+const Buttons = ({ setMenuOpen }) => (
+  <div className="flex items-center gap-4">
+    <div className="hidden md:block">
+      <SignInButton />
+    </div>
+
+    <button className="relative scale-100 overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 from-40% to-indigo-400 px-4 py-2 font-medium text-white transition-transform hover:scale-105 active:scale-95">
+      Try free
+    </button>
+
+    <button
+      onClick={() => setMenuOpen((pv) => !pv)}
+      className="ml-2 block scale-100 text-3xl text-white/90 transition-all hover:scale-105 hover:text-white active:scale-95 md:hidden"
+    >
+      <FiMenu />
+    </button>
+  </div>
+);
+
+const SignInButton = () => {
+  return (
+    <button className="group relative scale-100 overflow-hidden rounded-lg px-4 py-2 transition-transform hover:scale-105 active:scale-95">
+      <span className="relative z-10 text-white/90 transition-colors group-hover:text-white">
+        Sign in
+      </span>
+      <span className="absolute inset-0 z-0 bg-gradient-to-br from-white/20 to-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
+    </button>
+  );
+};
+
+const MobileMenu = ({ menuOpen }) => {
+  return (
+    <motion.div
+      initial={false}
+      animate={{
+        height: menuOpen ? "auto" : "0px",
+      }}
+      className="block overflow-hidden md:hidden"
+    >
+      <div className="flex items-center justify-between px-4 pb-4">
+        <div className="flex items-center gap-4">
+          {["Home", "Services", "Work", "About", "Blog"].map((text) => (
+            <TextLink key={text} text={text} />
+          ))}
+        </div>
+        <SignInButton />
       </div>
-    </header>
+    </motion.div>
   );
 };
 

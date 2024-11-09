@@ -48,21 +48,21 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col md:flex-row bg-gray-900 rounded-2xl shadow-lg p-8 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border border-gray-700 max-w-5xl mx-auto transition-opacity duration-700 transform ${
+      className={`flex flex-col md:flex-row bg-[#4B3832] rounded-2xl shadow-lg p-8 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border border-[#8B5E3C] max-w-5xl mx-auto transition-opacity duration-700 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
       {/* Text Content */}
-      <div className="flex-1 space-y-6 text-white">
+      <div className="flex-1 space-y-6 text-[#F8EFEA]">
         {/* Title */}
-        <h2 className="text-4xl font-bold text-white">{title}</h2>
+        <h2 className="text-4xl font-bold">{title}</h2>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-3">
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-4 py-1.5 text-sm font-medium text-gray-200 bg-gray-800 rounded-full"
+              className="px-4 py-1.5 text-sm font-medium text-[#D1B7A1] bg-[#3C3B3B] rounded-full"
             >
               {tag}
             </span>
@@ -70,12 +70,12 @@ const Card: React.FC<CardProps> = ({
         </div>
 
         {/* Description */}
-        <p className="text-gray-400">{description}</p>
+        <p className="text-[#D1B7A1]">{description}</p>
 
         {/* Button */}
         <a
           href={buttonLink}
-          className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold text-indigo-400 border border-indigo-400 rounded-full hover:bg-indigo-500 hover:text-white transition duration-300 ease-in-out"
+          className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold text-[#A45A52] border border-[#A45A52] rounded-full hover:bg-[#A45A52] hover:text-white transition duration-300 ease-in-out"
         >
           {buttonText}
           <svg

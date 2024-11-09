@@ -35,16 +35,8 @@ const Work: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
-      <Hero
-        title="Our Work"
-        subtitle="Recent Projects"
-        description="Explore a selection of our recent projects that showcase our expertise across design, development, and marketing."
-        primaryButtonText="Contact Us"
-        primaryButtonLink="#contact"
-        secondaryButtonText="See All Projects"
-        secondaryButtonLink="#projects"
-      />
+      {/* <Navbar /> */}
+      <Hero  />
 
       <div className="p-8 space-y-8" id="projects">
         {projectData.map((project, index) => (

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const ServicesCards: React.FC = () => {
+const ServicesHomePage: React.FC = () => {
   const services = [
     {
       title: 'Website Development',
@@ -73,7 +73,6 @@ const ServicesCards: React.FC = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    {/* Your SVG icon paths here */}
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -100,4 +99,4 @@ const ServicesCards: React.FC = () => {
   );
 };
 
-export default ServicesCards;
+export default ServicesHomePage;
