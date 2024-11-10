@@ -2,15 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAnimate, motion } from "framer-motion";
+import Link from "next/link"; // Import Link from Next.js
 import { FiMenu, FiArrowUpRight } from "react-icons/fi";
+import useMeasure from "react-use-measure";
 
 const Navbar = () => {
   return (
-    <nav
-      className="glass-nav fixed left-0 right-0 top-0 z-10 mx-auto max-w-6xl overflow-hidden border-[1px] border-white/10 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur md:left-6 md:right-6 md:top-6 md:rounded-2xl"
+    <section
+      className="relative h-[15vh] w-full overflow-hidden bg-black"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23171717'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
+      }}
     >
       <GlassNavigation />
-    </nav>
+
+      <span className="absolute -top-[600px] left-[50%] h-[800px] w-4/5 max-w-3xl -translate-x-[50%] rounded bg-neutral-900" />
+    </section>
   );
 };
 
@@ -19,17 +26,20 @@ const GlassNavigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [scope, animate] = useAnimate();
-  const navRef = useRef<HTMLElement | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
-  const handleMouseMove = ({ offsetX, offsetY, target }) => {
-    // @ts-ignore
-    const isNavElement = [...target.classList].includes("glass-nav");
+  const handleMouseMove = (event: MouseEvent) => {
+    const { offsetX, offsetY, target } = event as MouseEvent & {
+      target: HTMLElement;
+    };
+
+    const isNavElement = target.classList.contains("glass-nav");
 
     if (isNavElement) {
       setHovered(true);
 
-      const top = offsetY + "px";
-      const left = offsetX + "px";
+      const top = `${offsetY}px`;
+      const left = `${offsetX}px`;
 
       animate(scope.current, { top, left }, { duration: 0 });
     } else {
@@ -38,45 +48,56 @@ const GlassNavigation = () => {
   };
 
   useEffect(() => {
-    navRef.current?.addEventListener("mousemove", handleMouseMove);
+    const navElement = navRef.current;
+    if (navElement) {
+      navElement.addEventListener("mousemove", handleMouseMove);
+    }
 
-    return () => navRef.current?.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+    return () => {
+      if (navElement) {
+        navElement.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, [handleMouseMove]);
 
   return (
-    <div
+    <nav
       ref={navRef}
       onMouseLeave={() => setHovered(false)}
       style={{
         cursor: hovered ? "none" : "auto",
       }}
-      className="glass-nav flex items-center justify-between px-5 py-5"
+      className="glass-nav fixed left-0 right-0 top-0 z-10 mx-auto max-w-6xl overflow-hidden border-[1px] border-white/10 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur md:left-6 md:right-6 md:top-6 md:rounded-2xl"
     >
-      <Cursor hovered={hovered} scope={scope} />
-      <Links />
-      <Logo />
-      <Buttons setMenuOpen={setMenuOpen} />
+      <div className="glass-nav flex items-center justify-between px-5 py-5">
+        <Cursor hovered={hovered} scope={scope} />
+
+        <Links />
+
+        <Logo />
+
+        <Buttons setMenuOpen={setMenuOpen} />
+      </div>
+
       <MobileMenu menuOpen={menuOpen} />
-    </div>
+    </nav>
   );
 };
 
-const Cursor = ({ hovered, scope }) => {
-  return (
-    <motion.span
-      initial={false}
-      animate={{
-        opacity: hovered ? 1 : 0,
-        transform: `scale(${hovered ? 1 : 0}) translateX(-50%) translateY(-50%)`,
-      }}
-      transition={{ duration: 0.15 }}
-      ref={scope}
-      className="pointer-events-none absolute z-0 grid h-[50px] w-[50px] origin-[0px_0px] place-content-center rounded-full bg-gradient-to-br from-indigo-600 from-40% to-indigo-400 text-2xl"
-    >
-      <FiArrowUpRight className="text-white" />
-    </motion.span>
-  );
-};
+const Cursor = ({ hovered, scope }: { hovered: boolean; scope: React.RefObject<HTMLSpanElement> }) => (
+  <motion.span
+    initial={false}
+    animate={{
+      opacity: hovered ? 1 : 0,
+      transform: `scale(${hovered ? 1 : 0}) translateX(-50%) translateY(-50%)`,
+    }}
+    transition={{ duration: 0.15 }}
+    ref={scope}
+    className="pointer-events-none absolute z-0 grid h-[50px] w-[50px] origin-[0px_0px] place-content-center rounded-full bg-gradient-to-br from-indigo-600 from-40% to-indigo-400 text-2xl"
+  >
+    <FiArrowUpRight className="text-white" />
+  </motion.span>
+);
 
 const Logo = () => (
   <span className="pointer-events-none relative left-0 top-[50%] z-10 text-4xl font-black text-white mix-blend-overlay md:absolute md:left-[50%] md:-translate-x-[50%] md:-translate-y-[50%]">
@@ -86,46 +107,49 @@ const Logo = () => (
 
 const Links = () => (
   <div className="hidden items-center gap-2 md:flex">
-    {["Home", "Services", "Work", "About", "Blog"].map((text) => (
-      <GlassLink key={text} text={text} />
+    {[
+      { text: "Home", href: "/" },
+      { text: "Services", href: "/services" },
+      { text: "Work", href: "/work" },
+      { text: "About", href: "/about" },
+      { text: "Blog", href: "/blog" },
+    ].map(({ text, href }) => (
+      <GlassLink key={text} text={text} href={href} />
     ))}
   </div>
 );
 
-const GlassLink = ({ text }) => {
-  return (
-    <a
-      href="#"
-      className="group relative scale-100 overflow-hidden rounded-lg px-4 py-2 transition-transform hover:scale-105 active:scale-95"
-    >
+const GlassLink = ({ text, href }: { text: string; href: string }) => (
+  <Link href={href} legacyBehavior>
+    <a className="group relative scale-100 overflow-hidden rounded-lg px-4 py-2 transition-transform hover:scale-105 active:scale-95">
       <span className="relative z-10 text-white/90 transition-colors group-hover:text-white">
         {text}
       </span>
       <span className="absolute inset-0 z-0 bg-gradient-to-br from-white/20 to-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
     </a>
-  );
-};
+  </Link>
+);
 
-const TextLink = ({ text }) => {
-  return (
-    <a href="#" className="text-white/90 transition-colors hover:text-white">
-      {text}
-    </a>
-  );
-};
+const TextLink = ({ text, href }: { text: string; href: string }) => (
+  <Link href={href} legacyBehavior>
+    <a className="text-white/90 transition-colors hover:text-white">{text}</a>
+  </Link>
+);
 
-const Buttons = ({ setMenuOpen }) => (
+const Buttons = ({ setMenuOpen }: { setMenuOpen: React.Dispatch<React.SetStateAction<boolean>> }) => (
   <div className="flex items-center gap-4">
     <div className="hidden md:block">
       <SignInButton />
     </div>
 
-    <button className="relative scale-100 overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 from-40% to-indigo-400 px-4 py-2 font-medium text-white transition-transform hover:scale-105 active:scale-95">
-      Try free
-    </button>
+    <Link href="/contact" legacyBehavior>
+      <a className="relative scale-100 overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 from-40% to-indigo-400 px-4 py-2 font-medium text-white transition-transform hover:scale-105 active:scale-95">
+        Contact Us
+      </a>
+    </Link>
 
     <button
-      onClick={() => setMenuOpen((pv) => !pv)}
+      onClick={() => setMenuOpen((prev) => !prev)}
       className="ml-2 block scale-100 text-3xl text-white/90 transition-all hover:scale-105 hover:text-white active:scale-95 md:hidden"
     >
       <FiMenu />
@@ -133,32 +157,33 @@ const Buttons = ({ setMenuOpen }) => (
   </div>
 );
 
-const SignInButton = () => {
-  return (
-    <button className="group relative scale-100 overflow-hidden rounded-lg px-4 py-2 transition-transform hover:scale-105 active:scale-95">
-      <span className="relative z-10 text-white/90 transition-colors group-hover:text-white">
-        Sign in
-      </span>
-      <span className="absolute inset-0 z-0 bg-gradient-to-br from-white/20 to-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
-    </button>
-  );
-};
+const SignInButton = () => (
+  <button className="group relative scale-100 overflow-hidden rounded-lg px-4 py-2 transition-transform hover:scale-105 active:scale-95">
+    <span className="relative z-10 text-white/90 transition-colors group-hover:text-white">
+      Sign in
+    </span>
+    <span className="absolute inset-0 z-0 bg-gradient-to-br from-white/20 to-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
+  </button>
+);
 
-const MobileMenu = ({ menuOpen }) => {
+const MobileMenu = ({ menuOpen }: { menuOpen: boolean }) => {
+  const [ref, { height }] = useMeasure();
   return (
     <motion.div
       initial={false}
-      animate={{
-        height: menuOpen ? "auto" : "0px",
-      }}
+      animate={{ height: menuOpen ? height : "0px" }}
       className="block overflow-hidden md:hidden"
     >
-      <div className="flex items-center justify-between px-4 pb-4">
-        <div className="flex items-center gap-4">
-          {["Home", "Services", "Work", "About", "Blog"].map((text) => (
-            <TextLink key={text} text={text} />
-          ))}
-        </div>
+      <div ref={ref} className="flex flex-col items-start gap-4 px-4 pb-4">
+        {[
+          { text: "Home", href: "/" },
+          { text: "Services", href: "/services" },
+          { text: "Work", href: "/work" },
+          { text: "About", href: "/about" },
+          { text: "Blog", href: "/blog" },
+        ].map(({ text, href }) => (
+          <TextLink key={text} text={text} href={href} />
+        ))}
         <SignInButton />
       </div>
     </motion.div>

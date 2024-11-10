@@ -1,65 +1,86 @@
-// pages/Blog.tsx
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Card from '../components/Card';
-import Footer from '../components/Footer';
+"use client";
+
+import React from "react";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import BlogThumbnails from "../components/BlogThumbnails"; // Import the BlogThumbnails component
+import Footer from "../components/Footer";
+import { CTA } from "../components/CTA";
 
 const Blog: React.FC = () => {
   const blogData = [
     {
+      href: "#",
       title: "Understanding SEO Fundamentals",
-      tags: ["SEO", "Marketing"],
-      description: "A beginner's guide to SEO and how it can improve your online presence.",
-      imageUrl: "https://via.placeholder.com/400x300",
-      buttonText: "Read More",
-      buttonLink: "#",
+      readTime: "5 min",
+      src: "https://via.placeholder.com/400x300",
     },
     {
+      href: "#",
       title: "Top 5 Web Design Trends in 2024",
-      tags: ["Design", "Trends"],
-      description: "Explore the latest trends in web design and how they can enhance user experience.",
-      imageUrl: "https://via.placeholder.com/400x300",
-      buttonText: "Read More",
-      buttonLink: "#",
+      readTime: "7 min",
+      src: "https://via.placeholder.com/400x300",
     },
     {
+      href: "#",
       title: "Boost Your Brand with Social Media",
-      tags: ["Branding", "Social Media"],
-      description: "How to leverage social media platforms to grow your brand.",
-      imageUrl: "https://via.placeholder.com/400x300",
-      buttonText: "Read More",
-      buttonLink: "#",
+      readTime: "6 min",
+      src: "https://via.placeholder.com/400x300",
+    },
+    {
+      href: "#",
+      title: "Mastering Responsive Design",
+      readTime: "8 min",
+      src: "https://via.placeholder.com/400x300",
+    },
+    {
+      href: "#",
+      title: "Creating Engaging Content for Your Audience",
+      readTime: "10 min",
+      src: "https://via.placeholder.com/400x300",
+    },
+    {
+      href: "#",
+      title: "How to Optimize Website Speed",
+      readTime: "4 min",
+      src: "https://via.placeholder.com/400x300",
+    },
+    {
+      href: "#",
+      title: "Effective Email Marketing Strategies",
+      readTime: "9 min",
+      src: "https://via.placeholder.com/400x300",
+    },
+    {
+      href: "#",
+      title: "The Importance of User Experience (UX) Design",
+      readTime: "7 min",
+      src: "https://via.placeholder.com/400x300",
     },
   ];
 
   return (
     <div>
       <Navbar />
+
+      {/* Updated Hero Component with Props */}
       <Hero
         title="Our Blog"
-        subtitle="Insights and Updates"
-        description="Stay up-to-date with the latest trends, tips, and news in the world of digital marketing, design, and development."
+        subtitle="Insights, Tips, and the Latest in Digital Marketing"
+        description="Stay updated with the latest trends and strategies in digital marketing. From SEO to web design, our blog covers everything you need to boost your brand."
         primaryButtonText="Subscribe"
         primaryButtonLink="#subscribe"
-        secondaryButtonText="View All Articles"
-        secondaryButtonLink="#articles"
+        secondaryButtonText="Contact Us"
+        secondaryButtonLink="/contact"
+        glowingChipText="Discover New Ideas 💡"
       />
 
-      <div className="p-8 space-y-8" id="articles">
-        {blogData.map((post, index) => (
-          <Card
-            key={index}
-            title={post.title}
-            tags={post.tags}
-            description={post.description}
-            imageUrl={post.imageUrl}
-            buttonText={post.buttonText}
-            buttonLink={post.buttonLink}
-          />
-        ))}
+      {/* Blog Thumbnails */}
+      <div className="py-12">
+        <BlogThumbnails cards={blogData} />
       </div>
 
+      <CTA />
       <Footer />
     </div>
   );

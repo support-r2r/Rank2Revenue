@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface ContentPagesProps {
   label: string;
@@ -58,10 +59,12 @@ const ContentPages: React.FC<ContentPagesProps> = ({
           </a>
         </div>
         <div className="relative h-64 w-full mt-8 overflow-hidden sm:h-80 lg:h-full lg:w-1/2 lg:mt-0">
-          <img
+          <Image
             alt={title}
             src={imageUrl}
-            className="absolute inset-0 h-full w-full object-cover"
+            layout="fill" // Ensures the image covers the container
+            objectFit="cover" // Makes the image behave like `object-cover`
+            className="absolute inset-0"
           />
         </div>
       </div>

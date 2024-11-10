@@ -1,8 +1,10 @@
-// pages/About.tsx
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
+"use client";
+
+import React from "react";
+import Image from "next/image"; // Import the Image component
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Footer from "../components/Footer";
 
 const teamMembers = [
   {
@@ -67,10 +69,12 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teamMembers.map((member, index) => (
             <div key={index} className="text-center">
-              <img
+              <Image
                 src={member.imageUrl}
                 alt={member.name}
-                className="w-40 h-40 rounded-full mx-auto mb-4"
+                width={150}
+                height={150}
+                className="rounded-full mx-auto mb-4"
               />
               <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
               <p className="text-gray-700">{member.role}</p>

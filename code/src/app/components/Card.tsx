@@ -1,5 +1,6 @@
-'use client';
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface CardProps {
   title: string;
@@ -22,6 +23,7 @@ const Card: React.FC<CardProps> = ({
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    const currentRef = cardRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -34,13 +36,13 @@ const Card: React.FC<CardProps> = ({
       }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -48,12 +50,12 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col md:flex-row bg-[#4B3832] rounded-2xl shadow-lg p-8 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border border-[#8B5E3C] max-w-5xl mx-auto transition-opacity duration-700 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      className={`flex flex-col md:flex-row bg-[#0D1117] rounded-2xl shadow-lg p-8 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border border-[#30363D] max-w-5xl mx-auto transition-opacity duration-700 transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {/* Text Content */}
-      <div className="flex-1 space-y-6 text-[#F8EFEA]">
+      <div className="flex-1 space-y-6 text-[#C9D1D9]">
         {/* Title */}
         <h2 className="text-4xl font-bold">{title}</h2>
 
@@ -62,7 +64,7 @@ const Card: React.FC<CardProps> = ({
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-4 py-1.5 text-sm font-medium text-[#D1B7A1] bg-[#3C3B3B] rounded-full"
+              className="px-4 py-1.5 text-sm font-medium text-[#8B949E] bg-[#21262D] rounded-full"
             >
               {tag}
             </span>
@@ -70,12 +72,12 @@ const Card: React.FC<CardProps> = ({
         </div>
 
         {/* Description */}
-        <p className="text-[#D1B7A1]">{description}</p>
+        <p className="text-[#8B949E]">{description}</p>
 
         {/* Button */}
         <a
           href={buttonLink}
-          className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold text-[#A45A52] border border-[#A45A52] rounded-full hover:bg-[#A45A52] hover:text-white transition duration-300 ease-in-out"
+          className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold text-[#58A6FF] border border-[#58A6FF] rounded-full hover:bg-[#58A6FF] hover:text-black transition duration-300 ease-in-out"
         >
           {buttonText}
           <svg
@@ -97,10 +99,13 @@ const Card: React.FC<CardProps> = ({
 
       {/* Image */}
       <div className="flex-shrink-0 md:w-1/2 rounded-2xl overflow-hidden">
-        <img
+        <Image
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover"
+          layout="responsive"
+          width={500} // Set appropriate width
+          height={300} // Set appropriate height
         />
       </div>
     </div>

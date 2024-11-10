@@ -1,21 +1,70 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Transition } from "framer-motion"; // Import Transition from framer-motion
 import { FiArrowRight } from "react-icons/fi";
 import { twMerge } from "tailwind-merge";
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryButtonText: string;
+  primaryButtonLink: string;
+  secondaryButtonText: string;
+  secondaryButtonLink: string;
+  glowingChipText?: string; // Optional prop for GlowingChip
+}
+
+const Hero: React.FC<HeroProps> = ({
+  title,
+  subtitle,
+  description,
+  primaryButtonText,
+  primaryButtonLink,
+  secondaryButtonText,
+  secondaryButtonLink,
+  glowingChipText = "Join Our Digital Revolution 🚀", // Default value
+}) => {
   return (
     <section className="relative overflow-hidden bg-zinc-950">
-      <Content />
+      <Content
+        title={title}
+        subtitle={subtitle}
+        description={description}
+        primaryButtonText={primaryButtonText}
+        primaryButtonLink={primaryButtonLink}
+        secondaryButtonText={secondaryButtonText}
+        secondaryButtonLink={secondaryButtonLink}
+        glowingChipText={glowingChipText}
+      />
       <Beams />
       <GradientGrid />
     </section>
   );
 };
 
-const Content: React.FC = () => {
+interface ContentProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryButtonText: string;
+  primaryButtonLink: string;
+  secondaryButtonText: string;
+  secondaryButtonLink: string;
+  glowingChipText: string;
+}
+
+const Content: React.FC<ContentProps> = ({
+  title,
+  subtitle,
+  description,
+  primaryButtonText,
+  primaryButtonLink,
+  secondaryButtonText,
+  secondaryButtonLink,
+  glowingChipText,
+}) => {
   return (
     <div className="relative z-20 mx-auto flex max-w-6xl flex-col items-center justify-center px-4 py-24 md:px-8 md:py-36">
       <motion.div
@@ -24,7 +73,7 @@ const Content: React.FC = () => {
         transition={{ duration: 1.25, ease: "easeInOut" }}
         className="relative"
       >
-        <GlowingChip>Join Our Digital Revolution 🚀</GlowingChip>
+        <GlowingChip>{glowingChipText}</GlowingChip>
       </motion.div>
       <motion.h1
         initial={{ y: 25, opacity: 0 }}
@@ -32,16 +81,23 @@ const Content: React.FC = () => {
         transition={{ duration: 1.25, delay: 0.25, ease: "easeInOut" }}
         className="mb-3 text-center text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-7xl lg:leading-tight"
       >
-        Transform Your Brand with Cutting-Edge Digital Marketing
+        {title}
       </motion.h1>
+      <motion.h2
+        initial={{ y: 25, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.25, delay: 0.35, ease: "easeInOut" }}
+        className="mb-2 text-center text-xl font-semibold text-zinc-300 sm:text-2xl md:text-3xl"
+      >
+        {subtitle}
+      </motion.h2>
       <motion.p
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.25, delay: 0.5, ease: "easeInOut" }}
         className="mb-9 max-w-2xl text-center text-base leading-relaxed text-zinc-400 sm:text-lg md:text-lg md:leading-relaxed"
       >
-        From SEO to social media, our expert team crafts strategies that drive
-        engagement and accelerate growth. Let’s elevate your brand together.
+        {description}
       </motion.p>
       <motion.div
         initial={{ y: 25, opacity: 0 }}
@@ -49,15 +105,15 @@ const Content: React.FC = () => {
         transition={{ duration: 1.25, delay: 0.75, ease: "easeInOut" }}
         className="flex flex-col items-center gap-6 sm:flex-row"
       >
-        <SplashButton className="flex items-center gap-2" href="/contact">
-          Get Started
+        <SplashButton className="flex items-center gap-2" href={primaryButtonLink}>
+          {primaryButtonText}
           <FiArrowRight />
         </SplashButton>
         <GhostButton
           className="rounded-md px-4 py-2 text-zinc-100"
-          href="/contact"
+          href={secondaryButtonLink}
         >
-          Learn More
+          {secondaryButtonText}
         </GhostButton>
       </motion.div>
     </div>
@@ -185,7 +241,6 @@ const useWindowSize = () => {
       });
 
     window.addEventListener("resize", handleResize);
-
     handleResize();
 
     return () => {
@@ -199,7 +254,7 @@ const useWindowSize = () => {
 interface BeamProps {
   top: number;
   left: number;
-  transition?: any;
+  transition?: Transition; // Use the Transition type from framer-motion
 }
 
 const Beam: React.FC<BeamProps> = ({ top, left, transition = {} }) => {

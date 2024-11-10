@@ -1,7 +1,7 @@
-// pages/contact.tsx
-'use client';
-import React from 'react';
-import ContactForm from '../components/contactFrom'; // Adjust the import path based on your project structure
+"use client";
+
+import React from "react";
+import ContactForm from "../components/contactFrom"; // Adjust the import path based on your project structure
 
 const ContactPage: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const ContactPage: React.FC = () => {
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-lg text-gray-600">
-          We'd love to hear from you! Fill out the form below and we’ll get back to you as soon as possible.
+          We&apos;d love to hear from you! Fill out the form below and we’ll get back to you as soon as possible.
         </p>
       </div>
 

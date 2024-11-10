@@ -8,9 +8,13 @@ interface FooterLinkProps {
 
 const FooterLinkSection: React.FC<FooterLinkProps> = ({ title, links }) => (
   <div className="space-y-2">
-    <h6 className="footer-title font-semibold text-[#F8EFEA]">{title}</h6>
+    <h6 className="footer-title font-semibold text-[#87CEEB]">{title}</h6>
     {links.map((link, index) => (
-      <Link key={index} href={link.href} className="link link-hover text-[#D1B7A1] hover:text-[#F8EFEA] block transition duration-300">
+      <Link
+        key={index}
+        href={link.href}
+        className="link link-hover text-[#B0C4DE] hover:text-[#87CEEB] block transition duration-300"
+      >
         {link.label}
       </Link>
     ))}
@@ -40,20 +44,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full bg-[#4B3832] text-[#D1B7A1] border-t border-[#8B5E3C]">
-      {/* Call to Action Section */}
-      <div className="bg-[#4B3832] py-12 px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#F8EFEA]">
-          What are you waiting for?
-        </h2>
-        <p className="text-[#D1B7A1] text-md md:text-lg mb-6">
-          Let’s craft an elegant solution.
-        </p>
-        <Link href="/contact" className="inline-block bg-[#A45A52] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#8B5E3C] transition duration-300">
-          Contact
-        </Link>
-      </div>
-
+    <footer className="w-full bg-black text-[#B0C4DE] border-t border-[#1E90FF]">
       {/* Footer Links */}
       <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row justify-between gap-8 p-10">
         <FooterLinkSection title="Services" links={serviceLinks} />
@@ -62,8 +53,8 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Text */}
-      <div className="mt-8 text-center text-sm text-[#A45A52]">
-        © 2024 Your Company Name. All rights reserved.
+      <div className="mt-8 text-center text-sm text-[#87CEEB]">
+        © 2024 Rank2Revenue. All rights reserved.
       </div>
     </footer>
   );
