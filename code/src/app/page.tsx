@@ -10,6 +10,7 @@ import AboutSection from "./components/AboutSection";
 import OurSkills from "./components/OurSkills";
 import { CTA } from "./components/CTA";
 import FAQ from "./components/FAQ";
+import MobileContactForm from "./components/MobileContactForm"
 
 const HomePage: React.FC = () => {
   return (
@@ -43,6 +44,8 @@ const HomePage: React.FC = () => {
 
       {/* FAQ Section */}
       <FAQ />
+
+      <MobileContactForm />
 
       {/* Call-to-Action Section */}
       <CTA />
