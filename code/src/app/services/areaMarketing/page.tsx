@@ -3,9 +3,9 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import ServicesContent from "@/app/components/ServicesContent";
-import { CTA } from "@/app/components/CTA";
-import ServiceNavigation from "@/app/components/ServiceNavigation";
+import ServicesContent from "../../components/ServicesContent";
+import { CTA } from "../../components/CTA";
+import ServiceNavigation from "../../components/ServiceNavigation";
 
 const areaMarketingData = [
   {

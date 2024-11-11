@@ -1,20 +1,25 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
+import React from 'react';
+import Link from 'next/link';
+import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 
-interface ServiceNavigationProps {
-  previousService: { name: string; link: string };
-  nextService: { name: string; link: string };
+interface Service {
+  name: string;
+  link: string;
 }
 
-const ServiceNavigation: React.FC<ServiceNavigationProps> = ({
+interface ServiceNavigationProps {
+  previousService: Service;
+  nextService: Service;
+}
+
+const ServiceNavigation = ({
   previousService,
   nextService,
-}) => {
+}: ServiceNavigationProps) => {
   const renderButton = (
-    service: { name: string; link: string },
+    service: Service,
     isPrevious: boolean
   ) => (
     <Link href={service.link}>

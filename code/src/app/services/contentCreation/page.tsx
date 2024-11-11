@@ -1,44 +1,59 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import ServicesContent from "../../components/ServicesContent";
+import { CTA } from "../../components/CTA";
+import ServiceNavigation from "../../components/ServiceNavigation";
 
-interface ServiceNavigationProps {
-  previousService: { name: string; link: string };
-  nextService: { name: string; link: string };
-}
+const contentCreationData = [
+  {
+    imgUrl:
+      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1920&q=80",
+    subheading: "Engaging Content",
+    heading: "Captivate Your Audience",
+    description:
+      "Our content creation services are designed to engage your audience with high-quality, relevant content that resonates and inspires action.",
+    buttonText: "Discover More",
+    extraText: "Content Creation",
+    href: "/contact",
+  },
+  {
+    imgUrl:
+      "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=1920&q=80",
+    subheading: "Strategic Storytelling",
+    heading: "Tell Your Brand's Story",
+    description:
+      "We help you craft compelling narratives that showcase your brand's unique value and connect with your audience on a deeper level.",
+    buttonText: "Start Telling Your Story",
+    extraText: "Storytelling",
+    href: "/contact",
+  },
+];
 
-const ServiceNavigation: React.FC<ServiceNavigationProps> = ({
-  previousService,
-  nextService,
-}) => {
-  // Debugging: Log props to ensure data is correct
-  console.log("Previous Service:", previousService);
-  console.log("Next Service:", nextService);
-
+const ContentCreation = () => {
   return (
-    <div className="flex justify-between items-center py-12">
-      {/* Previous Service Link */}
-      <div className="text-left">
-        {previousService.link && (
-          <Link href={previousService.link} className="flex items-center text-gray-500">
-            <span className="mr-2">←</span>
-            <span className="underline">{previousService.name}</span>
-          </Link>
-        )}
-      </div>
-
-      {/* Next Service Link */}
-      <div className="text-right">
-        {nextService.link && (
-          <Link href={nextService.link} className="flex items-center text-black">
-            <span className="underline">{nextService.name}</span>
-            <span className="ml-2">→</span>
-          </Link>
-        )}
-      </div>
+    <div>
+      <Navbar />
+      <ServicesContent
+        title="Content Creation"
+        contentData={contentCreationData}
+      />
+      <ServiceNavigation
+        previousService={{
+          name: "Social Media Management",
+          link: "/services/socialMediaManagement",
+        }}
+        nextService={{
+          name: "SEO Optimization",
+          link: "/services/seoOptimization",
+        }}
+      />
+      <CTA />
+      <Footer />
     </div>
   );
 };
 
-export default ServiceNavigation;
+export default ContentCreation;
