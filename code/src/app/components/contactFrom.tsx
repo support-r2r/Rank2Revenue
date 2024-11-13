@@ -1,7 +1,9 @@
+// Place "use client" directive at the top
 "use client";
 
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image"; // Use Image from Next.js for optimization
 
 interface ShiftHighlightTabsProps {
   selected: string;
@@ -39,12 +41,14 @@ const ContactForm: React.FC = () => {
 
   return (
     <section className="p-6 bg-neutral-900 text-neutral-50 min-h-screen flex flex-col items-center justify-center">
-      {/* Header with Unsplash Image */}
+      {/* Header with Optimized Image */}
       <div className="flex items-center mb-6">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60"
           alt="ESE Agency"
-          className="h-12 w-12 rounded-full mr-4"
+          width={48}
+          height={48}
+          className="rounded-full mr-4"
         />
         <h1 className="text-4xl font-bold">ese agency™ Contact</h1>
       </div>
@@ -61,6 +65,7 @@ const ContactForm: React.FC = () => {
             <label className="block text-xs font-medium text-neutral-400 mb-1">Your Name</label>
             <input
               type="text"
+              name="name" // Added name attribute for form data
               placeholder="Your name..."
               className="w-full bg-neutral-700 text-neutral-50 border border-neutral-600 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
               required
@@ -74,6 +79,7 @@ const ContactForm: React.FC = () => {
             </label>
             <input
               type={selected === "Email" ? "email" : "tel"}
+              name={selected.toLowerCase()} // Dynamically set name attribute
               placeholder={selected === "Email" ? "Your email..." : "Your phone number..."}
               className="w-full bg-neutral-700 text-neutral-50 border border-neutral-600 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
               required
@@ -84,6 +90,7 @@ const ContactForm: React.FC = () => {
           <div className="relative">
             <label className="block text-xs font-medium text-neutral-400 mb-1">Description</label>
             <textarea
+              name="message" // Added name attribute for form data
               placeholder="Your description..."
               className="w-full bg-neutral-700 text-neutral-50 border border-neutral-600 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
               rows={4}
