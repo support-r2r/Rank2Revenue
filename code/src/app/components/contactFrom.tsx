@@ -30,8 +30,8 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-black text-white flex flex-col items-center justify-center p-6">
-      <a href="#" className="font-semibold text-2xl tracking-tighter flex items-center gap-2">
+    <div className="h-screen w-screen bg-white text-black flex flex-col items-center justify-center p-6">
+      <a href="#" className="font-semibold text-2xl tracking-tighter flex items-center gap-2 text-black">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ const ContactForm: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 text-black"
           >
             <path
               strokeLinecap="round"
@@ -51,19 +51,19 @@ const ContactForm: React.FC = () => {
         Rank2revenue
       </a>
       <div className="relative mt-12 w-full max-w-lg">
-        <div className="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"></div>
-        <div className="mx-5 border shadow-lg rounded-lg border-white/20">
+        <div className="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-black to-transparent"></div>
+        <div className="mx-5 border shadow-lg rounded-lg border-black/20 bg-white">
           <div className="flex flex-col p-6">
-            <h3 className="text-xl font-semibold leading-6 tracking-tighter">Contact Form</h3>
-            <p className="mt-1.5 text-sm font-medium text-white/50">
+            <h3 className="text-xl font-semibold leading-6 tracking-tighter text-black">Contact Form</h3>
+            <p className="mt-1.5 text-sm font-medium text-black/50">
               Please fill in your details below.
             </p>
           </div>
           <div className="p-6 pt-0">
             <form className="space-y-4" onSubmit={handleSubmit}>
               {/* Email Input */}
-              <div className="group relative rounded-lg border focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
-                <label className="text-xs font-medium text-gray-400 group-focus-within:text-white">
+              <div className="group relative rounded-lg border border-black focus-within:border-black px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-black/30">
+                <label className="text-xs font-medium text-black group-focus-within:text-black">
                   Email
                 </label>
                 <input
@@ -71,20 +71,20 @@ const ContactForm: React.FC = () => {
                   name="email"
                   placeholder="Your Email"
                   autoComplete="off"
-                  className="block w-full bg-transparent border-0 p-0 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-0"
+                  className="block w-full bg-transparent border-0 p-0 text-sm text-black placeholder:text-gray-500 focus:outline-none focus:ring-0"
                   required
                 />
               </div>
 
               {/* Description Input */}
-              <div className="group relative rounded-lg border focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
-                <label className="text-xs font-medium text-gray-400 group-focus-within:text-white">
+              <div className="group relative rounded-lg border border-black focus-within:border-black px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-black/30">
+                <label className="text-xs font-medium text-black group-focus-within:text-black">
                   Description
                 </label>
                 <textarea
                   name="description"
                   placeholder="Your Description"
-                  className="block w-full bg-transparent border-0 p-0 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-0"
+                  className="block w-full bg-transparent border-0 p-0 text-sm text-black placeholder:text-gray-500 focus:outline-none focus:ring-0"
                   rows={5}
                   required
                 ></textarea>
@@ -93,7 +93,7 @@ const ContactForm: React.FC = () => {
               {/* Submit Button */}
               <div className="flex items-center justify-end">
                 <button
-                  className="bg-white text-black font-semibold rounded-md h-10 px-4 py-2 transition duration-300 hover:bg-black hover:text-white hover:ring hover:ring-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+                  className="bg-black text-white font-semibold rounded-md h-10 px-4 py-2 transition duration-300 hover:bg-white hover:text-black hover:ring hover:ring-black focus:outline-none focus:ring-2 focus:ring-offset-2"
                   type="submit"
                 >
                   Submit

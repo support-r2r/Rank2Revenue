@@ -50,12 +50,12 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col md:flex-row bg-[#0D1117] rounded-2xl shadow-lg p-8 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border border-[#30363D] max-w-5xl mx-auto transition-opacity duration-700 transform ${
+      className={`flex flex-col md:flex-row bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-6 md:space-y-0 md:space-x-10 border border-gray-300 max-w-5xl mx-auto transition-opacity duration-700 transform ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {/* Text Content */}
-      <div className="flex-1 space-y-6 text-[#C9D1D9]">
+      <div className="flex-1 space-y-6 text-black">
         {/* Title */}
         <h2 className="text-4xl font-bold">{title}</h2>
 
@@ -64,7 +64,7 @@ const Card: React.FC<CardProps> = ({
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-4 py-1.5 text-sm font-medium text-[#8B949E] bg-[#21262D] rounded-full"
+              className="px-4 py-1.5 text-sm font-medium text-gray-700 bg-gray-200 rounded-full"
             >
               {tag}
             </span>
@@ -72,12 +72,12 @@ const Card: React.FC<CardProps> = ({
         </div>
 
         {/* Description */}
-        <p className="text-[#8B949E]">{description}</p>
+        <p className="text-gray-700">{description}</p>
 
         {/* Button */}
         <a
           href={buttonLink}
-          className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold text-[#58A6FF] border border-[#58A6FF] rounded-full hover:bg-[#58A6FF] hover:text-black transition duration-300 ease-in-out"
+          className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition duration-300 ease-in-out"
         >
           {buttonText}
           <svg

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 const ChatButtonWithForm: React.FC = () => {
@@ -66,7 +67,7 @@ const ChatButtonWithForm: React.FC = () => {
 
       {/* Contact Form */}
       {isFormVisible && (
-        <div className="absolute bottom-16 right-0 bg-gray-800 text-white rounded-lg shadow-2xl p-6 w-80">
+        <div className="absolute bottom-16 right-0 bg-white text-black rounded-lg shadow-2xl p-6 w-80">
           <div className="bg-blue-500 rounded-t-lg p-4 text-center text-white">
             <h3 className="text-lg font-semibold">
               We are here to help. One of our admin team will text you back!
@@ -77,7 +78,7 @@ const ChatButtonWithForm: React.FC = () => {
               type="text"
               name="name"
               placeholder="Name"
-              className="w-full border rounded p-2 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+              className="w-full border rounded p-2 bg-gray-100 text-black placeholder-gray-500 focus:outline-none focus:border-blue-500"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -86,7 +87,7 @@ const ChatButtonWithForm: React.FC = () => {
               type="tel"
               name="phone"
               placeholder="Mobile Phone"
-              className="w-full border rounded p-2 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+              className="w-full border rounded p-2 bg-gray-100 text-black placeholder-gray-500 focus:outline-none focus:border-blue-500"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
@@ -94,7 +95,7 @@ const ChatButtonWithForm: React.FC = () => {
             <textarea
               name="message"
               placeholder="Message"
-              className="w-full border rounded p-2 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+              className="w-full border rounded p-2 bg-gray-100 text-black placeholder-gray-500 focus:outline-none focus:border-blue-500"
               rows={3}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -110,7 +111,7 @@ const ChatButtonWithForm: React.FC = () => {
           {responseMessage && (
             <p className="text-sm text-center mt-2">{responseMessage}</p>
           )}
-          <p className="text-xs text-gray-400 text-center mt-2">
+          <p className="text-xs text-gray-500 text-center mt-2">
             By submitting this form, you consent to receive marketing text
             messages. Message and data rates may apply. Message frequency
             varies.

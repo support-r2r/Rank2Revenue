@@ -14,8 +14,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('daisyui'), // DaisyUI as a plugin
-  ],
+  plugins: [],
 };
 export default config;

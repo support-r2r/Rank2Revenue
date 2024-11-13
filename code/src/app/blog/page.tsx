@@ -1,60 +1,30 @@
+// pages/Blog.tsx
 "use client";
+import React from 'react';
 
-import React from "react";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import BlogThumbnails from "../components/BlogThumbnails"; // Import the BlogThumbnails component
-import Footer from "../components/Footer";
-import { CTA } from "../components/CTA";
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Footer from '../components/Footer';
+import { BlogThumbnails } from '../components/BlogThumbnails';
 
 const Blog: React.FC = () => {
   const blogData = [
     {
       href: "#",
       title: "Understanding SEO Fundamentals",
-      readTime: "5 min",
+      readTime: "5 min read",
       src: "https://via.placeholder.com/400x300",
     },
     {
       href: "#",
       title: "Top 5 Web Design Trends in 2024",
-      readTime: "7 min",
+      readTime: "7 min read",
       src: "https://via.placeholder.com/400x300",
     },
     {
       href: "#",
       title: "Boost Your Brand with Social Media",
-      readTime: "6 min",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "Mastering Responsive Design",
-      readTime: "8 min",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "Creating Engaging Content for Your Audience",
-      readTime: "10 min",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "How to Optimize Website Speed",
-      readTime: "4 min",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "Effective Email Marketing Strategies",
-      readTime: "9 min",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "The Importance of User Experience (UX) Design",
-      readTime: "7 min",
+      readTime: "6 min read",
       src: "https://via.placeholder.com/400x300",
     },
   ];
@@ -62,25 +32,21 @@ const Blog: React.FC = () => {
   return (
     <div>
       <Navbar />
-
-      {/* Updated Hero Component with Props */}
       <Hero
         title="Our Blog"
-        subtitle="Insights, Tips, and the Latest in Digital Marketing"
-        description="Stay updated with the latest trends and strategies in digital marketing. From SEO to web design, our blog covers everything you need to boost your brand."
+        subtitle="Insights and Updates"
+        description="Stay up-to-date with the latest trends, tips, and news in the world of digital marketing, design, and development."
         primaryButtonText="Subscribe"
         primaryButtonLink="#subscribe"
-        secondaryButtonText="Contact Us"
-        secondaryButtonLink="/contact"
-        glowingChipText="Discover New Ideas 💡"
+        secondaryButtonText="View All Articles"
+        secondaryButtonLink="#articles"
+        imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80" // Updated with a new image URL
       />
 
-      {/* Blog Thumbnails */}
-      <div className="py-12">
+      <div className="p-8 space-y-8" id="articles">
         <BlogThumbnails cards={blogData} />
       </div>
 
-      <CTA />
       <Footer />
     </div>
   );
