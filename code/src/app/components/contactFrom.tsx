@@ -1,136 +1,107 @@
-// Place "use client" directive at the top
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image"; // Use Image from Next.js for optimization
+import React from "react";
+import Image from "next/image";
 
-interface ShiftHighlightTabsProps {
-  selected: string;
-  setSelected: (value: string) => void;
-}
-
-const ContactForm: React.FC = () => {
-  const [selected, setSelected] = useState<string>("Email");
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    fetch("https://formspree.io/f/mvgoakrv", {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert("Success! Your message has been sent.");
-          form.reset();
-        } else {
-          alert("Oops! There was a problem with your submission.");
-        }
-      })
-      .catch(() => {
-        alert("Error: Unable to send your message.");
-      });
+const ContactSection: React.FC = () => {
+  const handleButtonClick = (type: string) => {
+    if (type === "call") {
+      window.location.href = "tel:+41522123071"; // Replace with the actual phone number
+    } else if (type === "email") {
+      window.location.href = "mailto:info@rank2revenue.com.au"; // Replace with the actual email address
+    } else if (type === "schedule") {
+      window.open("https://your-scheduling-link.com", "_blank"); // Replace with the actual scheduling link
+    }
   };
 
   return (
-    <section className="p-6 bg-neutral-900 text-neutral-50 min-h-screen flex flex-col items-center justify-center">
-      {/* Header with Optimized Image */}
-      <div className="flex items-center mb-6">
-        <Image
-          src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=60"
-          alt="ESE Agency"
-          width={48}
-          height={48}
-          className="rounded-full mr-4"
-        />
-        <h1 className="text-4xl font-bold">ese agency™ Contact</h1>
+    <section className="flex h-screen bg-black">
+      {/* Left Contact Section */}
+      <div className="w-1/3 bg-black text-white p-8 flex flex-col justify-between">
+        <div className="mt-16">
+          <h1 className="text-4xl font-bold mb-6">Rank2Revenue™ Contact</h1>
+          <div className="mb-4">
+            <p className="mb-2">
+              Hi 👋, I&apos;m Wasif, and I&apos;m here to assist you with your project
+              inquiries. Feel free to send me an email at
+              <br />
+              <a
+                href="mailto:wasif@rank2revenue.com.au"
+                className="text-gray-400"
+              >
+                wasif@rank2revenue.com.au
+              </a>
+            </p>
+            <p>
+              Want to get in touch with our management team directly? Send an
+              email to Keval at
+              <br />
+              <a
+                href="mailto:keval@rank2revenue.com.au"
+                className="text-gray-400"
+              >
+                keval@rank2revenue.com.au
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <div className="flex justify-between mb-4">
+            <button
+              className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg mr-2"
+              onClick={() => handleButtonClick("call")}
+            >
+              Call
+            </button>
+            <button
+              className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg mx-2"
+              onClick={() => handleButtonClick("email")}
+            >
+              Email
+            </button>
+            <button
+              className="flex-1 bg-gray-800 text-white py-2 px-4 rounded-lg ml-2"
+              onClick={() => handleButtonClick("schedule")}
+            >
+              Schedule
+            </button>
+          </div>
+          <div className="mb-2">
+            <h3 className="text-sm text-gray-400">Phone</h3>
+            <p>+41 52 212 30 71</p>
+          </div>
+          <div className="mb-2">
+            <h3 className="text-sm text-gray-400">Email</h3>
+            <p>info@rank2revenue.com.au</p>
+          </div>
+          <div>
+            <h3 className="text-sm text-gray-400">Address</h3>
+            <p>
+              Rank2Revenue
+              <br />
+              123 Business Road
+              <br />
+              Suite 456
+              <br />
+              City, Country
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Shift Highlight Tabs */}
-      <ShiftHighlightTabs selected={selected} setSelected={setSelected} />
-
-      {/* Form Section */}
-      <div className="w-full max-w-md mb-8 bg-neutral-800 p-8 rounded-lg shadow-lg transition-colors duration-[750ms]">
-        <h3 className="text-xl font-semibold mb-4">Contact Form</h3>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          {/* Name Input */}
-          <div className="relative">
-            <label className="block text-xs font-medium text-neutral-400 mb-1">Your Name</label>
-            <input
-              type="text"
-              name="name" // Added name attribute for form data
-              placeholder="Your name..."
-              className="w-full bg-neutral-700 text-neutral-50 border border-neutral-600 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              required
-            />
-          </div>
-
-          {/* Email/Phone based on Tab Selection */}
-          <div className="relative">
-            <label className="block text-xs font-medium text-neutral-400 mb-1">
-              {selected === "Email" ? "Email" : "Phone"}
-            </label>
-            <input
-              type={selected === "Email" ? "email" : "tel"}
-              name={selected.toLowerCase()} // Dynamically set name attribute
-              placeholder={selected === "Email" ? "Your email..." : "Your phone number..."}
-              className="w-full bg-neutral-700 text-neutral-50 border border-neutral-600 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              required
-            />
-          </div>
-
-          {/* Description Input */}
-          <div className="relative">
-            <label className="block text-xs font-medium text-neutral-400 mb-1">Description</label>
-            <textarea
-              name="message" // Added name attribute for form data
-              placeholder="Your description..."
-              className="w-full bg-neutral-700 text-neutral-50 border border-neutral-600 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              rows={4}
-              required
-            ></textarea>
-          </div>
-
-          {/* Submit Button */}
-          <motion.button
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
-            type="submit"
-            className="bg-emerald-300 text-black font-semibold rounded-md h-10 px-4 w-full transition duration-300 hover:bg-emerald-400 focus:outline-none"
-          >
-            Submit
-          </motion.button>
-        </form>
+      {/* Right Content Section with Image */}
+      <div className="w-2/3 bg-gray-900 flex items-center justify-center">
+        <Image
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60"
+          alt="Contact Us"
+          width={1200}
+          height={800}
+          className="rounded-lg shadow-lg"
+        />
       </div>
     </section>
   );
 };
 
-const ShiftHighlightTabs: React.FC<ShiftHighlightTabsProps> = ({ selected, setSelected }) => {
-  const options = ["Email", "Phone", "Schedule"];
-
-  return (
-    <div className="flex space-x-4 mb-8">
-      {options.map((option) => (
-        <button
-          key={option}
-          onClick={() => setSelected(option)}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-[750ms] ${
-            selected === option ? "bg-emerald-300 text-black" : "bg-neutral-700 text-white"
-          }`}
-        >
-          {option}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-export default ContactForm;
+export default ContactSection;
