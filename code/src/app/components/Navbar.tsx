@@ -36,19 +36,19 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 py-6 transition-transform duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 py-4 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
-      } bg-transparent`}
+      } bg-white shadow-md`}
     >
-      <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
+      <div className="mx-auto lg:max-w-7xl w-full px-4 sm:px-6 md:px-8">
         <nav className="flex justify-between items-center">
           {/* Logo and Mobile Menu Button */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="block lg:hidden text-black text-2xl"
-              onClick={() => setIsOpen((pv) => !pv)}
+              onClick={() => setIsOpen((prev) => !prev)}
             >
               <FiMenu />
             </motion.button>
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
           {/* Contact Button */}
           <Link
             href="/contact"
-            className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+            className="hidden lg:block px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
           >
             Contact
           </Link>
@@ -122,14 +122,15 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: isOpen ? "auto" : 0 }}
-          className="overflow-hidden lg:hidden mt-4"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+          className="lg:hidden mt-4 bg-white rounded-lg shadow-md overflow-hidden"
         >
-          <ul className="flex flex-col space-y-4 text-black font-medium">
+          <ul className="flex flex-col space-y-4 py-4 px-6 text-black font-medium">
             <li>
               <Link
                 href="/"
+                onClick={() => setIsOpen(false)}
                 className={`hover:text-blue-600 ${
                   isActive("/") ? "text-blue-600" : ""
                 }`}
@@ -140,6 +141,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/services"
+                onClick={() => setIsOpen(false)}
                 className={`hover:text-blue-600 ${
                   isActive("/services") ? "text-blue-600" : ""
                 }`}
@@ -150,6 +152,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/work"
+                onClick={() => setIsOpen(false)}
                 className={`hover:text-blue-600 ${
                   isActive("/work") ? "text-blue-600" : ""
                 }`}
@@ -160,6 +163,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/about"
+                onClick={() => setIsOpen(false)}
                 className={`hover:text-blue-600 ${
                   isActive("/about") ? "text-blue-600" : ""
                 }`}
@@ -170,6 +174,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/blog"
+                onClick={() => setIsOpen(false)}
                 className={`hover:text-blue-600 ${
                   isActive("/blog") ? "text-blue-600" : ""
                 }`}
@@ -180,6 +185,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/contact"
+                onClick={() => setIsOpen(false)}
                 className="hover:text-blue-600 text-blue-600"
               >
                 Contact
