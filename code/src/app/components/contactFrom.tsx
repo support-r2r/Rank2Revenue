@@ -3,8 +3,13 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+interface ShiftHighlightTabsProps {
+  selected: string;
+  setSelected: (value: string) => void;
+}
+
 const ContactForm: React.FC = () => {
-  const [selected, setSelected] = useState("Email");
+  const [selected, setSelected] = useState<string>("Email");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,7 +106,7 @@ const ContactForm: React.FC = () => {
   );
 };
 
-const ShiftHighlightTabs = ({ selected, setSelected }) => {
+const ShiftHighlightTabs: React.FC<ShiftHighlightTabsProps> = ({ selected, setSelected }) => {
   const options = ["Email", "Phone", "Schedule"];
 
   return (
