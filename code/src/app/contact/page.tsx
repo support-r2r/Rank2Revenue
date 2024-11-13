@@ -6,12 +6,12 @@ import Navbar from "../components/Navbar";
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="h-screen w-screen bg-white text-black flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen w-full bg-white text-black flex flex-col items-center p-6">
       {/* Navbar */}
       <Navbar />
 
-      {/* Page Header */}
-   
+      {/* Page Header (Optional) */}
+      {/* Add your header here if needed */}
 
       {/* Contact Form */}
       <ContactForm />
