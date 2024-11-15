@@ -1,33 +1,81 @@
-// pages/Blog.tsx
 "use client";
-import React from 'react';
 
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
-import { BlogThumbnails } from '../components/BlogThumbnails';
+import React, { useEffect, useState } from "react";
+import { supabase } from "../utils/supabaseClient";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Footer from "../components/Footer";
+import BlogPost from "../components/BlogPost";
+import BlogThumbnails from "../components/BlogThumbnails";
+import PdfUpload from "../components/PdfUpload";
+import Admin from "../components/admin";
+
+interface BlogPostProps {
+  id: string;
+  category: string;
+  title: string;
+  time: string;
+  author: string;
+  tag: string;
+  content: string;
+  tags: string[];
+  thumbnailUrl?: string;
+}
+
+// Define the type for Supabase data
+interface SupabaseBlogPost {
+  id: string;
+  category: string;
+  title: string;
+  time: string;
+  author: string;
+  tag: string;
+  content: string;
+  tags: string[];
+  thumbnailurl?: string; // Use the exact field name as in the database
+}
 
 const Blog: React.FC = () => {
-  const blogData = [
-    {
-      href: "#",
-      title: "Understanding SEO Fundamentals",
-      readTime: "5 min read",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "Top 5 Web Design Trends in 2024",
-      readTime: "7 min read",
-      src: "https://via.placeholder.com/400x300",
-    },
-    {
-      href: "#",
-      title: "Boost Your Brand with Social Media",
-      readTime: "6 min read",
-      src: "https://via.placeholder.com/400x300",
-    },
-  ];
+  const [posts, setPosts] = useState<BlogPostProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("blog_posts")
+          .select(
+            "id, category, title, time, author, tag, content, tags, thumbnailurl"
+          );
+
+        if (error) throw error;
+
+        // Specify the type of data returned from Supabase
+        const formattedPosts = (data as SupabaseBlogPost[]).map((post) => ({
+          id: post.id,
+          category: post.category,
+          title: post.title,
+          time: post.time,
+          author: post.author,
+          tag: post.tag,
+          content: post.content,
+          tags: post.tags || [],
+          thumbnailUrl: post.thumbnailurl || "",
+        }));
+
+        setPosts(formattedPosts);
+      } catch (err) {
+        // Specify the error type
+        const errorMessage = (err as Error).message || "Failed to fetch posts";
+        setError(errorMessage);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <div>
@@ -40,13 +88,41 @@ const Blog: React.FC = () => {
         primaryButtonLink="#subscribe"
         secondaryButtonText="View All Articles"
         secondaryButtonLink="#articles"
-        imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80" // Updated with a new image URL
+        imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80"
       />
-
       <div className="p-8 space-y-8" id="articles">
-        <BlogThumbnails cards={blogData} />
+        {isLoading && <div>Loading...</div>}
+        {error && <div>Error: {error}</div>}
+        {!isLoading && !error && posts.length === 0 && (
+          <div>No blog posts available.</div>
+        )}
+        {!isLoading && !error && posts.length > 0 && (
+          <div>
+            {posts.map((post) => (
+              <BlogPost
+                key={post.id}
+                category={post.category}
+                title={post.title}
+                time={post.time}
+                author={post.author}
+                tag={post.tag}
+                content={post.content}
+                tags={post.tags}
+                thumbnailUrl={post.thumbnailUrl}
+              />
+            ))}
+          </div>
+        )}
+        <BlogThumbnails />
+        <div className="mt-8">
+          <h2 className="text-2xl font-bold mb-4">Upload a Blog Post</h2>
+          <PdfUpload />
+        </div>
+        <div className="mt-8">
+          <h2 className="text-2xl font-bold mb-4">Add a Blog Post Manually</h2>
+          <Admin />
+        </div>
       </div>
-
       <Footer />
     </div>
   );

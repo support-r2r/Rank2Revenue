@@ -1,26 +1,76 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link"; // Import Link from Next.js
+import { supabase } from "../utils/supabaseClient";
 import { FiBookOpen, FiEye, FiWatch, FiArrowUpRight } from "react-icons/fi";
 
 interface BlogCardProps {
+  id: string;
   href: string;
   title: string;
   readTime: string;
-  src: string;
 }
 
-interface BlogThumbnailsProps {
-  cards: BlogCardProps[];
+interface BlogPostData {
+  id: string;
+  title: string;
+  time: string;
 }
 
-export const BlogThumbnails: React.FC<BlogThumbnailsProps> = ({ cards }) => {
+const BlogThumbnails: React.FC = () => {
+  const [cards, setCards] = useState<BlogCardProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        // Use 'const' for variables that are not reassigned
+        const { data: blog_posts, error } = await supabase
+          .from("blog_posts")
+          .select("id, title, time");
+
+        if (error) {
+          throw new Error(error.message);
+        }
+
+        console.log("Fetched data:", blog_posts);
+
+        if (!blog_posts || blog_posts.length === 0) {
+          throw new Error("No data returned from Supabase");
+        }
+
+        // Provide specific types instead of 'any'
+        const formattedCards = blog_posts.map((post: BlogPostData) => ({
+          id: post.id,
+          href: `/post/${post.id}`, // Adjust this if you have a different routing setup
+          title: post.title,
+          readTime: post.time || "Unknown read time",
+        }));
+
+        setCards(formattedCards);
+      } catch (err) {
+        const errorMessage = (err as Error).message || "An unexpected error occurred";
+        setError(errorMessage);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div className="text-red-500">Error: {error}</div>;
+  if (cards.length === 0) return <div>No blog posts available.</div>;
+
   return (
     <div className="bg-white p-8 text-gray-800 md:p-12">
       <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-gray-200 border border-gray-200 md:grid-cols-3 md:divide-x md:divide-y-0">
         <TitleCard />
-        {cards.map((card, index) => (
-          <BlogCard key={index} {...card} />
+        {cards.map((card) => (
+          <BlogCard key={card.id} {...card} />
         ))}
       </div>
     </div>
@@ -29,10 +79,8 @@ export const BlogThumbnails: React.FC<BlogThumbnailsProps> = ({ cards }) => {
 
 const BlogCard: React.FC<BlogCardProps> = ({ href, title, readTime }) => {
   return (
-    <a
+    <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
       className="group relative flex h-56 flex-col justify-end overflow-hidden p-6 transition-colors hover:bg-gray-100 md:h-80 md:p-9"
     >
       <div className="absolute left-3 top-5 z-10 flex items-center gap-1.5 text-xs uppercase text-gray-500 transition-colors duration-500 group-hover:text-gray-800">
@@ -42,11 +90,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ href, title, readTime }) => {
       <h2 className="relative z-10 text-3xl leading-tight text-gray-900 transition-transform duration-500 group-hover:-translate-y-2">
         {title}
       </h2>
-
       <FiEye className="absolute right-3 top-4 z-10 text-2xl text-gray-500 transition-colors group-hover:text-gray-800" />
-
       <Corners />
-    </a>
+    </Link>
   );
 };
 
@@ -64,10 +110,8 @@ const Corners: React.FC = () => (
 );
 
 const TitleCard: React.FC = () => (
-  <a
+  <Link
     href="#"
-    target="_blank"
-    rel="noopener noreferrer"
     className="group relative flex h-56 flex-col justify-between bg-white p-6 shadow-sm rounded-lg md:h-80 md:p-9"
   >
     <h2 className="text-4xl uppercase leading-tight text-gray-900">
@@ -81,9 +125,8 @@ const TitleCard: React.FC = () => (
       <FiBookOpen className="text-base" />
       <span>Rank2revenue</span>
     </div>
-
     <FiArrowUpRight className="absolute right-3 top-4 text-2xl text-gray-500 transition-colors duration-500 group-hover:text-blue-500" />
-  </a>
+  </Link>
 );
 
 export default BlogThumbnails;

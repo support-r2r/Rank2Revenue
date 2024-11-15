@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation"; // Import useRouter from Next.js
+import Image from "next/image"; // Import Image from next/image
 
 interface BlogPostProps {
   category: string;
@@ -10,6 +12,7 @@ interface BlogPostProps {
   tag: string;
   content: string;
   tags: string[];
+  thumbnailUrl?: string;
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({
@@ -20,15 +23,33 @@ const BlogPost: React.FC<BlogPostProps> = ({
   tag,
   content,
   tags,
+  thumbnailUrl,
 }) => {
+  const router = useRouter(); // Use useRouter from Next.js
+
+  const navigateToHome = () => {
+    router.push("/"); // Navigate to the home page
+  };
+
   return (
     <div className="relative p-4">
       <div className="max-w-3xl mx-auto">
         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+          {thumbnailUrl && (
+            <Image
+              src={thumbnailUrl}
+              alt={title}
+              width={800} // Adjust width as needed
+              height={450} // Adjust height as needed
+              className="w-full rounded-t-lg"
+              layout="responsive" // Use layout="responsive" for better responsiveness
+            />
+          )}
           <div>
             <a
               href="#"
               className="text-indigo-600 hover:text-gray-700 transition duration-500 ease-in-out text-sm"
+              onClick={navigateToHome}
             >
               {category}
             </a>
@@ -48,7 +69,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 </svg>
                 <span className="ml-1">{time}</span>
               </span>
-
               <a
                 href="#"
                 className="flex flex-row items-center hover:text-indigo-600 mr-3"
@@ -68,7 +88,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 </svg>
                 <span className="ml-1">{author}</span>
               </a>
-
               <a
                 href="#"
                 className="flex flex-row items-center hover:text-indigo-600"
@@ -82,7 +101,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 >
                   <path
                     fill="currentColor"
-                    d="M15.4496399,8.42490555 L8.66109799,1.63636364 L1.63636364,1.63636364 L1.63636364,8.66081885 L8.42522727,15.44178 C8.57869221,15.5954158 8.78693789,15.6817418 9.00409091,15.6817418 C9.22124393,15.6817418 9.42948961,15.5954158 9.58327627,15.4414581 L15.4486339,9.57610048 C15.7651495,9.25692435 15.7649133,8.74206554 15.4496399,8.42490555 Z M16.6084423,10.7304545 L10.7406818,16.59822 C10.280287,17.0591273 9.65554997,17.3181054 9.00409091,17.3181054 C8.35263185,17.3181054 7.72789481,17.0591273 7.26815877,16.5988788 L0.239976954,9.57887876 C0.0863319284,9.4254126 0,9.21716044 0,9 L0,0.818181818 C0,0.366312477 0.366312477,0 0.818181818,0 L9,0 C9.21699531,0 9.42510306,0.0862010512 9.57854191,0.239639906 L16.6084423,7.26954545 C17.5601275,8.22691012 17.5601275,9.77308988 16.6084423,10.7304545 Z M5,6 C4.44771525,6 4,5.55228475 4,5 C4,4.44771525 4.44771525,4 5,4 C5.55228475,4 6,4.44771525 6,5 C6,5.55228475 5.55228475,6 5,6 Z"
+                    d="M15.4496399,8.42490555 L8.66109799,1.63636364 L1.63636364,1.63636364 L1.63636364,8.66081885 L8.42522727,15.44178 C8.57869221,15.5954158 8.78693789,15.6817418 9.00409091,15.6817418 C9.22124393,15.6817418 9.42948961,15.5954158 9.58327627,15.4414581 L15.4486339,9.57610048 C15.7651495,9.25692435 15.7649133,8.74206554 15.4496399,8.42490555 Z M16.6084423,10.7304545 L10.7406818,16.59822 C10.280287,17.0591273 9.65554997,17.3181054 9.00409091,17.3181054 C8.35263185,17.3181054 7.72789481,17.0591273 7.26815877,16.5988788 L0.239976954,9.57887876 C0.0863319284,9.4254126 0,9.21716044 0,9 L0,0.818181818 C0,0.366312477 0.366312477,0 0.818181818,0 L9,0 C9.21699531,0 9.42510306,0.0862010512 9.57854191,0.239639906 L16.6084423,7.26954545 C17.5601275,8.22691012 17.5601275,9.77308988 16.6084423,10.7304545 Z M5,6 C4.44771525,6 4,5.55228475 4,5 C4,4.44771525 4,4 C5,4.44771525 6,5 C6,5.55228475 5,6 Z"
                   />
                 </svg>
                 <span className="ml-1">{tag}</span>
@@ -90,24 +109,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
             </div>
             <hr />
             <p className="text-base leading-8 my-5">{content}</p>
-
-            <h3 className="text-2xl font-bold my-5">#1. What is Lorem Ipsum?</h3>
-
-            <p className="text-base leading-8 my-5">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
-            </p>
-
-            <blockquote className="text-md italic leading-8 my-5 p-5 text-indigo-600 font-semibold">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
-            </blockquote>
-
-            <p className="text-base leading-8 my-5">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry...
-            </p>
-
             <div className="flex flex-wrap gap-2">
               {tags.map((tagItem, index) => (
                 <a
