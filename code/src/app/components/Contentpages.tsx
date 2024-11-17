@@ -74,9 +74,8 @@ const Card = ({
       }}
       className="sticky top-0 flex w-full origin-top flex-col items-center justify-start px-4 py-8"
     >
-      {/* Larger Image prominently displayed at the top */}
+      {/* Image prominently displayed at the top */}
       <div className="relative mb-6 h-96 w-full overflow-hidden rounded-lg">
-        {/* Increased height from h-64 to h-96 */}
         <Image
           alt={content.title}
           src={content.imageUrl}
