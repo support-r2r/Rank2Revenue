@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Card from './components/Card';
 import ServicesCards from './components/ServicesCards'; // Import ServicesCards component
 import Footer from './components/Footer';
-import AboutSection from './components/AboutSection';
+
 import MobileContactForm from './components/MobileContactForm';
 import CampaignSection from './components/CampaignSection';
 import Partners from "./components/Partners";

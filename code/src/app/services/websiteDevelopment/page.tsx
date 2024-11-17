@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
-import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
+import TitleComponent from "../../components/TitleComponent";
 
 const websiteDevelopmentData = [
   {
@@ -18,7 +18,7 @@ const websiteDevelopmentData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Website Development",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "E-commerce Platforms",
@@ -29,8 +29,8 @@ const websiteDevelopmentData = [
     buttonText: "Explore More",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
-    extraText: "E-commerce Solutions",
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "SEO-Friendly Design",
@@ -42,7 +42,7 @@ const websiteDevelopmentData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80",
-    extraText: "SEO Optimization",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Mobile Optimization",
@@ -53,8 +53,8 @@ const websiteDevelopmentData = [
     buttonText: "Check It Out",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
-    extraText: "Mobile-First Design",
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Website Maintenance",
@@ -66,7 +66,7 @@ const websiteDevelopmentData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Website Maintenance",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
 ];
 
@@ -80,8 +80,14 @@ const WebsiteDevelopment = () => {
       />
       <ContentPages contentData={websiteDevelopmentData} />
       <ServiceNavigation
-        previousService={{ name: "Social Media Management", link: "/services/socialMediaManagement" }}
-        nextService={{ name: "SEO Optimization", link: "/services/seoOptimization" }}
+        previousService={{
+          name: "Social Media Management",
+          link: "/services/socialMediaManagement",
+        }}
+        nextService={{
+          name: "SEO Optimization",
+          link: "/services/seoOptimization",
+        }}
       />
       <Footer />
     </div>

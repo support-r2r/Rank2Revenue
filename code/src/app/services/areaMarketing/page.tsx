@@ -5,8 +5,20 @@ import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
 import TitleComponent from "../../components/TitleComponent"; // Importing TitleComponent
 
-// Updated Area Marketing Data with a New Image URL for "Event Sponsorship"
-const areaMarketingData = [
+// Define the Content interface
+interface Content {
+  label: string;
+  stepNumber: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  imageUrl: string;
+  ctaClasses: string;
+}
+
+// Updated Area Marketing Data with alternating colors
+const areaMarketingData: Content[] = [
   {
     label: "Local Outreach",
     stepNumber: "01",
@@ -16,8 +28,8 @@ const areaMarketingData = [
     buttonText: "Find Out More",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1920&q=80", // Working Image URL
-    extraText: "Area Marketing",
+      "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Community Engagement",
@@ -28,8 +40,8 @@ const areaMarketingData = [
     buttonText: "Connect Locally",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1920&q=80", // Working Image URL
-    extraText: "Community Engagement",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Event Sponsorship",
@@ -40,8 +52,8 @@ const areaMarketingData = [
     buttonText: "Sponsor Events",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80", // New Image URL
-    extraText: "Event Sponsorship",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Local SEO",
@@ -52,8 +64,8 @@ const areaMarketingData = [
     buttonText: "Improve SEO",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80", // Working Image URL
-    extraText: "Local SEO",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-white text-black", // White background
   },
 ];
 

@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
-import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
+import TitleComponent from "../../components/TitleComponent";
 
 const seoOptimizationData = [
   {
@@ -18,7 +18,7 @@ const seoOptimizationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80",
-    extraText: "SEO Optimization",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Local SEO Services",
@@ -30,7 +30,7 @@ const seoOptimizationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Local SEO",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Technical SEO",
@@ -42,7 +42,7 @@ const seoOptimizationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Technical SEO",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Content Optimization",
@@ -54,7 +54,7 @@ const seoOptimizationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Content SEO",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Link Building",
@@ -65,8 +65,8 @@ const seoOptimizationData = [
     buttonText: "Build Links",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
-    extraText: "Link Building",
+      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
 ];
 
@@ -80,8 +80,14 @@ const SEOOptimization = () => {
       />
       <ContentPages contentData={seoOptimizationData} />
       <ServiceNavigation
-        previousService={{ name: "Email Marketing", link: "/services/emailMarketing" }}
-        nextService={{ name: "Social Media Management", link: "/services/socialMediaManagement" }}
+        previousService={{
+          name: "Email Marketing",
+          link: "/services/emailMarketing",
+        }}
+        nextService={{
+          name: "Social Media Management",
+          link: "/services/socialMediaManagement",
+        }}
       />
       <Footer />
     </div>

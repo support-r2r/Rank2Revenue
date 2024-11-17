@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
-import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
+import TitleComponent from "../../components/TitleComponent";
 
 const socialMediaManagementData = [
   {
@@ -18,7 +18,7 @@ const socialMediaManagementData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Social Media Management",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Ad Campaigns",
@@ -30,7 +30,7 @@ const socialMediaManagementData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Social Media Ads",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Content Creation",
@@ -42,7 +42,7 @@ const socialMediaManagementData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1494809610410-160faaed4de0?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Content Creation",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Analytics & Reporting",
@@ -54,7 +54,7 @@ const socialMediaManagementData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Social Media Analytics",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Community Management",
@@ -66,7 +66,7 @@ const socialMediaManagementData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1511974035430-5de47d3b95da?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Community Engagement",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
 ];
 
@@ -80,8 +80,14 @@ const SocialMediaManagement = () => {
       />
       <ContentPages contentData={socialMediaManagementData} />
       <ServiceNavigation
-        previousService={{ name: "SEO Optimization", link: "/services/seoOptimization" }}
-        nextService={{ name: "Website Development", link: "/services/websiteDevelopment" }}
+        previousService={{
+          name: "SEO Optimization",
+          link: "/services/seoOptimization",
+        }}
+        nextService={{
+          name: "Website Development",
+          link: "/services/websiteDevelopment",
+        }}
       />
       <Footer />
     </div>

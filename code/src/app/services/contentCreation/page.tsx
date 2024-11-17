@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
-import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
+import TitleComponent from "../../components/TitleComponent";
 
 const contentCreationData = [
   {
@@ -18,7 +18,7 @@ const contentCreationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Blog Writing",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Social Media Content",
@@ -29,8 +29,8 @@ const contentCreationData = [
     buttonText: "Boost Now",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=1920&q=80", // Updated Image URL
-    extraText: "Social Media",
+      "https://images.unsplash.com/photo-1542744095-291d1f67b221?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Video Production",
@@ -41,8 +41,8 @@ const contentCreationData = [
     buttonText: "Create Video",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&w=1920&q=80", // Updated Image URL
-    extraText: "Video Content",
+      "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Infographics",
@@ -54,7 +54,7 @@ const contentCreationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1562577309-2592ab84b1bc?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Infographics",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Copywriting",
@@ -66,7 +66,7 @@ const contentCreationData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Copywriting",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
 ];
 

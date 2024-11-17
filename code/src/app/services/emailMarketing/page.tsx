@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
-import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
+import TitleComponent from "../../components/TitleComponent";
 
 const emailMarketingData = [
   {
@@ -17,8 +17,8 @@ const emailMarketingData = [
     buttonText: "Explore",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
-    extraText: "Email Marketing (EDM)",
+      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Automated Workflows",
@@ -29,8 +29,8 @@ const emailMarketingData = [
     buttonText: "Automate Now",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
-    extraText: "Email Automation",
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1920&q=80",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "Personalization",
@@ -42,7 +42,7 @@ const emailMarketingData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Email Personalization",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
   {
     label: "Analytics & Insights",
@@ -54,7 +54,7 @@ const emailMarketingData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Email Analytics",
+    ctaClasses: "bg-white text-black", // White background
   },
   {
     label: "A/B Testing",
@@ -66,7 +66,7 @@ const emailMarketingData = [
     buttonLink: "/contact",
     imageUrl:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80",
-    extraText: "Email A/B Testing",
+    ctaClasses: "bg-blue-600 text-white", // Blue background
   },
 ];
 
@@ -80,8 +80,14 @@ const EmailMarketing = () => {
       />
       <ContentPages contentData={emailMarketingData} />
       <ServiceNavigation
-        previousService={{ name: "Content Creation", link: "/services/contentCreation" }}
-        nextService={{ name: "SEO Optimization", link: "/services/seoOptimization" }}
+        previousService={{
+          name: "Content Creation",
+          link: "/services/contentCreation",
+        }}
+        nextService={{
+          name: "SEO Optimization",
+          link: "/services/seoOptimization",
+        }}
       />
       <Footer />
     </div>
