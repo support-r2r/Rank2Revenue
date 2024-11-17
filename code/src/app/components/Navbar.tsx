@@ -56,12 +56,12 @@ const Navbar: React.FC = () => {
             {/* Corrected Link Component Usage */}
             <Link href="/">
   <Image
-    src="/rank2Revnue.jpeg" // Use the root-relative path
+    src="/rank2Revnue.png" // Use the root-relative path
     alt="Rank2Revenue Logo"
     width={80} // Smaller width
     height={30} // Smaller height
     priority
-    className="h-auto w-[25px] md:w-[10px] lg:w-[50px] object-contain" // Reduced sizes for responsiveness
+    className="h-auto w-[25px] md:w-[15px] lg:w-[60px] object-contain" // Reduced sizes for responsiveness
   />
 </Link>
           </div>
