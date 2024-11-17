@@ -1,3 +1,4 @@
+import { FaSearchDollar } from "react-icons/fa";
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -18,7 +19,7 @@ const ServicesCards: React.FC = () => {
       description: `
         Improve your website's visibility on search engines with our SEO services, focusing on targeted keywords and local or national reach to drive more organic traffic.
       `,
-      icon: '/Seo.svg', // Path to your uploaded SEO SVG file
+      icon: <FaSearchDollar className="h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40 text-black mx-auto mb-4" />,
     },
     {
       title: 'Social Media Management',

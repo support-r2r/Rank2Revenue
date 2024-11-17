@@ -8,7 +8,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en" className="h-full w-full bg-white">
       <head>
-        <title>My App</title>
+        <title>rank2revenue</title>
         <meta name="description" content="My Next.js App" />
       </head>
       <body className="h-full w-full bg-white text-black overflow-x-hidden">
