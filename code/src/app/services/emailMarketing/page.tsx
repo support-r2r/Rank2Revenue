@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
+import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
 
 const emailMarketingData = [
   {
@@ -16,7 +17,7 @@ const emailMarketingData = [
     buttonText: "Explore",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1581091870621-8fd8d8d28516?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
     extraText: "Email Marketing (EDM)",
   },
   {
@@ -28,7 +29,7 @@ const emailMarketingData = [
     buttonText: "Automate Now",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1598837126231-bff3208fc1c2?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
     extraText: "Email Automation",
   },
   {
@@ -69,15 +70,18 @@ const emailMarketingData = [
   },
 ];
 
-
 const EmailMarketing = () => {
   return (
     <div>
       <Navbar />
+      <TitleComponent
+        title="Email Marketing"
+        subtitle="Engage, Nurture, and Convert Your Audience"
+      />
       <ContentPages contentData={emailMarketingData} />
       <ServiceNavigation
         previousService={{ name: "Content Creation", link: "/services/contentCreation" }}
-        nextService={{ name: "Area Marketing", link: "/services/seoOptimization" }}
+        nextService={{ name: "SEO Optimization", link: "/services/seoOptimization" }}
       />
       <Footer />
     </div>

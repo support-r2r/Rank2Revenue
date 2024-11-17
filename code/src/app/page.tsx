@@ -7,6 +7,7 @@ import ServicesCards from './components/ServicesCards'; // Import ServicesCards 
 import Footer from './components/Footer';
 import AboutSection from './components/AboutSection';
 import MobileContactForm from './components/MobileContactForm'
+import CampaignSection from './components/CampaignSection';
 // import Testimonials from './components/Testimonials';
 
 const HomePage: React.FC = () => {
@@ -51,12 +52,16 @@ const HomePage: React.FC = () => {
   secondaryButtonLink="/services"
   imageUrl="https://agencex-astro.vercel.app/images/image1.webp" // Using the provided image URL
 />
+
+
 {/* Hero section with updated text for a digital marketing agency */}
 
 {/* Hero section with the updated buttons for "View Services" and "Contact Us" */}
 
 
       <AboutSection />
+
+      <CampaignSection />
 
       {/* Services Section */}
       <div className="p-8">

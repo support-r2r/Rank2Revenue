@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
+import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
 
 const websiteDevelopmentData = [
   {
@@ -28,7 +29,7 @@ const websiteDevelopmentData = [
     buttonText: "Explore More",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1522204512849-88b98f0c5dcb?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
     extraText: "E-commerce Solutions",
   },
   {
@@ -52,7 +53,7 @@ const websiteDevelopmentData = [
     buttonText: "Check It Out",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1517430816045-df4b7de11d6c?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
     extraText: "Mobile-First Design",
   },
   {
@@ -69,15 +70,18 @@ const websiteDevelopmentData = [
   },
 ];
 
-
 const WebsiteDevelopment = () => {
   return (
     <div>
       <Navbar />
+      <TitleComponent
+        title="Website Development"
+        subtitle="Create Stunning, High-Performing Websites"
+      />
       <ContentPages contentData={websiteDevelopmentData} />
       <ServiceNavigation
-        previousService={{ name: "Area Marketing", link: "/services/socialMediaManagement" }}
-        nextService={{ name: "SEO Optimization", link: "/services/areaMarketing" }}
+        previousService={{ name: "Social Media Management", link: "/services/socialMediaManagement" }}
+        nextService={{ name: "SEO Optimization", link: "/services/seoOptimization" }}
       />
       <Footer />
     </div>

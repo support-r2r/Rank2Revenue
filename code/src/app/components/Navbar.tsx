@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiMenu } from "react-icons/fi";
+import Image from "next/image"; // Import Image from next/image
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -36,7 +37,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 py-4 transition-transform duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 py-3 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } bg-white shadow-md`}
     >
@@ -52,9 +53,17 @@ const Navbar: React.FC = () => {
             >
               <FiMenu />
             </motion.button>
-            <Link href="/" className="text-xl font-semibold text-black">
-              Rank2Revenue
-            </Link>
+            {/* Corrected Link Component Usage */}
+            <Link href="/">
+  <Image
+    src="/rank2Revnue.jpeg" // Use the root-relative path
+    alt="Rank2Revenue Logo"
+    width={80} // Smaller width
+    height={30} // Smaller height
+    priority
+    className="h-auto w-[25px] md:w-[10px] lg:w-[50px] object-contain" // Reduced sizes for responsiveness
+  />
+</Link>
           </div>
 
           {/* Desktop Navigation Links */}

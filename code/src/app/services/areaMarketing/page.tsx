@@ -2,8 +2,10 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
-import ServiceNavigation from "../../components/ServiceNavigation"; // Importing ServiceNavigation
+import ServiceNavigation from "../../components/ServiceNavigation";
+import TitleComponent from "../../components/TitleComponent"; // Importing TitleComponent
 
+// Updated Area Marketing Data with a New Image URL for "Event Sponsorship"
 const areaMarketingData = [
   {
     label: "Local Outreach",
@@ -14,7 +16,7 @@ const areaMarketingData = [
     buttonText: "Find Out More",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1920&q=80", // Working Image URL
     extraText: "Area Marketing",
   },
   {
@@ -26,7 +28,7 @@ const areaMarketingData = [
     buttonText: "Connect Locally",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1551861560-270b3811a503?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1920&q=80", // Working Image URL
     extraText: "Community Engagement",
   },
   {
@@ -38,7 +40,7 @@ const areaMarketingData = [
     buttonText: "Sponsor Events",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80", // New Image URL
     extraText: "Event Sponsorship",
   },
   {
@@ -50,7 +52,7 @@ const areaMarketingData = [
     buttonText: "Improve SEO",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80", // Working Image URL
     extraText: "Local SEO",
   },
 ];
@@ -59,17 +61,24 @@ const AreaMarketing = () => {
   return (
     <div>
       <Navbar />
-      <ContentPages contentData={areaMarketingData} />
-      <ServiceNavigation
-        previousService={{
-          name: "Digital Advertising",
-          link: "/services/websiteDevelopment",
-        }}
-        nextService={{
-          name: "SEO Optimization",
-          link: "/services/contentCreation",
-        }}
-      />
+      <main className="px-4 py-8">
+        {/* Using TitleComponent for the title, subtitle, and description */}
+        <TitleComponent
+          title="Area Marketing Services"
+          subtitle="Maximize Your Local Impact"
+        />
+        <ContentPages contentData={areaMarketingData} />
+        <ServiceNavigation
+          previousService={{
+            name: "Website Development",
+            link: "/services/websiteDevelopment",
+          }}
+          nextService={{
+            name: "Content Creation",
+            link: "/services/contentCreation",
+          }}
+        />
+      </main>
       <Footer />
     </div>
   );

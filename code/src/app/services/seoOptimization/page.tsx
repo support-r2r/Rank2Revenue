@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
+import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
 
 const seoOptimizationData = [
   {
@@ -64,19 +65,22 @@ const seoOptimizationData = [
     buttonText: "Build Links",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1517430816045-df4b7de11d6c?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1920&q=80", // New Working Image URL
     extraText: "Link Building",
   },
 ];
-
 
 const SEOOptimization = () => {
   return (
     <div>
       <Navbar />
+      <TitleComponent
+        title="SEO Optimization Services"
+        subtitle="Enhance Your Visibility and Drive Organic Traffic"
+      />
       <ContentPages contentData={seoOptimizationData} />
       <ServiceNavigation
-        previousService={{ name: "Website Development", link: "/services/websiteDevelopment" }}
+        previousService={{ name: "Email Marketing", link: "/services/emailMarketing" }}
         nextService={{ name: "Social Media Management", link: "/services/socialMediaManagement" }}
       />
       <Footer />

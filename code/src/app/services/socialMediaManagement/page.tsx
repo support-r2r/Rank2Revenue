@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContentPages from "../../components/Contentpages";
 import ServiceNavigation from "../../components/ServiceNavigation";
+import TitleComponent from "../../components/TitleComponent"; // Import TitleComponent
 
 const socialMediaManagementData = [
   {
@@ -69,15 +70,18 @@ const socialMediaManagementData = [
   },
 ];
 
-
 const SocialMediaManagement = () => {
   return (
     <div>
       <Navbar />
+      <TitleComponent
+        title="Social Media Management"
+        subtitle="Engage, Connect, and Grow Your Brand"
+      />
       <ContentPages contentData={socialMediaManagementData} />
       <ServiceNavigation
         previousService={{ name: "SEO Optimization", link: "/services/seoOptimization" }}
-        nextService={{ name: "Content Creation", link: "/services/websiteDevelopment" }}
+        nextService={{ name: "Website Development", link: "/services/websiteDevelopment" }}
       />
       <Footer />
     </div>
