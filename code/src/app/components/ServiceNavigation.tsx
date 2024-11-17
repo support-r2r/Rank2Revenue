@@ -23,12 +23,12 @@ const ServiceNavigation = ({
     isPrevious: boolean
   ) => (
     <Link href={service.link}>
-      <button className="flex items-center gap-2 rounded-full bg-gray-200 px-4 py-2 text-gray-800 transition-all duration-300 hover:bg-gray-800 hover:text-white active:bg-gray-700">
-        <span className="rounded-full bg-gray-800 p-2 text-white transition-colors duration-300 hover:bg-white hover:text-gray-800">
+      <button className="flex items-center gap-4 rounded-full bg-gray-200 px-6 py-3 text-lg font-semibold text-gray-800 transition-all duration-300 hover:bg-gray-800 hover:text-white active:bg-gray-700">
+        <span className="rounded-full bg-gray-800 p-3 text-white transition-colors duration-300 hover:bg-white hover:text-gray-800">
           {isPrevious ? (
-            <FiArrowLeft className="text-lg" />
+            <FiArrowLeft className="text-2xl" />
           ) : (
-            <FiArrowRight className="text-lg" />
+            <FiArrowRight className="text-2xl" />
           )}
         </span>
         <span>{service.name}</span>
@@ -37,7 +37,7 @@ const ServiceNavigation = ({
   );
 
   return (
-    <div className="flex flex-wrap justify-between items-center py-8 gap-4">
+    <div className="flex flex-wrap items-center justify-between gap-6 py-10">
       {renderButton(previousService, true)}
       {renderButton(nextService, false)}
     </div>

@@ -6,8 +6,9 @@ import Card from './components/Card';
 import ServicesCards from './components/ServicesCards'; // Import ServicesCards component
 import Footer from './components/Footer';
 import AboutSection from './components/AboutSection';
-import MobileContactForm from './components/MobileContactForm'
+import MobileContactForm from './components/MobileContactForm';
 import CampaignSection from './components/CampaignSection';
+import Partners from "./components/Partners";
 // import Testimonials from './components/Testimonials';
 
 const HomePage: React.FC = () => {
@@ -40,32 +41,32 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <Navbar /> {/* Navbar at the top */}
+      {/* Navbar at the top */}
+      <Navbar />
 
+      {/* Hero section with updated text for a digital marketing agency */}
       <Hero
-  title="Grow Your Brand with Digital Marketing Experts"
-  subtitle="Tailored Strategies for Maximum Impact"
-  description="From SEO and content marketing to social media management and web development, we provide comprehensive digital solutions designed to elevate your brand and drive measurable results."
-  primaryButtonText="Contact Us"
-  primaryButtonLink="/contact"
-  secondaryButtonText="View Services"
-  secondaryButtonLink="/services"
-  imageUrl="https://agencex-astro.vercel.app/images/image1.webp" // Using the provided image URL
-/>
+        title="Grow Your Brand with Digital Marketing Experts"
+        subtitle="Tailored Strategies for Maximum Impact"
+        description="From SEO and content marketing to social media management and web development, we provide comprehensive digital solutions designed to elevate your brand and drive measurable results."
+        primaryButtonText="Contact Us"
+        primaryButtonLink="/contact"
+        secondaryButtonText="View Services"
+        secondaryButtonLink="/services"
+        imageUrl="https://agencex-astro.vercel.app/images/image1.webp" // Using the provided image URL
+      />
+
+      {/* Technology Partners Section */}
+   
+        <Partners />
 
 
-{/* Hero section with updated text for a digital marketing agency */}
-
-{/* Hero section with the updated buttons for "View Services" and "Contact Us" */}
-
-
-      <AboutSection />
-
+      {/* Campaign Section */}
       <CampaignSection />
 
       {/* Services Section */}
       <div className="p-8">
-        <ServicesCards /> {/* Renders the ServicesCards component */}
+        <ServicesCards />
       </div>
 
       {/* Project Cards Section */}
@@ -83,12 +84,8 @@ const HomePage: React.FC = () => {
         ))}
       </div>
 
+      {/* Mobile Contact Form */}
       <MobileContactForm />
-
-      {/* Testimonials Section */}
-      {/* <div className="p-8">
-        <Testimonials />
-      </div> */}
 
       {/* Footer Section */}
       <Footer />

@@ -5,7 +5,7 @@ interface TitleComponentProps {
   
   const TitleComponent: React.FC<TitleComponentProps> = ({ title, subtitle }) => {
     return (
-      <section className="bg-gray-50 py-4 mt-12">
+      <section className="bg-gray-50 py-10 mt-12">
         <div className="mx-auto max-w-screen-xl text-center">
           <h1 className="text-3xl font-extrabold text-black sm:text-5xl"> {/* Black text */}
             {title}

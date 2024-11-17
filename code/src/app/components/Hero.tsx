@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Rank2RevenueImage from '../../../public/rank2Revnue.png';
 
 interface HeroProps {
   title: string;
@@ -35,6 +36,16 @@ const Hero: React.FC<HeroProps> = ({
         {/* Top Background Accent */}
         <span className="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-indigo-600 via-blue-500 to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-70 skew-x-12 rotate-90"></span>
 
+        {/* Left Hero Image */}
+        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 lg:h-auto max-w-3xl mx-auto lg:max-w-none lg:mx-0">
+          <Image
+            src= {Rank2RevenueImage} // Use imageUrl here
+            alt="Hero image left"
+            fill
+            className="rounded-3xl object-cover lg:max-h-none max-h-96"
+          />
+        </div>
+
         {/* Main Content Section */}
         <div className="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
           <p className="text-lg font-semibold text-gray-700">{subtitle}</p>
@@ -53,18 +64,18 @@ const Hero: React.FC<HeroProps> = ({
             </a>
             <a
               href={secondaryButtonLink}
-              className="rounded-full border border-gray-600 px-6 py-3 font-medium text-gray-600 hover:bg-gray-800 transition ease-linear duration-300"
+              className="rounded-full border border-gray-600 px-6 py-3 font-medium text-gray-600 hover:bg-gray-800 hover:text-white transition ease-linear duration-300"
             >
               {secondaryButtonText}
             </a>
           </div>
         </div>
 
-        {/* Hero Image */}
-        <div className="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
+        {/* Right Hero Image */}
+        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 lg:h-auto max-w-3xl mx-auto lg:max-w-none lg:mx-0">
           <Image
             src={imageUrl} // Use imageUrl here
-            alt="Hero image"
+            alt="Hero image right"
             fill
             className="rounded-3xl object-cover lg:max-h-none max-h-96"
           />
