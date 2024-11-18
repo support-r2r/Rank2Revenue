@@ -7,8 +7,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import BlogPost from "../components/BlogPost";
 import BlogThumbnails from "../components/BlogThumbnails";
-import PdfUpload from "../components/PdfUpload";
-import Admin from "../components/admin";
+
 
 interface BlogPostProps {
   id: string;
@@ -91,8 +90,8 @@ const Blog: React.FC = () => {
         imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80"
       />
       <div className="p-8 space-y-8" id="articles">
-        {isLoading && <div>Loading...</div>}
-        {error && <div>Error: {error}</div>}
+
+  
         {!isLoading && !error && posts.length === 0 && (
           <div>No blog posts available.</div>
         )}
@@ -114,14 +113,8 @@ const Blog: React.FC = () => {
           </div>
         )}
         <BlogThumbnails />
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Upload a Blog Post</h2>
-          <PdfUpload />
-        </div>
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Add a Blog Post Manually</h2>
-          <Admin />
-        </div>
+       
+      
       </div>
       <Footer />
     </div>
