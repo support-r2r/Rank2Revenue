@@ -23,22 +23,31 @@ const FooterLinkSection: React.FC<FooterLinkProps> = ({ title, links }) => (
 
 const Footer: React.FC = () => {
   const serviceLinks = [
-    { label: "Website Development", href: "/services/websiteDevelopment" },
-    { label: "SEO Optimization", href: "/services/seoOptimization" },
-    { label: "Social Media Management", href: "/services/socialMediaManagement" },
-    { label: "Content Creation", href: "/services/contentCreation" },
-    { label: "Email Marketing", href: "/services/emailMarketing" },
+    { label: 'Website Development', href: '/services/websiteDevelopment' },
+    { label: 'SEO Optimization', href: '/services/seoOptimization' },
+    { label: 'Social Media Management', href: '/services/socialMediaManagement' },
+    { label: 'Content Creation', href: '/services/contentCreation' },
+    { label: 'Email Marketing', href: '/services/emailMarketing' },
   ];
 
   const companyLinks = [
-    { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const legalLinks = [
-    { label: "Terms of Use", href: "/terms-of-use" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: 'Terms of Use', href: '/terms-of-use' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Cookie Policy', href: '/cookie-policy' },
+  ];
+
+  // Added sitemapLinks array
+  const sitemapLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    // Add more links as needed
   ];
 
   return (
@@ -64,6 +73,8 @@ const Footer: React.FC = () => {
         <FooterLinkSection title="Services" links={serviceLinks} />
         <FooterLinkSection title="Company" links={companyLinks} />
         <FooterLinkSection title="Legal" links={legalLinks} />
+        {/* Added Sitemap section */}
+        <FooterLinkSection title="Sitemap" links={sitemapLinks} />
       </div>
 
       {/* Bottom Text */}

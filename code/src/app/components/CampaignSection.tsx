@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { FaGoogle, FaFacebook, FaInstagram } from "react-icons/fa"; // Importing requested icons
+import { FaFacebook, FaInstagram } from "react-icons/fa"; // Importing requested icons
+import { FcGoogle } from "react-icons/fc";
 
 const CampaignShowcase: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const CampaignShowcase: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Google Campaign */}
           <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <FaGoogle className="text-blue-500 text-6xl mx-auto mb-4" />
+            <FcGoogle className="text-blue-500 text-6xl mx-auto mb-4" />
             <h3 className="text-2xl font-semibold mb-2">Google Ads</h3>
             <p className="text-gray-500">
               Optimize your reach and boost engagement with targeted Google ad

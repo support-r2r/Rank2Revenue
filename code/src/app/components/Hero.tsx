@@ -11,7 +11,7 @@ interface HeroProps {
   primaryButtonLink: string;
   secondaryButtonText: string;
   secondaryButtonLink: string;
-  imageUrl: string; // Added imageUrl property
+  imageUrl: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -22,27 +22,28 @@ const Hero: React.FC<HeroProps> = ({
   primaryButtonLink,
   secondaryButtonText,
   secondaryButtonLink,
-  imageUrl, // Destructure imageUrl
+  imageUrl,
 }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white text-black">
       <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex flex-col lg:flex-row gap-10 lg:gap-12">
         {/* Background Accent Shapes */}
         <div className="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 hidden lg:block">
-          <span className="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-indigo-700 blur-xl opacity-80 lg:opacity-90"></span>
+          {/* Adjusted Logo Size and Position */}
+          <span className="absolute -left-20 md:-left-16 top-20 lg:top-24 w-4 h-4 rotate-90 skew-x-12 rounded-3xl bg-indigo-700 blur-xl opacity-80 lg:opacity-90"></span>
           <span className="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-green-500 blur-xl opacity-90"></span>
         </div>
 
         {/* Top Background Accent */}
-        <span className="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-indigo-600 via-blue-500 to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-70 skew-x-12 rotate-90"></span>
+        <span className="w-3/12 lg:w-1/12 aspect-square bg-gradient-to-tr from-indigo-600 via-blue-500 to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-70 skew-x-12 rotate-90"></span>
 
         {/* Left Hero Image */}
-        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 lg:h-auto max-w-3xl mx-auto lg:max-w-none lg:mx-0">
+        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 max-w-xl mx-auto lg:max-w-none lg:mx-0">
           <Image
-            src= {Rank2RevenueImage} // Use imageUrl here
+            src={Rank2RevenueImage}
             alt="Hero image left"
             fill
-            className="rounded-3xl object-cover lg:max-h-none max-h-96"
+            className="rounded-3xl object-cover max-h-80 lg:max-h-96"
           />
         </div>
 
@@ -72,12 +73,12 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Right Hero Image */}
-        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 lg:h-auto max-w-3xl mx-auto lg:max-w-none lg:mx-0">
+        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 max-w-xl mx-auto lg:max-w-none lg:mx-0">
           <Image
-            src={imageUrl} // Use imageUrl here
+            src={imageUrl}
             alt="Hero image right"
             fill
-            className="rounded-3xl object-cover lg:max-h-none max-h-96"
+            className="rounded-3xl object-cover max-h-80 lg:max-h-96"
           />
         </div>
       </div>
