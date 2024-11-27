@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import Rank2RevenueImage from '../../../public/rank2Revnue.png';
 
 interface HeroProps {
   title: string;
@@ -29,7 +28,6 @@ const Hero: React.FC<HeroProps> = ({
       <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex flex-col lg:flex-row gap-10 lg:gap-12">
         {/* Background Accent Shapes */}
         <div className="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 hidden lg:block">
-          {/* Adjusted Logo Size and Position */}
           <span className="absolute -left-20 md:-left-16 top-20 lg:top-24 w-4 h-4 rotate-90 skew-x-12 rounded-3xl bg-indigo-700 blur-xl opacity-80 lg:opacity-90"></span>
           <span className="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-green-500 blur-xl opacity-90"></span>
         </div>
@@ -40,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({
         {/* Left Hero Image */}
         <div className="relative flex flex-1 items-center justify-center lg:w-1/2 max-w-xl mx-auto lg:max-w-none lg:mx-0">
           <Image
-            src={Rank2RevenueImage}
+            src={imageUrl}
             alt="Hero image left"
             fill
             className="rounded-3xl object-cover max-h-80 lg:max-h-96"
@@ -70,16 +68,6 @@ const Hero: React.FC<HeroProps> = ({
               {secondaryButtonText}
             </a>
           </div>
-        </div>
-
-        {/* Right Hero Image */}
-        <div className="relative flex flex-1 items-center justify-center lg:w-1/2 max-w-xl mx-auto lg:max-w-none lg:mx-0">
-          <Image
-            src={imageUrl}
-            alt="Hero image right"
-            fill
-            className="rounded-3xl object-cover max-h-80 lg:max-h-96"
-          />
         </div>
       </div>
     </section>

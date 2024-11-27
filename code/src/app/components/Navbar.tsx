@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiMenu } from "react-icons/fi";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       } bg-white shadow-md`}
     >
-      <div className="mx-auto lg:max-w-7xl w-full px-4 sm:px-6 md:px-8">
+      <div className="mx-auto lg:max-w-7xl w-full px-4 sm:px-6 md:px-12">
         <nav className="flex justify-between items-center">
           {/* Logo and Mobile Menu Button */}
           <div className="flex items-center gap-4">
@@ -53,17 +53,16 @@ const Navbar: React.FC = () => {
             >
               <FiMenu />
             </motion.button>
-            {/* Corrected Link Component Usage */}
             <Link href="/">
-  <Image
-    src="/rank2Revnue.png" // Use the root-relative path
-    alt="Rank2Revenue Logo"
-    width={80} // Smaller width
-    height={30} // Smaller height
-    priority
-    className="h-auto w-[25px] md:w-[15px] lg:w-[60px] object-contain" // Reduced sizes for responsiveness
-  />
-</Link>
+              <Image
+                src="/rank2Revnue.png"
+                alt="Rank2Revenue Logo"
+                width={80}
+                height={30}
+                priority
+                className="h-auto w-[25px] md:w-[40px] lg:w-[60px] object-contain"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}

@@ -15,7 +15,7 @@ const DottedButton: React.FC<{
       onClick={onClick}
       whileHover={{ translateX: -4, translateY: -4 }}
       whileTap={{ translateX: 0, translateY: 0 }}
-      className={`rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:rounded-md hover:shadow-[4px_4px_0px_black] active:rounded-2xl active:shadow-none ${className}`}
+      className={`rounded-md shadow-[4px_4px_0px_black] border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 ${className}`}
     >
       {children}
     </motion.button>

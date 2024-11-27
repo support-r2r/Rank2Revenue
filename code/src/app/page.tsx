@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import MobileContactForm from './components/MobileContactForm';
 import CampaignSection from './components/CampaignSection';
 import Partners from "./components/Partners";
+import StickyLogo from './components/StickyLogo';
 // import Testimonials from './components/Testimonials';
 
 const HomePage: React.FC = () => {
@@ -57,6 +58,8 @@ const HomePage: React.FC = () => {
         />
         <meta name="author" content="Your Company Name" />
       </Head>
+
+      <StickyLogo />
 
       {/* Navbar at the top */}
       <Navbar />
