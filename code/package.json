@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.46.1",
+    "@vercel/analytics": "^1.4.1",
     "busboy": "^1.6.0",
     "code": "file:",
     "formidable": "^3.5.2",

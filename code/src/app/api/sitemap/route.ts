@@ -29,7 +29,7 @@ export const GET = async () => {
   
     return new Response(sitemap.trim(), {
       headers: {
-        'Content-Type': 'application/xml',
+        'Content-Type': 'application/xml', // Correct Content-Type for XML
       },
     });
   };

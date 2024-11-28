@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import { usePathname } from "next/navigation"; // Use usePathname for Next.js 13 compatibility
+import { usePathname } from "next/navigation"; // Use usePathname for dynamic canonical URLs
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const childrenArray = React.Children.toArray(children);
@@ -14,34 +15,18 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Rank2Revenue",
-    "url": "https://rank2revenue.com.au",
-    "potentialAction": {
+    name: "Rank2Revenue",
+    url: "https://rank2revenue.com.au",
+    potentialAction: {
       "@type": "SearchAction",
-      "target": "https://rank2revenue.com.au/search?q={search_term_string}",
+      target: "https://rank2revenue.com.au/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
-    "hasPart": [
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Home",
-        "url": "https://rank2revenue.com.au/",
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Services",
-        "url": "https://rank2revenue.com.au/services",
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "About Us",
-        "url": "https://rank2revenue.com.au/about",
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": "Contact",
-        "url": "https://rank2revenue.com.au/contact",
-      },
+    hasPart: [
+      { "@type": "SiteNavigationElement", name: "Home", url: "https://rank2revenue.com.au/" },
+      { "@type": "SiteNavigationElement", name: "Services", url: "https://rank2revenue.com.au/services" },
+      { "@type": "SiteNavigationElement", name: "About Us", url: "https://rank2revenue.com.au/about" },
+      { "@type": "SiteNavigationElement", name: "Contact", url: "https://rank2revenue.com.au/contact" },
     ],
   };
 
@@ -49,15 +34,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Rank2Revenue",
-    "url": "https://rank2revenue.com.au",
-    "logo": "https://rank2revenue.com.au/logo.png",
-    "contactPoint": {
+    name: "Rank2Revenue",
+    url: "https://rank2revenue.com.au",
+    logo: "https://rank2revenue.com.au/logo.png",
+    contactPoint: {
       "@type": "ContactPoint",
-      "telephone": "+1-800-555-1234",
-      "contactType": "Customer Service",
+      telephone: "+1-800-555-1234",
+      contactType: "Customer Service",
     },
-    "sameAs": [
+    sameAs: [
       "https://www.facebook.com/rank2revenue",
       "https://www.linkedin.com/company/rank2revenue",
     ],
@@ -67,41 +52,36 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const servicesData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "Service",
-        "name": "Website Development",
-        "url": "https://rank2revenue.com.au/services/website-development",
-        "description":
-          "Professional website development services to build robust and responsive websites.",
+        name: "Website Development",
+        url: "https://rank2revenue.com.au/services/website-development",
+        description: "Professional website development services to build robust and responsive websites.",
       },
       {
         "@type": "Service",
-        "name": "SEO Optimization",
-        "url": "https://rank2revenue.com.au/services/seo-optimization",
-        "description":
-          "Enhance your website's visibility on search engines with our SEO services.",
+        name: "SEO Optimization",
+        url: "https://rank2revenue.com.au/services/seo-optimization",
+        description: "Enhance your website's visibility on search engines with our SEO services.",
       },
       {
         "@type": "Service",
-        "name": "Social Media Management",
-        "url": "https://rank2revenue.com.au/services/social-media-management",
-        "description":
-          "Manage your social media presence effectively to engage with your audience.",
+        name: "Social Media Management",
+        url: "https://rank2revenue.com.au/services/social-media-management",
+        description: "Manage your social media presence effectively to engage with your audience.",
       },
       {
         "@type": "Service",
-        "name": "Content Creation",
-        "url": "https://rank2revenue.com.au/services/content-creation",
-        "description":
-          "Create high-quality content to attract and retain your target audience.",
+        name: "Content Creation",
+        url: "https://rank2revenue.com.au/services/content-creation",
+        description: "Create high-quality content to attract and retain your target audience.",
       },
       {
         "@type": "Service",
-        "name": "Email Marketing",
-        "url": "https://rank2revenue.com.au/services/email-marketing",
-        "description":
-          "Reach out to your customers directly with our email marketing campaigns.",
+        name: "Email Marketing",
+        url: "https://rank2revenue.com.au/services/email-marketing",
+        description: "Reach out to your customers directly with our email marketing campaigns.",
       },
     ],
   };
@@ -110,61 +90,16 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://rank2revenue.com.au/",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://rank2revenue.com.au/services",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Website Development",
-        "item": "https://rank2revenue.com.au/services/website-development",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "SEO Optimization",
-        "item": "https://rank2revenue.com.au/services/seo-optimization",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Social Media Management",
-        "item": "https://rank2revenue.com.au/services/social-media-management",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Content Creation",
-        "item": "https://rank2revenue.com.au/services/content-creation",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Email Marketing",
-        "item": "https://rank2revenue.com.au/services/email-marketing",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "About Us",
-        "item": "https://rank2revenue.com.au/about",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Contact",
-        "item": "https://rank2revenue.com.au/contact",
-      },
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://rank2revenue.com.au/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://rank2revenue.com.au/services" },
+      { "@type": "ListItem", position: 3, name: "Website Development", item: "https://rank2revenue.com.au/services/website-development" },
+      { "@type": "ListItem", position: 3, name: "SEO Optimization", item: "https://rank2revenue.com.au/services/seo-optimization" },
+      { "@type": "ListItem", position: 3, name: "Social Media Management", item: "https://rank2revenue.com.au/services/social-media-management" },
+      { "@type": "ListItem", position: 3, name: "Content Creation", item: "https://rank2revenue.com.au/services/content-creation" },
+      { "@type": "ListItem", position: 3, name: "Email Marketing", item: "https://rank2revenue.com.au/services/email-marketing" },
+      { "@type": "ListItem", position: 2, name: "About Us", item: "https://rank2revenue.com.au/about" },
+      { "@type": "ListItem", position: 2, name: "Contact", item: "https://rank2revenue.com.au/contact" },
     ],
   };
 
@@ -172,45 +107,34 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="en" className="h-full w-full bg-white">
       <head>
         <title>Rank2Revenue</title>
-        <meta
-          name="description"
-          content="Grow your brand with expert digital marketing services."
-        />
-        <meta
-          name="keywords"
-          content="digital marketing, SEO, content marketing, web development"
-        />
+        <meta name="description" content="Grow your brand with expert digital marketing services." />
+        <meta name="keywords" content="digital marketing, SEO, content marketing, web development" />
         <meta name="author" content="Rank2Revenue" />
+
+        {/* Responsive Meta Tag */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* Add Canonical Tag */}
         <link rel="canonical" href={canonicalURL} />
 
+        {/* Add Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
         {/* Inject Schema.org structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesData) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }} />
       </head>
       <body className="h-full w-full bg-white text-black overflow-x-hidden">
-        {/* Full-width Hero Component without constraints */}
+        {/* Full-width Hero Component */}
         <div className="w-full">{childrenArray[0]}</div>
 
-        {/* Constrained layout for the rest of the content */}
+        {/* Main Content */}
         <main className="w-full max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5">
           {childrenArray.slice(1)}
         </main>
+        <Analytics/> 
       </body>
     </html>
   );
