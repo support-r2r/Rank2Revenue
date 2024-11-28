@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
-import { usePathname } from "next/navigation"; // Use usePathname from next/navigation
+import { usePathname } from "next/navigation"; // Use usePathname for Next.js 13 compatibility
 import "./globals.css";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const childrenArray = React.Children.toArray(children);
 
-  // Get the current pathname for constructing the canonical URL
+  // Get the current pathname to construct the canonical URL
   const pathname = usePathname();
   const canonicalURL = `https://rank2revenue.com.au${pathname || ""}`;
 
-  // Schema.org Structured Data
+  // Schema.org Structured Data: Website
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -45,6 +45,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     ],
   };
 
+  // Schema.org Structured Data: Organization
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -63,6 +64,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     ],
   };
 
+  // Schema.org Structured Data: Services
   const servicesData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -71,35 +73,41 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         "@type": "Service",
         "name": "Website Development",
         "url": "https://rank2revenue.com.au/services/websiteDevelopment",
-        "description": "Professional website development services to build robust and responsive websites.",
+        "description":
+          "Professional website development services to build robust and responsive websites.",
       },
       {
         "@type": "Service",
         "name": "SEO Optimization",
         "url": "https://rank2revenue.com.au/services/seoOptimization",
-        "description": "Enhance your website's visibility on search engines with our SEO services.",
+        "description":
+          "Enhance your website's visibility on search engines with our SEO services.",
       },
       {
         "@type": "Service",
         "name": "Social Media Management",
         "url": "https://rank2revenue.com.au/services/socialMediaManagement",
-        "description": "Manage your social media presence effectively to engage with your audience.",
+        "description":
+          "Manage your social media presence effectively to engage with your audience.",
       },
       {
         "@type": "Service",
         "name": "Content Creation",
         "url": "https://rank2revenue.com.au/services/contentCreation",
-        "description": "Create high-quality content to attract and retain your target audience.",
+        "description":
+          "Create high-quality content to attract and retain your target audience.",
       },
       {
         "@type": "Service",
         "name": "Email Marketing",
         "url": "https://rank2revenue.com.au/services/emailMarketing",
-        "description": "Reach out to your customers directly with our email marketing campaigns.",
+        "description":
+          "Reach out to your customers directly with our email marketing campaigns.",
       },
     ],
   };
 
+  // Schema.org Structured Data: Breadcrumbs
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -157,24 +165,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         "position": 2,
         "name": "Contact",
         "item": "https://rank2revenue.com.au/contact",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Terms of Use",
-        "item": "https://rank2revenue.com.au/terms-of-use",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Privacy Policy",
-        "item": "https://rank2revenue.com.au/privacy-policy",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Cookie Policy",
-        "item": "https://rank2revenue.com.au/cookie-policy",
       },
     ],
   };
