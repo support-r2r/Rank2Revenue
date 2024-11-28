@@ -29,13 +29,20 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'example.com', // Added example.com
+        hostname: 'rank2revenue.com.au', // Updated hostname for Rank2Revenue
         port: '',
         pathname: '/**',
       },
     ],
   },
-
+  async rewrites() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/api/robots', // Map /robots.txt to the API route
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -58,8 +58,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       "contactType": "Customer Service",
     },
     "sameAs": [
-      "https://www.facebook.com/yourprofile",
-      "https://www.twitter.com/yourprofile",
+      "https://www.facebook.com/rank2revenue",
       "https://www.linkedin.com/company/rank2revenue",
     ],
   };
@@ -72,35 +71,35 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {
         "@type": "Service",
         "name": "Website Development",
-        "url": "https://rank2revenue.com.au/services/websiteDevelopment",
+        "url": "https://rank2revenue.com.au/services/website-development",
         "description":
           "Professional website development services to build robust and responsive websites.",
       },
       {
         "@type": "Service",
         "name": "SEO Optimization",
-        "url": "https://rank2revenue.com.au/services/seoOptimization",
+        "url": "https://rank2revenue.com.au/services/seo-optimization",
         "description":
           "Enhance your website's visibility on search engines with our SEO services.",
       },
       {
         "@type": "Service",
         "name": "Social Media Management",
-        "url": "https://rank2revenue.com.au/services/socialMediaManagement",
+        "url": "https://rank2revenue.com.au/services/social-media-management",
         "description":
           "Manage your social media presence effectively to engage with your audience.",
       },
       {
         "@type": "Service",
         "name": "Content Creation",
-        "url": "https://rank2revenue.com.au/services/contentCreation",
+        "url": "https://rank2revenue.com.au/services/content-creation",
         "description":
           "Create high-quality content to attract and retain your target audience.",
       },
       {
         "@type": "Service",
         "name": "Email Marketing",
-        "url": "https://rank2revenue.com.au/services/emailMarketing",
+        "url": "https://rank2revenue.com.au/services/email-marketing",
         "description":
           "Reach out to your customers directly with our email marketing campaigns.",
       },
@@ -128,31 +127,31 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         "@type": "ListItem",
         "position": 3,
         "name": "Website Development",
-        "item": "https://rank2revenue.com.au/services/websiteDevelopment",
+        "item": "https://rank2revenue.com.au/services/website-development",
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "SEO Optimization",
-        "item": "https://rank2revenue.com.au/services/seoOptimization",
+        "item": "https://rank2revenue.com.au/services/seo-optimization",
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Social Media Management",
-        "item": "https://rank2revenue.com.au/services/socialMediaManagement",
+        "item": "https://rank2revenue.com.au/services/social-media-management",
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Content Creation",
-        "item": "https://rank2revenue.com.au/services/contentCreation",
+        "item": "https://rank2revenue.com.au/services/content-creation",
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Email Marketing",
-        "item": "https://rank2revenue.com.au/services/emailMarketing",
+        "item": "https://rank2revenue.com.au/services/email-marketing",
       },
       {
         "@type": "ListItem",

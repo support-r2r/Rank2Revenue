@@ -47,16 +47,37 @@ const HomePage: React.FC = () => {
     <div>
       {/* Head section for meta descriptions */}
       <Head>
-        <title>Grow Your Brand with Digital Marketing Experts</title>
+        <title>Rank2Revenue | Digital Marketing Experts</title>
         <meta
           name="description"
-          content="Elevate your brand with our expert digital marketing services, from SEO and content marketing to web development. Tailored strategies for measurable results."
+          content="Rank2Revenue specializes in digital marketing services, including SEO, social media management, and web development, to grow your brand and maximize ROI."
         />
         <meta
           name="keywords"
-          content="digital marketing, SEO, content marketing, social media management, web development"
+          content="digital marketing, SEO, social media management, branding, content marketing, web development, Rank2Revenue"
         />
-        <meta name="author" content="Your Company Name" />
+        <meta
+          property="og:title"
+          content="Rank2Revenue | Digital Marketing Experts"
+        />
+        <meta
+          property="og:description"
+          content="Grow your business with Rank2Revenue's tailored digital marketing strategies. Achieve measurable results through SEO, branding, and innovative web development solutions."
+        />
+        <meta property="og:image" content="https://rank2revenue.com.au/og-image.jpg" />
+        <meta property="og:url" content="https://rank2revenue.com.au" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:site_name"
+          content="Rank2Revenue Digital Marketing Agency"
+        />
+        <meta
+          property="og:see_also"
+          content="https://www.linkedin.com/company/rank2revenue"
+        />
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
+
       </Head>
 
       <StickyLogo />
