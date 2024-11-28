@@ -3,6 +3,7 @@ import React from "react";
 import { usePathname } from "next/navigation"; // Use usePathname for dynamic canonical URLs
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const childrenArray = React.Children.toArray(children);
@@ -135,6 +136,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           {childrenArray.slice(1)}
         </main>
         <Analytics/> 
+        <SpeedInsights />
       </body>
     </html>
   );
