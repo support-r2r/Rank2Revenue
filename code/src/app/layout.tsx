@@ -1,8 +1,14 @@
-import React from 'react';
-import './globals.css';
+"use client";
+import React from "react";
+import { usePathname } from "next/navigation"; // Use usePathname from next/navigation
+import "./globals.css";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const childrenArray = React.Children.toArray(children);
+
+  // Get the current pathname for constructing the canonical URL
+  const pathname = usePathname();
+  const canonicalURL = `https://rank2revenue.com.au${pathname || ""}`;
 
   // Schema.org Structured Data
   const structuredData = {
@@ -177,10 +183,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="en" className="h-full w-full bg-white">
       <head>
         <title>Rank2Revenue</title>
-        <meta name="description" content="Grow your brand with expert digital marketing services." />
-        <meta name="keywords" content="digital marketing, SEO, content marketing, web development" />
+        <meta
+          name="description"
+          content="Grow your brand with expert digital marketing services."
+        />
+        <meta
+          name="keywords"
+          content="digital marketing, SEO, content marketing, web development"
+        />
         <meta name="author" content="Rank2Revenue" />
-        
+
+        {/* Add Canonical Tag */}
+        <link rel="canonical" href={canonicalURL} />
+
         {/* Inject Schema.org structured data */}
         <script
           type="application/ld+json"
