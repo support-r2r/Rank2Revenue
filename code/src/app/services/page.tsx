@@ -20,7 +20,7 @@ const Services = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="Explore Our Services"
         secondaryButtonLink="#services-overview"
-        imageUrl="https://agencex-astro.vercel.app/images/image1.webp" // Added the image URL
+        imageUrl="/services.jpeg" // Added the image URL
       />
 
       <ServicesCards />

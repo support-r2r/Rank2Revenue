@@ -1,0 +1,5 @@
+id,category,title,time,author,tag,content,tags,thumbnailUrl,description
+26744dd6-bf3c-458c-960e-d0b94803f102,Health,The Importance of Mental Health Awareness,5 mins,Author A,Mental Health,500 words about mental health and its importance.,"['mental health', 'well-being']",url1,An overview of why mental health matters.
+ae454287-0c5d-408b-80b6-5d545955947f,Business,10 Strategies for Startup Growth,12 mins,Author C,Startup,520 words detailing strategies for startups.,"['growth', 'startups']",url3,A guide for startups to achieve growth.
+c7a7937e-10b6-43e5-bb50-fd141893356b,Education,Top Online Learning Platforms in 2024,7 mins,Author D,E-Learning,600 words on online learning platforms.,"['e-learning', 'education']",url4,Best platforms for online learning in 2024.
+d3c2d0da-5deb-4195-a5dc-ac9785d3f576,Tech,Mastering React in 2024: Best Practices,10 mins,Author E,React,550 words covering best practices for React.,"['React', 'programming']",url5,Key practices for mastering React development.

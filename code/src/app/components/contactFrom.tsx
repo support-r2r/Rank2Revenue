@@ -1,15 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// DottedButton Component
-const DottedButton: React.FC<{
+interface DottedButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
-}> = ({ onClick, children, className }) => {
+}
+
+const DottedButton: React.FC<DottedButtonProps> = ({
+  onClick,
+  children,
+  className,
+}) => {
   return (
     <motion.button
       onClick={onClick}
@@ -23,6 +28,47 @@ const DottedButton: React.FC<{
 };
 
 const ContactSection: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Submission successful!");
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleButtonClick = (type: string) => {
     if (type === "call") {
       window.location.href = "tel:+41522123071";
@@ -44,14 +90,14 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section className="flex flex-col lg:flex-row h-full min-h-screen bg-white font-sans">
+    <section className="relative flex flex-col lg:flex-row h-full min-h-screen bg-white font-sans">
       {/* Left Contact Section */}
       <motion.div
         variants={leftVariant}
         initial="hidden"
         animate="visible"
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="lg:w-1/2 w-full p-6 flex justify-center items-center"
+        className="lg:w-1/2 w-full p-6 flex flex-col justify-center items-center space-y-8"
       >
         <div className="w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg p-6">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
@@ -64,22 +110,13 @@ const ContactSection: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6">
-            <DottedButton
-              className="flex-1 mb-4 sm:mb-0"
-              onClick={() => handleButtonClick("call")}
-            >
+            <DottedButton onClick={() => handleButtonClick("call")}>
               Call
             </DottedButton>
-            <DottedButton
-              className="flex-1 mb-4 sm:mb-0"
-              onClick={() => handleButtonClick("email")}
-            >
+            <DottedButton onClick={() => handleButtonClick("email")}>
               Email
             </DottedButton>
-            <DottedButton
-              className="flex-1"
-              onClick={() => handleButtonClick("schedule")}
-            >
+            <DottedButton onClick={() => handleButtonClick("schedule")}>
               Schedule
             </DottedButton>
           </div>
@@ -105,6 +142,82 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Enquiry Form Section */}
+        <div className="w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg p-6">
+          <h2 className="text-xl font-semibold mb-4">Send an Enquiry</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="sr-only" htmlFor="name">
+                Name
+              </label>
+              <input
+                className="w-full rounded-lg border-gray-300 p-3 text-sm"
+                placeholder="Name"
+                type="text"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label className="sr-only" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="w-full rounded-lg border-gray-300 p-3 text-sm"
+                  placeholder="Email address"
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="sr-only" htmlFor="phone">
+                  Phone
+                </label>
+                <input
+                  className="w-full rounded-lg border-gray-300 p-3 text-sm"
+                  placeholder="Phone Number"
+                  type="tel"
+                  id="phone"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="sr-only" htmlFor="message">
+                Message
+              </label>
+              <textarea
+                className="w-full rounded-lg border-gray-300 p-3 text-sm"
+                placeholder="Message"
+                rows={5}
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </div>
+
+            <div className="mt-4">
+              <button
+                type="submit"
+                className="inline-block w-full rounded-lg bg-black text-white px-5 py-3 font-medium hover:bg-gray-800 transition-all"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Send Enquiry"}
+              </button>
+            </div>
+          </form>
+        </div>
       </motion.div>
 
       {/* Right Content Section with Image */}
@@ -120,6 +233,7 @@ const ContactSection: React.FC = () => {
           alt="Contact Us"
           width={1200}
           height={800}
+          priority
           className="rounded-lg shadow-lg object-cover w-full h-80 md:h-96 lg:h-full"
         />
       </motion.div>
