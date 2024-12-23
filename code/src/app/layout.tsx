@@ -110,7 +110,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <title>Rank2Revenue</title>
         <meta name="description" content="Grow your brand with expert digital marketing services." />
         <meta name="keywords" content="digital marketing, SEO, content marketing, web development" />
-        <meta name="author" content="Rank2Revenue" />
+        {/* <meta name="author" content="Rank2Revenue" /> */}
 
         {/* Responsive Meta Tag */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -120,6 +120,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
         {/* Add Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
 
         {/* Inject Schema.org structured data */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
