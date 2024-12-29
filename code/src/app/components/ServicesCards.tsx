@@ -73,48 +73,49 @@ const ServicesCards: React.FC = () => {
 
   return (
     <section className="w-full bg-white py-24 px-4">
-      <div className="w-full max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5">
-        <h1 className="text-center text-4xl md:text-5xl font-semibold text-gray-900 pb-12">
-          Our Digital Marketing Services
-        </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
-          {services.map((service) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              className="group relative block h-72 sm:h-80 lg:h-96 transition-all duration-300"
-            >
-              <span className="absolute inset-0 border-2 border-dashed border-blue-600 rounded-xl transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-blue-500"></span>
-
-              <div className="relative flex h-full items-end border-2 border-blue-600 bg-white rounded-xl p-6 transition-transform duration-300 transform group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:shadow-blue-500">
-                <div className="w-full text-center transition-opacity duration-300 group-hover:opacity-0">
-                  {typeof service.icon === 'string' ? (
-                    <Image
-                      src={service.icon}
-                      alt={`${service.title} icon`}
-                      width={200}
-                      height={200}
-                      className="h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40 text-blue-600 mx-auto mb-4"
-                    />
-                  ) : (
-                    service.icon
-                  )}
-                  <h3 className="text-xl font-medium text-gray-900">{service.title}</h3>
-                </div>
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-white bg-opacity-90 rounded-xl text-center">
-                  <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
-                  <p className="mt-4 text-sm text-gray-700 whitespace-pre-line">
-                    {service.description}
-                  </p>
-                  <p className="mt-8 font-bold text-blue-600">Read more</p>
-                </div>
+    <div className="w-full max-w-7xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5">
+      <h1 className="text-center text-4xl md:text-5xl font-semibold text-gray-900 pb-12">
+        Our Digital Marketing Services
+      </h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
+        {services.map((service) => (
+          <Link
+            key={service.title}
+            href={service.href}
+            className="group relative block h-58 sm:h-64 lg:h-76 transition-all duration-300"
+          >
+            <span className="absolute inset-0 border-2 border-dashed border-blue-600 rounded-xl transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-blue-500"></span>
+  
+            <div className="relative flex h-full flex-col items-center justify-center border-2 border-blue-600 bg-white rounded-xl p-4 transition-transform duration-300 transform group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:shadow-lg group-hover:shadow-blue-500">
+              <div className="text-center">
+                {typeof service.icon === 'string' ? (
+                  <Image
+                    src={service.icon}
+                    alt={`${service.title} icon`}
+                    width={80}
+                    height={80}
+                    className="h-8 w-8 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 text-blue-600 mx-auto mb-4"
+                  />
+                ) : (
+                  service.icon
+                )}
+                <h3 className="text-lg font-medium text-gray-900">{service.title}</h3>
               </div>
-            </Link>
-          ))}
-        </div>
+  
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-white bg-opacity-90 rounded-xl text-center">
+                <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
+                <p className="mt-4 text-sm text-gray-700 whitespace-pre-line">
+                  {service.description}
+                </p>
+                <p className="mt-8 font-bold text-blue-600">Read more</p>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
+  
   );
 };
 

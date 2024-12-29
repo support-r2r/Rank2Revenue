@@ -3,6 +3,7 @@
 import React from "react";
 import ContactForm from "../components/contactFrom"; // Corrected the import path
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const ContactPage: React.FC = () => {
   return (
@@ -15,6 +16,9 @@ const ContactPage: React.FC = () => {
 
       {/* Contact Form */}
       <ContactForm />
+      
+      <Footer/>
+
     </div>
   );
 };
