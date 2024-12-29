@@ -71,7 +71,7 @@ const ContactSection: React.FC = () => {
 
   const handleButtonClick = (type: string) => {
     if (type === "call") {
-      window.location.href = "tel:+41522123071";
+      window.location.href = "tel:+61481958385";
     } else if (type === "email") {
       window.location.href = "mailto:info@rank2revenue.com.au";
     } else if (type === "schedule") {
