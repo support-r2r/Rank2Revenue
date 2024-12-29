@@ -100,8 +100,8 @@ const LogoItemsTop: React.FC = () => (
 const Partners: React.FC = () => {
   return (
     <section className="bg-white py-4">
-      <div className="flex overflow-hidden">
-        <TranslateWrapper>
+      <div className="flex overflow-hidden px-8 sm:px-12 lg:px-16"> {/* Increased padding */}
+      <TranslateWrapper>
           <LogoItemsTop />
         </TranslateWrapper>
         <TranslateWrapper>
