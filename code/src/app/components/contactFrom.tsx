@@ -124,7 +124,7 @@ const ContactSection: React.FC = () => {
           <div className="space-y-4 text-xs md:text-sm lg:text-base">
             <div>
               <h3 className="font-medium text-gray-600">Phone</h3>
-              <p>+41 52 212 30 71</p>
+              <p>+61481958385</p>
             </div>
             <div>
               <h3 className="font-medium text-gray-600">Email</h3>
@@ -133,11 +133,9 @@ const ContactSection: React.FC = () => {
             <div>
               <h3 className="font-medium text-gray-600">Address</h3>
               <p>
-                Rank2Revenue
+                Rank To Revenue
                 <br />
-                5 Durham Cl
-                <br />
-                Macquarie Park NSW 2113
+                 Macquarie Park NSW 2113
               </p>
             </div>
           </div>
