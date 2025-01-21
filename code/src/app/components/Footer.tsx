@@ -278,7 +278,32 @@ const Footer: React.FC = () => {
         {/* Bottom Text */}
         <div className="mt-8 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} Rank2Revenue. All rights reserved.
+          <div className="mt-2">
+            <a
+              href="https://www.designrush.com/agency/profile/rank-to-revenue"
+              className="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Verified Agency on DesignRush
+            </a>
+            <div className="mt-2">
+              <a
+                href="https://www.designrush.com/agency/profile/rank-to-revenue"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://www.publicrelations-germany.com/wp-content/uploads/2019/02/Logo-DesignRush-770x433.png"
+                  alt="Verified Agency on DesignRush"
+                  className="inline-block h-12 w-auto"
+                />
+              </a>
+            </div>
+          </div>
         </div>
+
+
       </footer>
     </>
   );
