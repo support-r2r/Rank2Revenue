@@ -112,10 +112,13 @@ const Blog: React.FC = () => {
             ))}
           </div>
         )}
+
         <BlogThumbnails />
        
       
       </div>
+
+      
       <Footer />
     </div>
   );
