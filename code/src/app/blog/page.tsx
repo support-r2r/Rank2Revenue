@@ -92,9 +92,9 @@ const Blog: React.FC = () => {
       <div className="p-8 space-y-8" id="articles">
 
   
-        {!isLoading && !error && posts.length === 0 && (
+        {/* {!isLoading && !error && posts.length === 0 && (
           <div>No blog posts available.</div>
-        )}
+        )} */}
         {!isLoading && !error && posts.length > 0 && (
           <div>
             {posts.map((post) => (
@@ -118,7 +118,7 @@ const Blog: React.FC = () => {
       
       </div>
 
-      
+
       <Footer />
     </div>
   );
