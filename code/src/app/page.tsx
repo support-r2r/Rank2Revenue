@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
 
       </Head>
 
-      <StickyLogo />
+      {/* <StickyLogo /> */}
 
       {/* Navbar at the top */}
       <Navbar />
