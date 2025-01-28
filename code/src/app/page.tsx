@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
     <div>
       {/* Head section for meta descriptions */}
       <Head>
-        <title>Rank2Revenue | Digital Marketing Experts</title>
+        <title>Rank To Revenue | Digital Marketing Experts</title>
         <meta
           name="description"
           content="Rank2Revenue specializes in digital marketing services, including SEO, social media management, and web development, to grow your brand and maximize ROI."

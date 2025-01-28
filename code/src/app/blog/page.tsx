@@ -95,7 +95,7 @@ const Blog: React.FC = () => {
         {/* {!isLoading && !error && posts.length === 0 && (
           <div>No blog posts available.</div>
         )} */}
-        {!isLoading && !error && posts.length > 0 && (
+        {/* {!isLoading && !error && posts.length > 0 && (
           <div>
             {posts.map((post) => (
               <BlogPost
@@ -111,7 +111,7 @@ const Blog: React.FC = () => {
               />
             ))}
           </div>
-        )}
+        )} */}
 
         <BlogThumbnails />
        

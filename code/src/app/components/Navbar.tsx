@@ -15,6 +15,21 @@ const Navbar: React.FC = () => {
   // Helper function to check if link is active
   const isActive = (path: string) => pathname === path;
 
+  // Tawk.to script injection
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://embed.tawk.to/67985a443a8427326075a0a5/1iili17o3";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script); // Cleanup script on component unmount
+    };
+  }, []);
+
+  // Scroll behavior to hide/show navbar
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
