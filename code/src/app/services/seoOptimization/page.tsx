@@ -13,7 +13,7 @@ const seoOptimizationData = [
     stepNumber: "01",
     title: "Boost Your Online Presence",
     description:
-      "Our SEO optimization services are designed to improve your website’s visibility on search engines, helping you attract more organic traffic and potential customers.",
+      "Our SEO optimization services are designed to improve your website’s visibility on the search engines, helping you attract more organic traffic and potential customers.",
     buttonText: "Discover More",
     buttonLink: "/contact",
     imageUrl:
