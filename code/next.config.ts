@@ -27,9 +27,16 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      
       {
         protocol: 'https',
         hostname: 'rank2revenue.com.au', // Updated hostname for Rank2Revenue
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imgur.com', // For Imgur Images
         port: '',
         pathname: '/**',
       },

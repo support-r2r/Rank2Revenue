@@ -5,9 +5,8 @@ import { supabase } from "../utils/supabaseClient";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
-import BlogPost from "../components/BlogPost";
+// import BlogPost from "../components/BlogPost";
 import BlogThumbnails from "../components/BlogThumbnails";
-
 
 interface BlogPostProps {
   id: string;
@@ -36,8 +35,8 @@ interface SupabaseBlogPost {
 
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<BlogPostProps[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true); // Tracks loading state
+  const [error, setError] = useState<string | null>(null); // Stores error message
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -50,7 +49,6 @@ const Blog: React.FC = () => {
 
         if (error) throw error;
 
-        // Specify the type of data returned from Supabase
         const formattedPosts = (data as SupabaseBlogPost[]).map((post) => ({
           id: post.id,
           category: post.category,
@@ -65,7 +63,6 @@ const Blog: React.FC = () => {
 
         setPosts(formattedPosts);
       } catch (err) {
-        // Specify the error type
         const errorMessage = (err as Error).message || "Failed to fetch posts";
         setError(errorMessage);
       } finally {
@@ -90,35 +87,33 @@ const Blog: React.FC = () => {
         imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80"
       />
       <div className="p-8 space-y-8" id="articles">
+        {/* Loading State */}
+        {isLoading && <p>Loading posts...</p>}
 
-  
-        {/* {!isLoading && !error && posts.length === 0 && (
-          <div>No blog posts available.</div>
-        )} */}
-        {/* {!isLoading && !error && posts.length > 0 && (
+        {/* Error State */}
+        {error && <p className="text-red-500">Error: {error}</p>}
+
+        {/* Empty State */}
+        {!isLoading && !error && posts.length === 0 && (
+          <p>No blog posts available.</p>
+        )}
+
+        {/* Render Posts */}
+        {!isLoading && !error && posts.length > 0 && (
           <div>
             {posts.map((post) => (
-              <BlogPost
-                key={post.id}
-                category={post.category}
-                title={post.title}
-                time={post.time}
-                author={post.author}
-                tag={post.tag}
-                content={post.content}
-                tags={post.tags}
-                thumbnailUrl={post.thumbnailUrl}
-              />
+              <div key={post.id} className="p-4 border rounded-md mb-4">
+                <h2 className="text-xl font-bold">{post.title}</h2>
+                <p className="text-gray-600">{post.time} by {post.author}</p>
+                <p className="mt-2">{post.content}</p>
+              </div>
             ))}
           </div>
-        )} */}
+        )}
 
+        {/* BlogThumbnails */}
         <BlogThumbnails />
-       
-      
       </div>
-
-
       <Footer />
     </div>
   );
