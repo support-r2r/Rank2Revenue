@@ -50,15 +50,15 @@ const HomePage: React.FC = () => {
         <title>Rank To Revenue | Digital Marketing Experts</title>
         <meta
           name="description"
-          content="Rank2Revenue specializes in digital marketing services, including SEO, social media management, and web development, to grow your brand and maximize ROI."
+          content="Rank To Revenue specializes in digital marketing services, including SEO, social media management, and web development, to grow your brand and maximize ROI."
         />
         <meta
           name="keywords"
-          content="digital marketing, SEO, social media management, branding, content marketing, web development, Rank2Revenue"
+          content="Digital marketing, SEO, social media management, branding, content marketing, web development, Rank To Revenue"
         />
         <meta
           property="og:title"
-          content="Rank2Revenue | Digital Marketing Experts"
+          content="Rank To Revenue | Digital Marketing Experts"
         />
         <meta
           property="og:description"
@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
 
       </Head>
 
-      {/* <StickyLogo /> */}
+
 
       {/* Navbar at the top */}
       <Navbar />
@@ -124,7 +124,7 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Mobile Contact Form */}
-      <MobileContactForm />
+      {/* <MobileContactForm /> */}
 
       {/* Footer Section */}
       <Footer />
