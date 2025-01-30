@@ -6,10 +6,10 @@ import Navbar from './components/Navbar';
 import Card from './components/Card';
 import ServicesCards from './components/ServicesCards'; // Import ServicesCards component
 import Footer from './components/Footer';
-import MobileContactForm from './components/MobileContactForm';
+//import MobileContactForm from './components/MobileContactForm';
 import CampaignSection from './components/CampaignSection';
 import Partners from "./components/Partners";
-import StickyLogo from './components/StickyLogo';
+//import StickyLogo from './components/StickyLogo';
 // import Testimonials from './components/Testimonials';
 
 const HomePage: React.FC = () => {
