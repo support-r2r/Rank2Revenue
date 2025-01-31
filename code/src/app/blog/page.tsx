@@ -1,73 +1,73 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { supabase } from "../utils/supabaseClient";
+import React, { useEffect } from "react";
+// import { supabase } from "../utils/supabaseClient";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 // import BlogPost from "../components/BlogPost";
 import BlogThumbnails from "../components/BlogThumbnails";
 
-interface BlogPostProps {
-  id: string;
-  category: string;
-  title: string;
-  time: string;
-  author: string;
-  tag: string;
-  content: string;
-  tags: string[];
-  thumbnailUrl?: string;
-}
+// interface BlogPostProps {
+//   id: string;
+//   category: string;
+//   title: string;
+//   time: string;
+//   author: string;
+//   tag: string;
+//   content: string;
+//   tags: string[];
+//   thumbnailUrl?: string;
+// }
 
 // Define the type for Supabase data
-interface SupabaseBlogPost {
-  id: string;
-  category: string;
-  title: string;
-  time: string;
-  author: string;
-  tag: string;
-  content: string;
-  tags: string[];
-  thumbnailurl?: string; // Use the exact field name as in the database
-}
+// interface SupabaseBlogPost {
+//   id: string;
+//   category: string;
+//   title: string;
+//   time: string;
+//   author: string;
+//   tag: string;
+//   content: string;
+//   tags: string[];
+//   thumbnailurl?: string; // Use the exact field name as in the database
+// }
 
 const Blog: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPostProps[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // Tracks loading state
-  const [error, setError] = useState<string | null>(null); // Stores error message
+  // const [posts, setPosts] = useState<BlogPostProps[]>([]);
+  // const [isLoading, setIsLoading] = useState(true); // Tracks loading state
+  // const [error, setError] = useState<string | null>(null); // Stores error message
 
   useEffect(() => {
     const fetchPosts = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("blog_posts")
-          .select(
-            "id, category, title, time, author, tag, content, tags, thumbnailurl"
-          );
+      // try {
+      //   const { data, error } = await supabase
+      //     .from("blog_posts")
+      //     .select(
+      //       "id, category, title, time, author, tag, content, tags, thumbnailurl"
+      //     );
 
-        if (error) throw error;
+      //   if (error) throw error;
 
-        const formattedPosts = (data as SupabaseBlogPost[]).map((post) => ({
-          id: post.id,
-          category: post.category,
-          title: post.title,
-          time: post.time,
-          author: post.author,
-          tag: post.tag,
-          content: post.content,
-          tags: post.tags || [],
-          thumbnailUrl: post.thumbnailurl || "",
-        }));
+      //   const formattedPosts = (data as SupabaseBlogPost[]).map((post) => ({
+      //     id: post.id,
+      //     category: post.category,
+      //     title: post.title,
+      //     time: post.time,
+      //     author: post.author,
+      //     tag: post.tag,
+      //     content: post.content,
+      //     tags: post.tags || [],
+      //     thumbnailUrl: post.thumbnailurl || "",
+      //   }));
 
-        setPosts(formattedPosts);
-      } catch (err) {
-        const errorMessage = (err as Error).message || "Failed to fetch posts";
-        setError(errorMessage);
-      } finally {
-        setIsLoading(false);
-      }
+      //   setPosts(formattedPosts);
+      // } catch (err) {
+      //   const errorMessage = (err as Error).message || "Failed to fetch posts";
+      //   setError(errorMessage);
+      // } finally {
+      //   setIsLoading(false);
+      // }
     };
 
     fetchPosts();
@@ -87,19 +87,15 @@ const Blog: React.FC = () => {
         imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80"
       />
       <div className="p-8 space-y-8" id="articles">
-        {/* Loading State */}
+        {/* Loading State
         {isLoading && <p>Loading posts...</p>}
-
-        {/* Error State */}
         {error && <p className="text-red-500">Error: {error}</p>}
-
-        {/* Empty State */}
         {!isLoading && !error && posts.length === 0 && (
           <p>No blog posts available.</p>
-        )}
+        )} */}
 
         {/* Render Posts */}
-        {!isLoading && !error && posts.length > 0 && (
+        {/* {!isLoading && !error && posts.length > 0 && (
           <div>
             {posts.map((post) => (
               <div key={post.id} className="p-4 border rounded-md mb-4">
@@ -109,7 +105,7 @@ const Blog: React.FC = () => {
               </div>
             ))}
           </div>
-        )}
+        )} */}
 
         {/* BlogThumbnails */}
         <BlogThumbnails />
