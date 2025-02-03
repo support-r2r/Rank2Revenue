@@ -84,7 +84,7 @@ const Blog: React.FC = () => {
         primaryButtonLink="#subscribe"
         secondaryButtonText="View All Articles"
         secondaryButtonLink="#articles"
-        imageUrl="https://images.unsplash.com/photo-1544717305-2782549b5136?fit=crop&w=800&q=80"
+        imageUrl="https://i.imgur.com/wUdAVWC.png"
       />
       <div className="p-8 space-y-8" id="articles">
         {/* Loading State

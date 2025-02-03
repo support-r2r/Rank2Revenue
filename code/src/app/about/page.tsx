@@ -16,7 +16,7 @@ const About: React.FC = () => {
         primaryButtonLink="#contact"
         secondaryButtonText="Our Services"
         secondaryButtonLink="#services"
-        imageUrl="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?fit=crop&w=800&q=80" // Using a professional team image
+        imageUrl="https://i.imgur.com/UcLDrOW.png" // Using a professional team image
       />
 
       <div className="container mx-auto px-6 py-16">

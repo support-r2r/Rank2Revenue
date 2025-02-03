@@ -19,3 +19,93 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* .tile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px; 
+  height: 500px;
+  margin: 20px;
+}
+
+.white-tile {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; 
+  border: 2px solid #d3d3d3; 
+  border-radius: 16px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; 
+}
+
+.green-tile {
+  position: absolute;
+  top: 20px; 
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #32cd32; 
+  border-radius: 12px; 
+  overflow: hidden;
+  z-index: 1; 
+}
+
+.hover-zoom-image {
+  position: absolute;  
+  width: 200px; 
+  height: 100px; 
+  object-fit: cover; 
+  transition: transform 0.3s ease-in-out;
+}
+
+.green-tile:hover .hover-zoom-image {
+  transform: scale(1.2); 
+} */
+
+.tile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px; /* Adjust to your desired size */
+  height: 600px;
+  margin: 20px;
+}
+
+.white-tile {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* White background */
+  border: 2px solid #d3d3d3; /* Light grey border */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  position: relative; /* Enable positioning for child elements */
+}
+
+.green-tile {
+  position: absolute;
+  top: 20px; /* Adjust position as needed */
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #32cd32; /* Green background */
+  border-radius: 12px; /* Rounded corners for the green tile */
+  overflow: hidden; /* Ensures image overflow is handled */
+  z-index: 1; /* Ensure the image is layered on top */
+}
+
+.hover-zoom-image {
+  position: absolute;
+  bottom: -10px; /* Align at the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust to center the image */
+  width: 400px; /* Slightly larger than the green tile */
+  height: 400px; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image fills the required space */
+  transition: transform 0.3s ease-in-out;
+}
+
+.green-tile:hover .hover-zoom-image {
+  transform: translateX(-50%) scale(1.2); /* Zoom effect on hover */
+}

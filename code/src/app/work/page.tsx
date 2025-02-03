@@ -44,7 +44,7 @@ const Work: React.FC = () => {
         primaryButtonLink="#contact"
         secondaryButtonText="See All Projects"
         secondaryButtonLink="#projects"
-        imageUrl="/work.jpg" // Image representing creative or professional work
+        imageUrl="https://i.imgur.com/llJOh6B.png" // Image representing creative or professional work
       />
 
       <div className="p-8 space-y-8" id="projects">

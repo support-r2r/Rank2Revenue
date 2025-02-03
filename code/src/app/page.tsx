@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Card from './components/Card';
 import ServicesCards from './components/ServicesCards'; // Import ServicesCards component
 import Footer from './components/Footer';
+// import Hover from './components/HoverZoomImage';
 //import MobileContactForm from './components/MobileContactForm';
 import CampaignSection from './components/CampaignSection';
 import Partners from "./components/Partners";
@@ -94,7 +95,7 @@ const HomePage: React.FC = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="View Services"
         secondaryButtonLink="/services"
-        imageUrl="https://agencex-astro.vercel.app/images/image1.webp"
+        imageUrl="https://i.imgur.com/I3mk5XR.png"
       />
 
       {/* Technology Partners Section */}
@@ -122,7 +123,7 @@ const HomePage: React.FC = () => {
           />
         ))}
       </div>
-
+      
       {/* Mobile Contact Form */}
       {/* <MobileContactForm /> */}
 
@@ -133,3 +134,9 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
+
+{/* <Hover
+        src="https://i.imgur.com/jTU6cm4.png"
+        alt="Descriptive text"
+      /> */}
