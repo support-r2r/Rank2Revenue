@@ -53,7 +53,7 @@ const websiteDevelopmentData = [
     buttonText: "Check It Out",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1920&q=80",
+      "/WebDev(5).jpeg",
     ctaClasses: "bg-white text-black", // White background
   },
   {
@@ -65,7 +65,7 @@ const websiteDevelopmentData = [
     buttonText: "Get Support",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1920&q=80",
+      "/WebDev(4).jpeg",
     ctaClasses: "bg-blue-600 text-white", // Blue background
   },
 ];
