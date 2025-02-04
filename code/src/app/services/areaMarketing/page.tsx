@@ -64,7 +64,7 @@ const areaMarketingData: Content[] = [
     buttonText: "Improve SEO",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80",
+      "/AreaMarketing.jpg",
     ctaClasses: "bg-white text-black", // White background
   },
 ];
