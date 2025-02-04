@@ -53,7 +53,7 @@ const emailMarketingData = [
     buttonText: "Analyze",
     buttonLink: "/contact",
     imageUrl:
-      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1920&q=80",
+      "/EmailMarketing.jpeg",
     ctaClasses: "bg-white text-black", // White background
   },
   {
