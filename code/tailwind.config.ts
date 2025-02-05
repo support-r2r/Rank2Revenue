@@ -12,8 +12,32 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              fontSize: "1.875rem", // Adjusted for better readability (30px)
+              marginTop: theme("spacing.6"), // Uses spacing scale for consistency
+              marginBottom: theme("spacing.4"),
+              fontWeight: theme("fontWeight.bold"),
+            },
+            h2: {
+              fontSize: "1.5rem", // 24px
+              marginTop: theme("spacing.5"),
+              marginBottom: theme("spacing.3"),
+              fontWeight: theme("fontWeight.semibold"),
+            },
+            p: {
+              marginTop: theme("spacing.2"),
+              marginBottom: theme("spacing.2"),
+              lineHeight: theme("lineHeight.relaxed"),
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")], // Ensure the plugin is loaded
 };
+
 export default config;

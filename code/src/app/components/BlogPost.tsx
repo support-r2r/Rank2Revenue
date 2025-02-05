@@ -107,9 +107,13 @@ const BlogPost: React.FC<BlogPostProps> = ({
               </div>
               <hr />
               {/* Render Markdown content */}
-              <ReactMarkdown className="text-base leading-8 my-5 prose prose-indigo">
-                {content}
-              </ReactMarkdown>
+              <div className="max-w-xl mx-auto px-4">
+                <ReactMarkdown className="prose prose-indigo prose-h1:mt-6 prose-h2:mt-4 prose-h1:mb-4 prose-h2:mb-2 text-base leading-8 my-5">
+                  {content}
+                </ReactMarkdown>
+              </div>
+
+
               <div className="flex flex-wrap gap-2">
                 {tags.map((tagItem, index) => (
                   <a
