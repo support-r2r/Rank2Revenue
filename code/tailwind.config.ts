@@ -12,7 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      typography: (theme) => ({
+      typography: (theme: (arg0: string) => any) => ({
         DEFAULT: {
           css: {
             h1: {
