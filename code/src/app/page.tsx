@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="View Services"
         secondaryButtonLink="/services"
-        imageUrl="https://agencex-astro.vercel.app/images/image1.webp"
+        imageUrl="https://i.imgur.com/I3mk5XR.png"
       />
 
       {/* Technology Partners Section */}
