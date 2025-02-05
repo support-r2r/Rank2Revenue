@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation"; // Import useRouter from Next.js
-import Image from "next/image"; // Import Image from next/image
-import Navbar from "./Navbar"; // Import the Navbar component
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import ReactMarkdown from "react-markdown"; // Markdown parser
+import Navbar from "./Navbar";
 
 interface BlogPostProps {
   category: string;
@@ -26,29 +27,26 @@ const BlogPost: React.FC<BlogPostProps> = ({
   tags,
   thumbnailUrl,
 }) => {
-  const router = useRouter(); // Use useRouter from Next.js
+  const router = useRouter();
 
   const navigateToHome = () => {
-    router.push("/"); // Navigate to the home page
+    router.push("/");
   };
 
   return (
     <>
-      {/* Add the Navbar */}
       <Navbar />
-
-      {/* Blog Post Content */}
-      <div className="relative pt-20 p-4"> {/* Add pt-20 to create spacing below the navbar */}
+      <div className="relative pt-20 p-4">
         <div className="max-w-3xl mx-auto">
-          <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+          <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal shadow-lg">
             {thumbnailUrl && (
               <Image
                 src={thumbnailUrl}
                 alt={title}
-                width={800} // Adjust width as needed
-                height={450} // Adjust height as needed
+                width={800}
+                height={450}
                 className="w-full rounded-t-lg"
-                layout="responsive" // Use layout="responsive" for better responsiveness
+                layout="responsive"
               />
             )}
             <div>
@@ -59,8 +57,8 @@ const BlogPost: React.FC<BlogPostProps> = ({
               >
                 {category}
               </a>
-              <h1 className="text-gray-900 font-bold text-4xl">{title}</h1>
-              <div className="py-5 text-sm font-regular text-gray-900 flex">
+              <h1 className="text-gray-900 font-bold text-4xl my-4">{title}</h1>
+              <div className="py-5 text-sm font-regular text-gray-900 flex flex-wrap">
                 <span className="mr-3 flex flex-row items-center">
                   <svg
                     className="text-indigo-600"
@@ -75,10 +73,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                   </svg>
                   <span className="ml-1">{time}</span>
                 </span>
-                <a
-                  href="#"
-                  className="flex flex-row items-center hover:text-indigo-600 mr-3"
-                >
+                <span className="flex flex-row items-center hover:text-indigo-600 mr-3">
                   <svg
                     className="text-indigo-600"
                     fill="currentColor"
@@ -93,11 +88,8 @@ const BlogPost: React.FC<BlogPostProps> = ({
                     <path d="M0 0h24v24H0z" fill="none"></path>
                   </svg>
                   <span className="ml-1">{author}</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex flex-row items-center hover:text-indigo-600"
-                >
+                </span>
+                <span className="flex flex-row items-center hover:text-indigo-600">
                   <svg
                     className="text-indigo-600"
                     fill="currentColor"
@@ -111,10 +103,13 @@ const BlogPost: React.FC<BlogPostProps> = ({
                     />
                   </svg>
                   <span className="ml-1">{tag}</span>
-                </a>
+                </span>
               </div>
               <hr />
-              <p className="text-base leading-8 my-5">{content}</p>
+              {/* Render Markdown content */}
+              <ReactMarkdown className="text-base leading-8 my-5 prose prose-indigo">
+                {content}
+              </ReactMarkdown>
               <div className="flex flex-wrap gap-2">
                 {tags.map((tagItem, index) => (
                   <a
