@@ -20,7 +20,7 @@ const Services = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="Explore Our Services"
         secondaryButtonLink="#services-overview"
-        imageUrl="/services.jpeg" // Added the image URL
+        imageUrl="https://i.imgur.com/x6VxL8i.png" // Added the image URL
       />
 
       <ServicesCards />
