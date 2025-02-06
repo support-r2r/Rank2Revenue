@@ -40,6 +40,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'digitaly.netlify.app', // For digitaly.netlify Images
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async rewrites() {

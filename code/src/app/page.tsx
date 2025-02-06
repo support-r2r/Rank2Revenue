@@ -94,7 +94,7 @@ const HomePage: React.FC = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="View Services"
         secondaryButtonLink="/services"
-        imageUrl="https://i.imgur.com/I3mk5XR.png"
+        imageUrl="https://digitaly.netlify.app/assets/Home%20Trump%20Banner.d9d4cdfc.png"
       />
 
       {/* Technology Partners Section */}
