@@ -7,6 +7,7 @@ import { supabase } from "../utils/supabaseClient";
 import Card from "./Card"; // Big Card component
 
 interface BlogCardProps {
+
   id: string;
   slug: string;
   href: string;

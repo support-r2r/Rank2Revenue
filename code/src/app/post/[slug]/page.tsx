@@ -6,6 +6,7 @@ import { supabase } from "../../utils/supabaseClient";
 import BlogPost from "../../components/BlogPost";
 
 interface BlogPostData {
+  slug: string;
   category: string;
   title: string;
   time: string;
@@ -18,22 +19,22 @@ interface BlogPostData {
 
 const PostPage: React.FC = () => {
   const params = useParams();
-  const { id } = params as { id: string };
+  const { slug } = params as { slug: string };
 
   const [post, setPost] = useState<BlogPostData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!id) return;
-    console.log("Attempting to fetch post with ID:", id);
+    if (!slug) return;
+    console.log("Attempting to fetch post with ID:", slug);
 
     const fetchPost = async () => {
       try {
         const { data, error } = await supabase
           .from("blog_posts")
           .select("*")
-          .eq("id", id)
+          .eq("slug", slug)
           .single();
 
         if (error) {
@@ -42,7 +43,7 @@ const PostPage: React.FC = () => {
         }
 
         if (!data) {
-          console.warn("No data returned for ID:", id);
+          console.warn("No data returned for ID:", slug);
           setError("Post not found");
           return;
         }
@@ -58,7 +59,7 @@ const PostPage: React.FC = () => {
     };
 
     fetchPost();
-  }, [id]);
+  }, [slug]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -66,6 +67,7 @@ const PostPage: React.FC = () => {
 
   return (
     <BlogPost
+      slug={post.slug}
       category={post.category}
       title={post.title}
       time={post.time}
