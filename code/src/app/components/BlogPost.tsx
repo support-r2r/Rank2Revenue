@@ -14,6 +14,7 @@ interface BlogPostProps {
   content: string;
   tags: string[];
   thumbnailUrl?: string;
+  slug: string;
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({

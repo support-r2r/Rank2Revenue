@@ -16,6 +16,7 @@ const BlogPage: React.FC = () => {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged...",
       tags: ["Election", "people", "Election2020", "trump", "Joe"],
+      slug: "social-media-101",
     },
     // Add more blog posts as needed
   ];
@@ -31,6 +32,7 @@ const BlogPage: React.FC = () => {
           {blogPosts.map((post, index) => (
             <BlogPost
               key={index}
+              slug={post.slug}
               category={post.category}
               title={post.title}
               time={post.time}

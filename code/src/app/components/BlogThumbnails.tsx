@@ -6,6 +6,7 @@ import { supabase } from "../utils/supabaseClient";
 import { FiBookOpen, FiEye, FiWatch, FiArrowUpRight } from "react-icons/fi";
 
 interface BlogCardProps {
+  slug: string;
   id: string;
   href: string;
   title: string;
@@ -14,6 +15,7 @@ interface BlogCardProps {
 
 interface BlogPostData {
   id: string;
+  slug: string;
   title: string;
   time: string;
 }
@@ -29,7 +31,7 @@ const BlogThumbnails: React.FC = () => {
         // Use 'const' for variables that are not reassigned
         const { data: blog_posts, error } = await supabase
           .from("blog_posts")
-          .select("id, title, time");
+          .select("id, slug, title, time");
 
         if (error) {
           throw new Error(error.message);
@@ -44,7 +46,8 @@ const BlogThumbnails: React.FC = () => {
         // Provide specific types instead of 'any'
         const formattedCards = blog_posts.map((post: BlogPostData) => ({
           id: post.id,
-          href: `/post/${post.id}`, // Adjust this if you have a different routing setup
+          slug: post.slug,
+          href: `/post/${post.slug}`, // Adjust this if you have a different routing setup
           title: post.title,
           readTime: post.time || "Unknown read time",
         }));
@@ -70,7 +73,7 @@ const BlogThumbnails: React.FC = () => {
       <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-gray-200 border border-gray-200 md:grid-cols-3 md:divide-x md:divide-y-0">
         <TitleCard />
         {cards.map((card) => (
-          <BlogCard key={card.id} {...card} />
+          <BlogCard key={card.slug} {...card} />
         ))}
       </div>
     </div>

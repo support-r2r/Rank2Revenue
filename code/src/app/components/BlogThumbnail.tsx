@@ -8,6 +8,7 @@ import Card from "./Card"; // Big Card component
 
 interface BlogCardProps {
   id: string;
+  slug: string;
   href: string;
   title: string;
   readTime: string;
@@ -27,7 +28,7 @@ const BlogThumbnails: React.FC = () => {
       try {
         const { data: blog_posts, error } = await supabase
           .from("blog_posts")
-          .select("id, category, title, time, author, tags, thumbnailUrl, description");
+          .select("id, slug, category, title, time, author, tags, thumbnailUrl, description");
 
         if (error) {
           throw new Error(error.message);
@@ -39,7 +40,8 @@ const BlogThumbnails: React.FC = () => {
 
         const formattedCards: BlogCardProps[] = blog_posts.map((post) => ({
           id: post.id,
-          href: `/post/${post.id}`,
+          slug: post.slug,
+          href: `/post/${post.slug}`,
           title: post.title,
           readTime: post.time || "Unknown read time",
           category: post.category || "General",
@@ -71,6 +73,7 @@ const BlogThumbnails: React.FC = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Big Card */}
         <Card
+          // slug={bigCard.slug}
           title={bigCard.title}
           tags={bigCard.tags}
           description={bigCard.description}
@@ -82,7 +85,7 @@ const BlogThumbnails: React.FC = () => {
         {/* Smaller Thumbnails */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {smallCards.map((card) => (
-            <BlogCard key={card.id} {...card} />
+            <BlogCard key={card.slug} {...card} />
           ))}
         </div>
       </div>
