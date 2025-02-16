@@ -107,7 +107,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en" className="h-full w-full bg-white">
       <head>
-        <title>Rank2Revenue</title>
+        <title>Rank To Revenue - Grow now</title>
         <meta name="description" content="Grow your brand with expert digital marketing services." />
         <meta name="keywords" content="digital marketing, SEO, content marketing, web development" />
         {/* <meta name="author" content="Rank2Revenue" /> */}

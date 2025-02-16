@@ -87,25 +87,7 @@ const Blog: React.FC = () => {
         imageUrl="https://i.imgur.com/wUdAVWC.png"
       />
       <div className="p-8 space-y-8" id="articles">
-        {/* Loading State
-        {isLoading && <p>Loading posts...</p>}
-        {error && <p className="text-red-500">Error: {error}</p>}
-        {!isLoading && !error && posts.length === 0 && (
-          <p>No blog posts available.</p>
-        )} */}
-
-        {/* Render Posts */}
-        {/* {!isLoading && !error && posts.length > 0 && (
-          <div>
-            {posts.map((post) => (
-              <div key={post.id} className="p-4 border rounded-md mb-4">
-                <h2 className="text-xl font-bold">{post.title}</h2>
-                <p className="text-gray-600">{post.time} by {post.author}</p>
-                <p className="mt-2">{post.content}</p>
-              </div>
-            ))}
-          </div>
-        )} */}
+        
 
         {/* BlogThumbnails */}
         <BlogThumbnails />
