@@ -109,3 +109,42 @@ body {
 .green-tile:hover .hover-zoom-image {
   transform: translateX(-50%) scale(1.2); /* Zoom effect on hover */
 }
+
+.markdown-container h1 {
+  
+  font-size: 2.5rem; /* Adjust font size */
+  font-weight: bold; /* Bold */
+  margin-bottom: 1rem; /* Spacing */
+}
+
+.markdown-container h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-container h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Optional: Style other Markdown elements */
+.markdown-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.markdown-container ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.markdown-container a {
+  color: #1d4ed8; /* Link color */
+  text-decoration: underline;
+}
