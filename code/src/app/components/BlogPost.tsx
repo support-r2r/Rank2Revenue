@@ -10,7 +10,7 @@ interface BlogPostProps {
   category: string;
   title: string;
   meta_title: string; // ✅ Added for SEO & to fix the error
-  meta_desc: string; // Meta Description for each blog Page
+  meta_desc?: string; // Meta Description for each blog Page
   time: string;
   author: string;
   tag: string;
