@@ -95,8 +95,7 @@ const HomePage: React.FC = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="View Services"
         secondaryButtonLink="/services"
-        imageUrl="https://i.imgur.com/I3mk5XR.png"
-      />
+        imageUrl="/services.jpeg"/>
 
       {/* Technology Partners Section */}
       <Partners />

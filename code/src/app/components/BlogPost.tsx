@@ -24,7 +24,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
   category,
   title,
   meta_title,
-  meta_desc,
+  // meta_desc,
   time,
   author,
   content,
