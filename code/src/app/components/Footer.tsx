@@ -289,7 +289,7 @@ const Footer: React.FC = () => {
             </a>
             <div className="mt-2">
               <a
-                href="https://www.designrush.com/agency/profile/rank-to-revenue"
+                href="https://www.designrush.com/agency/profile/rank2revenue"
                 target="_blank"
                 rel="noopener noreferrer"
               >
