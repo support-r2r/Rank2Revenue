@@ -43,7 +43,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
 
       {/* Blog Post Content */}
       <div className="relative pt-20 p-4">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
             {/* Thumbnail */}
             {thumbnailUrl && (

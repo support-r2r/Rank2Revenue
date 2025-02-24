@@ -7,7 +7,6 @@ import { supabase } from "../utils/supabaseClient";
 import Card from "./Card"; // Big Card component
 
 interface BlogCardProps {
-
   id: string;
   slug: string;
   href: string;
@@ -25,6 +24,7 @@ const BlogThumbnails: React.FC = () => {
   const [cards, setCards] = useState<BlogCardProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(9); // Number of cards visible initially
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -73,12 +73,14 @@ const BlogThumbnails: React.FC = () => {
   // Separate the big card (first post) and smaller cards (remaining posts)
   const [bigCard, ...smallCards] = cards;
 
+  // Slice the smallCards array to show only `visibleCount` cards
+  const visibleCards = smallCards.slice(0, visibleCount);
+
   return (
     <div className="bg-white p-8 text-gray-800 md:p-12">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Big Card */}
         <Card
-          // slug={bigCard.slug}
           title={bigCard.title}
           tags={bigCard.tags}
           description={bigCard.description}
@@ -89,10 +91,22 @@ const BlogThumbnails: React.FC = () => {
 
         {/* Smaller Thumbnails */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {smallCards.map((card) => (
+          {visibleCards.map((card) => (
             <BlogCard key={card.slug} {...card} />
           ))}
         </div>
+
+        {/* "Know More" Button */}
+        {visibleCount < smallCards.length && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 9)}
+              className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition"
+            >
+              Know More
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

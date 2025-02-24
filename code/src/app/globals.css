@@ -120,7 +120,7 @@ body {
 .markdown-container h2 {
   margin-top: 20px;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-weight: bold;
   margin-bottom: 0.75rem;
 }
@@ -128,20 +128,30 @@ body {
 .markdown-container h3 {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  
   margin-bottom: 0.5rem;
 }
 
 /* Optional: Style other Markdown elements */
 .markdown-container p {
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .markdown-container ul {
   padding-left: 1.5rem;
   list-style: disc;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.markdown-container ol {
+  padding-left: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
 .markdown-container a {
