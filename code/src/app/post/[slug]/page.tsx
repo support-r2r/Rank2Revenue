@@ -15,6 +15,8 @@ interface BlogPostData {
   content: string;
   tags: string[];
   thumbnailurl?: string;
+  meta_title: string;
+  meta_desc: string;
 }
 
 const PostPage: React.FC = () => {
@@ -76,6 +78,8 @@ const PostPage: React.FC = () => {
       content={post.content}
       tags={post.tags || []}
       thumbnailUrl={post.thumbnailurl}
+      meta_title={post.meta_title}
+      meta_desc={post.meta_desc}
     />
   );
 };

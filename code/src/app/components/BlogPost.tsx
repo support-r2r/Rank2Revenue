@@ -9,7 +9,8 @@ import ReactMarkdown from "react-markdown"; // Import react-markdown for Markdow
 interface BlogPostProps {
   category: string;
   title: string;
-  meta_title: string; // Required for SEO & to fix type errors
+  meta_title: string; 
+  meta_desc: string;
   time: string;
   author: string;
   tag: string;
@@ -22,7 +23,6 @@ interface BlogPostProps {
 const BlogPost: React.FC<BlogPostProps> = ({
   category,
   title,
-  meta_title,
   time,
   author,
   content,
@@ -68,7 +68,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 {category}
               </a>
               <h1 className="text-gray-900 font-bold text-4xl mt-2.5">{title}</h1>
-              <p className="text-lg text-gray-700">{meta_title}</p>
+
               <div className="py-5 text-sm font-regular text-gray-900 flex">
                 {/* Time */}
                 <span className="mr-3 flex flex-row items-center">

@@ -17,6 +17,8 @@ interface BlogCardProps {
   thumbnailUrl: string;
   tags: string[];
   description: string;
+  meta_title: string;
+  meta_desc: string;
 }
 
 const BlogThumbnails: React.FC = () => {
@@ -29,7 +31,7 @@ const BlogThumbnails: React.FC = () => {
       try {
         const { data: blog_posts, error } = await supabase
           .from("blog_posts")
-          .select("id, slug, category, title, time, author, tags, thumbnailUrl, description");
+          .select("id, slug, category, title, time, author, tags, thumbnailUrl, description,meta_title,meta_desc");
 
         if (error) {
           throw new Error(error.message);
@@ -49,6 +51,8 @@ const BlogThumbnails: React.FC = () => {
           thumbnailUrl: post.thumbnailUrl || "/default-thumbnail.jpg",
           tags: post.tags || ["Uncategorized"],
           description: post.description || "No description available",
+          meta_title: post.meta_title || "No meta title available",
+          meta_desc: post.meta_desc || "No meta description available",
         }));
 
         setCards(formattedCards);
