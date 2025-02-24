@@ -9,8 +9,7 @@ import ReactMarkdown from "react-markdown"; // Import react-markdown for Markdow
 interface BlogPostProps {
   category: string;
   title: string;
-  meta_title: string; // ✅ Added for SEO & to fix the error
-  meta_desc?: string; // Meta Description for each blog Page
+  meta_title: string; // Required for SEO & to fix type errors
   time: string;
   author: string;
   tag: string;
@@ -24,7 +23,6 @@ const BlogPost: React.FC<BlogPostProps> = ({
   category,
   title,
   meta_title,
-  // meta_desc,
   time,
   author,
   content,
@@ -40,24 +38,27 @@ const BlogPost: React.FC<BlogPostProps> = ({
 
   return (
     <>
-      {/* Add the Navbar */}
+      {/* Navbar */}
       <Navbar />
 
       {/* Blog Post Content */}
       <div className="relative pt-20 p-4">
-        {/* Add pt-20 to create spacing below the navbar */}
         <div className="max-w-3xl mx-auto">
           <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+            {/* Thumbnail */}
             {thumbnailUrl && (
               <Image
                 src={thumbnailUrl}
                 alt={title}
-                width={100}
-                height={150}
+                width={800}
+                height={450}
                 className="w-full rounded-t-lg"
                 layout="responsive"
+                priority
               />
             )}
+
+            {/* Blog Details */}
             <div>
               <a
                 href="#"
@@ -69,6 +70,7 @@ const BlogPost: React.FC<BlogPostProps> = ({
               <h1 className="text-gray-900 font-bold text-4xl mt-2.5">{title}</h1>
               <p className="text-lg text-gray-700">{meta_title}</p>
               <div className="py-5 text-sm font-regular text-gray-900 flex">
+                {/* Time */}
                 <span className="mr-3 flex flex-row items-center">
                   <svg
                     className="text-indigo-600"
@@ -77,12 +79,11 @@ const BlogPost: React.FC<BlogPostProps> = ({
                     width="13px"
                     viewBox="0 0 512 512"
                   >
-                    <g>
-                      <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"></path>
-                    </g>
+                    <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"></path>
                   </svg>
                   <span className="ml-1">{time}</span>
                 </span>
+                {/* Author */}
                 <a
                   href="#"
                   className="flex flex-row items-center hover:text-indigo-600 mr-3"
@@ -98,10 +99,10 @@ const BlogPost: React.FC<BlogPostProps> = ({
                       fill="currentColor"
                       d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
                     />
-                    <path d="M0 0h24v24H0z" fill="none"></path>
                   </svg>
                   <span className="ml-1">{author}</span>
                 </a>
+                {/* Tag */}
                 <a
                   href="#"
                   className="flex flex-row items-center hover:text-indigo-600"
@@ -122,12 +123,13 @@ const BlogPost: React.FC<BlogPostProps> = ({
                 </a>
               </div>
               <hr />
-              
-              {/* Render Markdown Content */}
+
+              {/* Markdown Content */}
               <div className="markdown-container">
                 <ReactMarkdown>{content}</ReactMarkdown>
               </div>
 
+              {/* Tags */}
               <div className="flex flex-wrap gap-2">
                 {tags.map((tagItem, index) => (
                   <a

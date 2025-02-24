@@ -12,8 +12,18 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              color: theme("colors.foreground"),
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [],
 };
+
 export default config;
