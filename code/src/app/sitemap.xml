@@ -84,6 +84,36 @@
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://rank2revenue.com.au/blog/maximizing-roi-with-paid-advertising-for-small-restaurants-and-local-sydney-businesses/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://rank2revenue.com.au/blog/seo-strategies-for-sydney-based-businesses/</loc>
+        <lastmod>2025-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://rank2revenue.com.au/blog/social-media-marketing-tips-for-2025/</loc>
+        <lastmod>2025-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://rank2revenue.com.au/blog/content-marketing-strategies-for-brand-growth/</loc>
+        <lastmod>2025-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://rank2revenue.com.au/blog/google-ads-vs-facebook-ads-which-is-better/</loc>
+        <lastmod>2025-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
     
     <!-- Other Pages -->
     <url>
