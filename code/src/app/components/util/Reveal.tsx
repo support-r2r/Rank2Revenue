@@ -12,13 +12,14 @@ export const Reveal = ({ children, width = "w-fit" }: RevealProps) => {
 
   const mainControls = useAnimation();
   const slideControls = useAnimation();
-
+ 
   useEffect(() => {
     if (isInView) {
-      mainControls.start("visible");
-      slideControls.start("visible");
+        mainControls.start("visible");
+        slideControls.start("visible");
     }
-  }, [isInView]);
+}, [isInView, mainControls, slideControls]); // ✅ Add missing dependencies
+
 
   return (
     <div ref={ref} className={`relative overflow-hidden ${width}`}>
