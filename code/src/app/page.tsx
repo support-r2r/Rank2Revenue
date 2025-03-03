@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 //import MobileContactForm from './components/MobileContactForm';
 import CampaignSection from './components/CampaignSection';
 import Partners from "./components/Partners";
+import Chatbot from "./components/chatbot";
 //import StickyLogo from './components/StickyLogo';
 // import Testimonials from './components/Testimonials';
 
@@ -107,6 +108,9 @@ const HomePage: React.FC = () => {
       <div className="p-8">
         <ServicesCards />
       </div>
+
+      {/* Chatbot Section */}
+      <Chatbot />
 
       {/* Project Cards Section */}
       <div className="p-8 space-y-8">

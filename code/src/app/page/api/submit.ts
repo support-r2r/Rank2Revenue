@@ -13,9 +13,10 @@ export default async function handler(
     const { name, email, message } = req.body;
 
     const endpoints = [
-      "https://service1.com/api/submit",
+      "https://formspree.io/f/xdkaqyyz",
       "https://service2.com/api/submit",
       "https://service3.com/api/submit",
+      // Expand using further more endpoints, for autonomy
     ];
 
     const selectedEndpoint =

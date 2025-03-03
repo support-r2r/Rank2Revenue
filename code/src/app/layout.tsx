@@ -51,7 +51,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   // Schema.org Structured Data: Services
   const servicesData = {
-    "@context": "https://schema.org",
+    "@context": "https://rank2revenue.com.au/schema.org",
     "@type": "ItemList",
     itemListElement: [
       {
