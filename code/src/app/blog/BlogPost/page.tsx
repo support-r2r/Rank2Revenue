@@ -22,14 +22,15 @@ const BlogPage: React.FC = () => {
     },
   ];
 
-  useEffect(() => {
+    useEffect(() => {
     if (blogPosts.length > 0) {
-      document.title = blogPosts[0].meta_title; // Use meta_title for SEO
+      document.title = blogPosts[0].meta_title;
       document
         .querySelector("meta[name='desc']")
         ?.setAttribute("content", blogPosts[0].meta_desc);
     }
-  }, []);
+  }, [blogPosts]);  // Now it will re-run if blogPosts changes
+  
 
   return (
     <div>

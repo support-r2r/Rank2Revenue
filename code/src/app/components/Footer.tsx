@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 
 interface FooterLinkProps {
   title: string;
@@ -293,7 +294,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
                   src="https://www.publicrelations-germany.com/wp-content/uploads/2019/02/Logo-DesignRush-770x433.png"
                   alt="Verified Agency on DesignRush"
                   className="inline-block h-12 w-auto"
