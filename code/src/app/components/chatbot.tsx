@@ -35,7 +35,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<{ sender: string; text: string }[]>([
     {
       sender: 'bot',
-      text: "Welcome! Here are some quick links to get started:\n- 💬 FAQs\n- 📖 User Guide\n- 🛠️ Troubleshooting\n- 📞 Contact Support"
+      text: "Welcome ! Here are some quick links to get started:\n- 💬 FAQs\n- 📖 User Guide\n- 🛠️ Troubleshooting\n- 📞 Contact Support"
     }
   ]);
   const [input, setInput] = useState("");
