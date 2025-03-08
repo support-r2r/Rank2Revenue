@@ -295,15 +295,16 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="https://www.publicrelations-germany.com/wp-content/uploads/2019/02/Logo-DesignRush-770x433.png"
+                  src="https://i.imgur.com/CwxrANR.png"
                   alt="Verified Agency on DesignRush"
                   className="inline-block h-12 w-auto"
+                  width={770}
+                  height={433}
                 />
               </a>
             </div>
           </div>
         </div>
-
 
       </footer>
     </>
