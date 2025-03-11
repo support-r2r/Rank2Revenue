@@ -226,14 +226,14 @@ const ContactSection: React.FC = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="lg:w-1/2 w-full bg-gray-100 flex items-center justify-center"
       >
-        <Image
+        {/* <Image
           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60"
           alt="Contact Us"
           width={1200}
           height={800}
           priority
           className="rounded-lg shadow-lg object-cover w-full h-80 md:h-96 lg:h-full"
-        />
+        /> */}
       </motion.div>
     </section>
   );
