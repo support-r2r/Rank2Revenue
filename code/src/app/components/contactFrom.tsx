@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface DottedButtonProps {
