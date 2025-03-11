@@ -2,6 +2,9 @@ User-agent: *
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/static/
+Allow: /_next/static/chunks/
+Allow: /_next/static/css/
+Allow: /_next/static/media/
 Allow: /_next/image/
 Allow: /
 Sitemap: https://rank2revenue.com.au/sitemap.xml
