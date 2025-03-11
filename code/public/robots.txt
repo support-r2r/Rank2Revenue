@@ -1,6 +1,7 @@
 User-agent: *
-Disallow: /_next/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /_next/static/
+Allow: /_next/image/
 Allow: /
-Sitemap:   https://rank2revenue.com.au/sitemap.xml
+Sitemap: https://rank2revenue.com.au/sitemap.xml
