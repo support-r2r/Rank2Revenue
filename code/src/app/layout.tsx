@@ -48,8 +48,7 @@ const organizationData = {
     availableLanguage: ["English"],
   },
   sameAs: [
-    "https://www.facebook.com/rank2revenue",
-    "https://www.linkedin.com/company/rank2revenue",
+    "https://www.linkedin.com/company/104782732",
     "https://www.instagram.com/rank2revenue/",
   ],
 };
