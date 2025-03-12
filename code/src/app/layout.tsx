@@ -13,7 +13,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const canonicalURL = `https://rank2revenue.com.au${pathname || ""}`;
 
   // Schema.org Structured Data: Website
-  // Schema.org Structured Data: Website
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -38,7 +37,7 @@ const organizationData = {
   "@type": "Organization",
   name: "Rank To Revenue",
   url: "https://rank2revenue.com.au",
-  logo: "https://rank2revenue.com.au/logo.png", // Ensure the actual logo path is correct
+  logo: "https://i.imgur.com/cr8r57P.png", 
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+61 481958385",
