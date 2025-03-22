@@ -1,17 +1,43 @@
 "use client";
 
 import React from 'react';
-import Navbar from '../components/Navbar'; // Adjust the path if necessary
-import Footer from '../components/Footer'; // Adjust the path if necessary
+import Head from 'next/head'; // ✅ SEO Support
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import ServicesCards from '../components/ServicesCards';
-import Hero from '../components/Hero'; // Import Hero component
+import Hero from '../components/Hero';
 
 const Services = () => {
+  const featuredImage = "https://i.imgur.com/x6VxL8i.png";
+  const pageUrl = "https://rank2revenue.com.au/services"; // ✅ Replace with your actual domain
+
   return (
     <div>
+      {/* ✅ SEO Meta Tags */}
+      <Head>
+        <title>Our Digital Services | Empower Your Business Online</title>
+        <meta
+          name="description"
+          content="Explore our full range of digital services including SEO, web development, branding, and more. Boost your online presence with expert strategies."
+        />
+        
+        {/* ✅ Open Graph (Facebook, LinkedIn, etc.) */}
+        <meta property="og:title" content="Empower Your Business with Comprehensive Digital Solutions" />
+        <meta property="og:description" content="From SEO to branding and web development, our expert team is here to elevate your online presence." />
+        <meta property="og:image" content={featuredImage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+
+        {/* ✅ Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Empower Your Business with Comprehensive Digital Solutions" />
+        <meta name="twitter:description" content="From SEO to branding and web development, our expert team is here to elevate your online presence." />
+        <meta name="twitter:image" content={featuredImage} />
+      </Head>
+
+      {/* ✅ Page Content */}
       <Navbar />
 
-      {/* Hero Section with a broader, punchy message for all services */}
       <Hero
         title="Empower Your Business with Comprehensive Digital Solutions"
         subtitle="Your One-Stop Solution for Digital Success"
@@ -20,7 +46,7 @@ const Services = () => {
         primaryButtonLink="/contact"
         secondaryButtonText="Explore Our Services"
         secondaryButtonLink="#services-overview"
-        imageUrl="https://i.imgur.com/x6VxL8i.png" // Added the image URL
+        imageUrl={featuredImage}
       />
 
       <ServicesCards />

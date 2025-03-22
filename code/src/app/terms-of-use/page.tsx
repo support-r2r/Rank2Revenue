@@ -1,12 +1,39 @@
 "use client";
 
 import React from 'react';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const TermsOfUse: React.FC = () => {
+  const featuredImage = "https://i.imgur.com/x6VxL8i.png"; // ✅ You can swap this with a more legal-themed image
+  const pageUrl = "https://rank2revenue.com.au/terms-of-use"; // ✅ Replace with actual URL
+
   return (
     <div>
+      {/* ✅ SEO Meta Tags */}
+      <Head>
+        <title>Terms of Use | Rank2Revenue</title>
+        <meta
+          name="description"
+          content="Review the Terms of Use for Rank2Revenue. Learn about user responsibilities, legal limitations, intellectual property, and more."
+        />
+
+        {/* ✅ Open Graph / Social Sharing */}
+        <meta property="og:title" content="Terms of Use | Rank2Revenue" />
+        <meta property="og:description" content="Understand the terms and conditions for using Rank2Revenue’s services and website." />
+        <meta property="og:image" content={featuredImage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+
+        {/* ✅ Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Terms of Use | Rank2Revenue" />
+        <meta name="twitter:description" content="Review the legal terms and responsibilities for using Rank2Revenue." />
+        <meta name="twitter:image" content={featuredImage} />
+      </Head>
+
+      {/* ✅ Page Content */}
       <Navbar />
       <div className="container mx-auto py-12 px-6">
         <h1 className="text-3xl font-bold mb-4">Terms of Use</h1>

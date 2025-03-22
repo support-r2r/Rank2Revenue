@@ -41,6 +41,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       
+      
     ],
   },
   async rewrites() {
