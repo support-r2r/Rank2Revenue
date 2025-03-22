@@ -2,6 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Lottie from 'lottie-react';
+import scrollAnimation from '../../../public/animations/scroll-down.json'; // adjust path as needed
+
 
 interface HeroProps {
   title: string;
@@ -76,44 +79,34 @@ const Hero: React.FC<HeroProps> = ({
 
       {/* ✅ Scroll Down Button */}
       {scrollTargetId && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
           <button
             onClick={() => {
               const target = document.getElementById(scrollTargetId);
               if (target) target.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="group flex flex-col items-center space-y-1 text-indigo-600 hover:text-indigo-800"
+            className="w-16 h-16"
             aria-label="Scroll Down"
           >
-            {/* Icon with circular border */}
-            <div className="p-2 rounded-full border border-indigo-300 group-hover:border-indigo-500 transition-all duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
-            <span className="text-sm font-medium tracking-wide">Scroll</span>
+            <Lottie
+              animationData={scrollAnimation}
+              loop
+              autoplay
+              style={{ height: '100%', width: '100%' }}
+            />
           </button>
         </div>
       )}
+
     </section>
   );
 };
 
 export default Hero;
 
+
 // 'use client';
+
 // import React from 'react';
 // import Image from 'next/image';
 
@@ -126,6 +119,7 @@ export default Hero;
 //   secondaryButtonText: string;
 //   secondaryButtonLink: string;
 //   imageUrl: string;
+//   scrollTargetId?: string;
 // }
 
 // const Hero: React.FC<HeroProps> = ({
@@ -137,6 +131,7 @@ export default Hero;
 //   secondaryButtonText,
 //   secondaryButtonLink,
 //   imageUrl,
+//   scrollTargetId,
 // }) => {
 //   return (
 //     <section className="relative min-h-screen flex items-center justify-center bg-white text-black">
@@ -185,8 +180,43 @@ export default Hero;
 //           </div>
 //         </div>
 //       </div>
+
+//       {/* ✅ Scroll Down Button */}
+//       {scrollTargetId && (
+//         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+//           <button
+//             onClick={() => {
+//               const target = document.getElementById(scrollTargetId);
+//               if (target) target.scrollIntoView({ behavior: 'smooth' });
+//             }}
+//             className="group flex flex-col items-center space-y-1 text-indigo-600 hover:text-indigo-800"
+//             aria-label="Scroll Down"
+//           >
+//             {/* Icon with circular border */}
+//             <div className="p-2 rounded-full border border-indigo-300 group-hover:border-indigo-500 transition-all duration-300">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 width="28"
+//                 height="28"
+//                 fill="none"
+//                 viewBox="0 0 24 24"
+//                 stroke="currentColor"
+//                 strokeWidth={2}
+//               >
+//                 <path
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                   d="M19 9l-7 7-7-7"
+//                 />
+//               </svg>
+//             </div>
+//             <span className="text-sm font-medium tracking-wide">Scroll</span>
+//           </button>
+//         </div>
+//       )}
 //     </section>
 //   );
 // };
 
 // export default Hero;
+
