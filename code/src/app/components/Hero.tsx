@@ -3,8 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
-import scrollAnimation from '../../../public/animations/scroll-down.json'; // adjust path as needed
-
+import scrollAnimation from '../../../public/animations/scroll-down.json';
 
 interface HeroProps {
   title: string;
@@ -14,8 +13,9 @@ interface HeroProps {
   primaryButtonLink: string;
   secondaryButtonText: string;
   secondaryButtonLink: string;
-  imageUrl: string;
+  imageUrl?: string;
   scrollTargetId?: string;
+  animationData?: object;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -28,6 +28,7 @@ const Hero: React.FC<HeroProps> = ({
   secondaryButtonLink,
   imageUrl,
   scrollTargetId,
+  animationData,
 }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white text-black">
@@ -41,14 +42,25 @@ const Hero: React.FC<HeroProps> = ({
         {/* Top Background Accent */}
         <span className="w-3/12 lg:w-1/12 aspect-square bg-gradient-to-tr from-indigo-600 via-blue-500 to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-70 skew-x-12 rotate-90"></span>
 
-        {/* Left Hero Image */}
+        {/* Left Visual: Lottie Animation or Image */}
         <div className="relative flex flex-1 items-center justify-center lg:w-1/2 max-w-xl mx-auto lg:max-w-none lg:mx-0">
-          <Image
-            src={imageUrl}
-            alt="Hero image left"
-            fill
-            className="rounded-3xl object-cover max-h-80 lg:max-h-96"
-          />
+          {animationData ? (
+            <Lottie
+              animationData={animationData}
+              loop
+              autoplay
+              style={{ width: '100%', height: 'auto', maxHeight: 384 }} // 96px * 4
+            />
+          ) : (
+            imageUrl && (
+              <Image
+                src={imageUrl}
+                alt="Hero Visual"
+                fill
+                className="rounded-3xl object-cover max-h-80 lg:max-h-96"
+              />
+            )
+          )}
         </div>
 
         {/* Main Content Section */}
@@ -97,7 +109,6 @@ const Hero: React.FC<HeroProps> = ({
           </button>
         </div>
       )}
-
     </section>
   );
 };
@@ -109,6 +120,9 @@ export default Hero;
 
 // import React from 'react';
 // import Image from 'next/image';
+// import Lottie from 'lottie-react';
+// import scrollAnimation from '../../../public/animations/scroll-down.json'; // adjust path as needed
+
 
 // interface HeroProps {
 //   title: string;
@@ -120,6 +134,7 @@ export default Hero;
 //   secondaryButtonLink: string;
 //   imageUrl: string;
 //   scrollTargetId?: string;
+//   children?: React.ReactNode; 
 // }
 
 // const Hero: React.FC<HeroProps> = ({
@@ -183,37 +198,25 @@ export default Hero;
 
 //       {/* ✅ Scroll Down Button */}
 //       {scrollTargetId && (
-//         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+//         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
 //           <button
 //             onClick={() => {
 //               const target = document.getElementById(scrollTargetId);
 //               if (target) target.scrollIntoView({ behavior: 'smooth' });
 //             }}
-//             className="group flex flex-col items-center space-y-1 text-indigo-600 hover:text-indigo-800"
+//             className="w-16 h-16"
 //             aria-label="Scroll Down"
 //           >
-//             {/* Icon with circular border */}
-//             <div className="p-2 rounded-full border border-indigo-300 group-hover:border-indigo-500 transition-all duration-300">
-//               <svg
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 width="28"
-//                 height="28"
-//                 fill="none"
-//                 viewBox="0 0 24 24"
-//                 stroke="currentColor"
-//                 strokeWidth={2}
-//               >
-//                 <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   d="M19 9l-7 7-7-7"
-//                 />
-//               </svg>
-//             </div>
-//             <span className="text-sm font-medium tracking-wide">Scroll</span>
+//             <Lottie
+//               animationData={scrollAnimation}
+//               loop
+//               autoplay
+//               style={{ height: '100%', width: '100%' }}
+//             />
 //           </button>
 //         </div>
 //       )}
+
 //     </section>
 //   );
 // };
