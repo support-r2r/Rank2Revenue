@@ -47,6 +47,7 @@ const Services = () => {
         secondaryButtonText="Explore Our Services"
         secondaryButtonLink="#services-overview"
         imageUrl={featuredImage}
+        scrollTargetId="projects"
       />
 
       <ServicesCards />

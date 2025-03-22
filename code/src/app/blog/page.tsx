@@ -85,6 +85,8 @@ const Blog: React.FC = () => {
         secondaryButtonText="View All Articles"
         secondaryButtonLink="#articles"
         imageUrl="https://i.imgur.com/wUdAVWC.png"
+        scrollTargetId="projects"
+
       />
       <div className="p-8 space-y-8" id="articles">
         

@@ -17,6 +17,8 @@ const About: React.FC = () => {
         secondaryButtonText="Our Services"
         secondaryButtonLink="#services"
         imageUrl="/services.jpeg" // Using a professional team image
+        scrollTargetId="projects"
+
       />
 
       <div className="container mx-auto px-6 py-16">
