@@ -17,11 +17,11 @@ const About: React.FC = () => {
         secondaryButtonText="Our Services"
         secondaryButtonLink="#services"
         imageUrl="/services.jpeg" // Using a professional team image
-        scrollTargetId="projects"
+        scrollTargetId="ours"
 
       />
 
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-16" id="ours">
         {/* Mission Section */}
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
           Our Mission

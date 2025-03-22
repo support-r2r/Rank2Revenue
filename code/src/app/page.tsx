@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
           content="https://www.linkedin.com/company/rank2revenue"
         />
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
 
       </Head>
 
@@ -97,18 +97,21 @@ const HomePage: React.FC = () => {
         secondaryButtonText="View Services"
         secondaryButtonLink="/services"
         imageUrl="/services.jpeg"
-        scrollTargetId="projects"
+        scrollTargetId="services"
 
-        />
+      />
 
+
+      <div id="services"></div>
       {/* Technology Partners Section */}
       <Partners />
+
 
       {/* Campaign Section */}
       <CampaignSection />
 
       {/* Services Section */}
-      <div className="p-8">
+      <div className="p-8" >
         <ServicesCards />
       </div>
 
@@ -129,7 +132,7 @@ const HomePage: React.FC = () => {
           />
         ))}
       </div>
-      
+
       {/* Mobile Contact Form */}
       {/* <MobileContactForm /> */}
 

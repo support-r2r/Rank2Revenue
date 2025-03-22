@@ -84,6 +84,7 @@ const Work: React.FC = () => {
         secondaryButtonText="See All Projects"
         secondaryButtonLink="#projects"
         imageUrl={featuredImage}
+        scrollTargetId="projects"
       />
 
       <div className="p-8 space-y-8" id="projects">
