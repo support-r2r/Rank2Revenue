@@ -5,8 +5,7 @@ import ContactForm from "../components/contactFrom"; // Corrected the import pat
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import Lottie from "lottie-react";
-import animationData from "../../../public/animations/contact-us.json"; // Adjusted the path
+import animationData from "../../../public/animations/contact-us-subtle.json"; // Adjusted the path
 
 
 const ContactPage: React.FC = () => {
