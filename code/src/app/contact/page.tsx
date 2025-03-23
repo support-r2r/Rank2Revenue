@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Lottie from "lottie-react";
+import animationData from "../../../public/animations/contact-us.json"; // Adjusted the path
 
 
 const ContactPage: React.FC = () => {
@@ -24,7 +25,7 @@ const ContactPage: React.FC = () => {
         secondaryButtonText="Our Services"
         secondaryButtonLink="/services"
         scrollTargetId="contact"
-
+        animationData={animationData}
       />
 
       <div id="contact"></div>
