@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
+import about from '../../../public/animations/about-us.json';
 
 const About: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const About: React.FC = () => {
         secondaryButtonLink="#services"
         imageUrl="/services.jpeg" // Using a professional team image
         scrollTargetId="ours"
+        animationData={about} // Adjust the path as needed
 
       />
 
